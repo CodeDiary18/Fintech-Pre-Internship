@@ -1,6 +1,5 @@
-package com.example.finedu.model;
+package com.example.finedu.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

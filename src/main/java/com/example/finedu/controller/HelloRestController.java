@@ -1,6 +1,6 @@
 package com.example.finedu.controller;
 
-import com.example.finedu.model.Hello;
+import com.example.finedu.entity.Hello;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
