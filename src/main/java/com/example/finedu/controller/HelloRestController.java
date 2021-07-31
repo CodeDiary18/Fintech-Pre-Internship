@@ -3,7 +3,6 @@ package com.example.finedu.controller;
 import com.example.finedu.entity.Hello;
 import com.example.finedu.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
