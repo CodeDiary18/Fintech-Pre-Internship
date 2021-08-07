@@ -14,7 +14,7 @@ public class WebClientConfig implements WebFluxConfigurer {
     }
 
     @Bean
-    public CodecCustomizer maxInMemorySizeCodeCustomizer() {
+    public CodecCustomizer maxInMemorySizeCodecCustomizer() {
         return (configurer) -> configurer.defaultCodecs().maxInMemorySize(-1);
     }
 }

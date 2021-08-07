@@ -22,6 +22,10 @@ public class MemberService {
         return memberRepository.findById(key).orElse(null);
     }
 
+    public Member findMember(Long key) {
+        return memberRepository.findById(key).orElse(null);
+    }
+
     public Member findMember(Long key, String name) {
         return memberRepository.findBySeqAndName(key, name).orElse(null);
     }
