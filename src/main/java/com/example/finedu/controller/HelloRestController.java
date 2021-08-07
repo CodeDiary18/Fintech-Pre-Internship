@@ -15,19 +15,6 @@ public class HelloRestController {
     //@Autowired ->Field Injection
 
     final MemberService memberService;  //이 방법 권장
-/*
-    @Autowired
-    public HelloRestController(MemberService memberService) {
-        this.memberService = memberService;
-    }
-*/
-
-/*
-    @Autowired
-    private void setMemberService(MemberService memberService) {
-        this.memberService = memberService;
-    }
-*/
 
     @GetMapping("/hello-string")
     public String helloString(String name) {
