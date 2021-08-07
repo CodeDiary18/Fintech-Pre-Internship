@@ -26,8 +26,8 @@ public class MemberService {
         return memberRepository.findBySeqAndName(key, name).orElse(null);
     }
 
-    public void save(Member member) {
-        memberRepository.save(member);
+    public Member addUser(Member member) {
+        return memberRepository.save(member);
     }
 
     public List<Object> countOrgGroup(Boolean isActive) {

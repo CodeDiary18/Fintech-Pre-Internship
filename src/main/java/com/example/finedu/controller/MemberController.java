@@ -17,7 +17,7 @@ public class MemberController {
 
     @PostMapping("/save")
     public void saveMember(@RequestBody Member member) {
-        memberService.save(member);
+        memberService.addUser(member);
     }
 
     @GetMapping("/{key}")
