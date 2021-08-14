@@ -15,17 +15,26 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Entity
 @Builder
-public class MemberEntity {
+public class Member {
     @Id
     @GeneratedValue
     private Long seq;
 
     @Column(nullable = false)
-    private String userId;
+    private String name;
+
+    @Column(nullable = false)
+    private String socialNumber;
+
+    @Column(nullable = false)
+    private String mobileNumber;
+
+    @Column(nullable = false)
+    private String userEmail;
 
     @Column(nullable = false)
     private String userPw;
 
-    @Column(nullable = false)
-    private String userName;
+    @Column
+    private String account;
 }

@@ -1,13 +1,13 @@
 package com.example.hackathon.repository;
 
-import com.example.hackathon.entity.MemberEntity;
+import com.example.hackathon.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
-    //seq, userId, userPw, userName;
-    MemberEntity findByUserId(String userId);
+public interface MemberRepository extends JpaRepository<Member, Long> {
+    //seq, name, socialNumber, mobileNumber, userEmail, userPw, account;
+    Member findByUserEmail(String userEmail);
 
-    MemberEntity findByUserIdAndUserPw(String userId, String userPw);
+    Member findByUserEmailAndUserPw(String userId, String userPw);
 }

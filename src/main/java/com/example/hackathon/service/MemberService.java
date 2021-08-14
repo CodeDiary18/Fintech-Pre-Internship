@@ -13,7 +13,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public boolean login(String id, String password) {  // 로그인
-        if (memberRepository.findByUserIdAndUserPw(id, password) == null) {
+        if (memberRepository.findByUserEmailAndUserPw(id, password) == null) {
             return false;
         } else {
             return true;
@@ -21,7 +21,7 @@ public class MemberService {
     }
 
     public boolean signUp(MemberDto memberDto) {   // 사용자 추가
-        if (memberRepository.findByUserId(memberDto.getId()) == null) {
+        if (memberRepository.findByUserEmail(memberDto.getEmail()) == null) {
             memberRepository.save(memberDto.toEntity());
             return true;
         } else {
