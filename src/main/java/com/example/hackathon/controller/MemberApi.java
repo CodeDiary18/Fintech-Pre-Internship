@@ -16,7 +16,7 @@ public class MemberApi {
 
     @PostMapping("/login")
     public String login(@RequestBody MemberDto loginDto) {
-        if (memberService.login(loginDto.getId(), loginDto.getPassword()) == false) {
+        if (memberService.login(loginDto.getEmail(), loginDto.getPassword()) == false) {
             return "로그인 실패";
         } else {
             return "로그인 성공";

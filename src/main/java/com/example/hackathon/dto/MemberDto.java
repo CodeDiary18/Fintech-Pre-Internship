@@ -1,6 +1,6 @@
 package com.example.hackathon.dto;
 
-import com.example.hackathon.entity.MemberEntity;
+import com.example.hackathon.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,22 +9,33 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MemberDto {
-    private String id;
-    private String password;
     private String name;
+    private String socialNumber;
+    private String mobileNumber;
+    private String email;
+    private String password;
+    private String account;
 
-    public MemberEntity toEntity() {   // dto -> entity
-        return MemberEntity.builder()
+
+    public Member toEntity() {   // dto -> entity
+        return Member.builder()
                 .seq(null)
-                .userId(id)
+                .name(name)
+                .socialNumber(socialNumber)
+                .mobileNumber(mobileNumber)
+                .userEmail(email)
                 .userPw(password)
-                .userName(name).build();
+                .account(account)
+                .build();
     }
 
-    public MemberDto(MemberEntity memberEntity) {// entity -> dto
-        this.id = memberEntity.getUserId();
-        this.password = memberEntity.getUserPw();
-        this.name = memberEntity.getUserName();
+    public MemberDto(Member member) {   // entity -> dto
+        this.name = member.getName();
+        this.socialNumber = member.getSocialNumber();
+        this.mobileNumber = member.getMobileNumber();
+        this.email = member.getUserEmail();
+        this.password = member.getUserPw();
+        this.account = member.getAccount();
     }
 
 }
