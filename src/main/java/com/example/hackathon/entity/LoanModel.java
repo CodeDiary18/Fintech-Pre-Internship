@@ -19,7 +19,7 @@ public class LoanModel {
     @GeneratedValue
     private Long seq;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String userId;
 
     @Column(nullable = false)
@@ -33,12 +33,24 @@ public class LoanModel {
 
     private String companyPayday;
 
+    @Column(nullable = false)
     private String channelAddress;
 
+    //    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private String category;
+
+    @Column(nullable = false)
     private String reasonForLoan;
 
+    @Column(nullable = false, updatable = false)
     private LocalDateTime loanAt;
 
     @ColumnDefault("0")
     private int permit;
+
+    @PrePersist
+    public void prePersist() {
+        this.loanAt = LocalDateTime.now();
+    }
 }
