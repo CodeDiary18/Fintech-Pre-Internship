@@ -29,11 +29,11 @@ public class LoanService {
     }
 
     public boolean relatedAgencyCheck(LoanDto loanDto) {
-        if (loanDto.isAgency() == true) {
+        if (loanDto.isAgency() == false) {  // 개인
             if (loanDto.getBusinessNumber() == null | loanDto.getBusinessName() == null) {
                 return false;
             }
-        } else {
+        } else {    // 소속
             if (loanDto.getCompanyName() == null | loanDto.getCompanyPayday() == null) {
                 return false;
             }

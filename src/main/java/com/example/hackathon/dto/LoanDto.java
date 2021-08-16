@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.annotation.Nullable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -19,13 +20,14 @@ public class LoanDto {
     private String userId;
     @NotNull
     private boolean agency;
-    @Pattern(regexp = "^\\d{3}-\\d{2}-\\d{5}$", message = "xxx-xx-xxxxx 형식으로 입력")
+
+//    @Pattern(regexp = "^\\d{3}-\\d{2}-\\d{5}$", message = "xxx-xx-xxxxx 형식으로 입력")
     private String businessNumber;
-
     private String businessName;
-    private String companyName;
 
+    private String companyName;
     private String companyPayday;
+
     private String channelAddress;
 
     private String loanCategory;

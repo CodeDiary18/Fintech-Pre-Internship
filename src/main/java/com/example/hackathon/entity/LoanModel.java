@@ -6,10 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -39,7 +36,7 @@ public class LoanModel {
     @Column(nullable = false)
     private String channelAddress;
 
-//    @Enumerated(EnumType.STRING)
+    //    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private String category;
 
@@ -51,4 +48,9 @@ public class LoanModel {
 
     @ColumnDefault("0")
     private int permit;
+
+    @PrePersist
+    public void prePersist() {
+        this.loanAt = LocalDateTime.now();
+    }
 }

@@ -22,7 +22,6 @@ public class LoanApi {
 
     @PostMapping("/apply")
     public String apply(@Valid @RequestBody LoanDto loanDto) {  // 대출 신청
-        loanDto.setLoanAt(LocalDateTime.now());
         if(loanService.relatedAgencyCheck(loanDto)==false){
             return "관련 정보 부족";
         }
