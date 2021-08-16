@@ -6,7 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Data
@@ -19,7 +22,7 @@ public class LoanModel {
     @GeneratedValue
     private Long seq;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String userId;
 
     @Column(nullable = false)
@@ -33,10 +36,17 @@ public class LoanModel {
 
     private String companyPayday;
 
+    @Column(nullable = false)
     private String channelAddress;
 
+//    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private String category;
+
+    @Column(nullable = false)
     private String reasonForLoan;
 
+    @Column(nullable = false, updatable = false)
     private LocalDateTime loanAt;
 
     @ColumnDefault("0")

@@ -23,10 +23,13 @@ public class LoanApi {
     @PostMapping("/apply")
     public String apply(@Valid @RequestBody LoanDto loanDto) {  // 대출 신청
         loanDto.setLoanAt(LocalDateTime.now());
+        if(loanService.relatedAgencyCheck(loanDto)==false){
+            return "관련 정보 부족";
+        }
         if (loanService.apply(loanDto) == true) {
             return "대출 신청 성공";
         } else {
-            return "대출 신청 실패";
+            return "대출 신청 오류로 인한실패";
         }
     }
 }

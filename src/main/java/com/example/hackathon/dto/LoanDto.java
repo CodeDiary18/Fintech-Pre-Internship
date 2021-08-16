@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Data
@@ -17,11 +19,18 @@ public class LoanDto {
     private String userId;
     @NotNull
     private boolean agency;
+    @Pattern(regexp = "^\\d{3}-\\d{2}-\\d{5}$", message = "xxx-xx-xxxxx 형식으로 입력")
     private String businessNumber;
+
     private String businessName;
     private String companyName;
+
     private String companyPayday;
     private String channelAddress;
+
+    private String loanCategory;
+
+    @Size(min = 10)
     private String reasonForLoan;
     private LocalDateTime loanAt;
     private int permit;
@@ -37,6 +46,7 @@ public class LoanDto {
                 .companyName(companyName)
                 .companyPayday(companyPayday)
                 .channelAddress(channelAddress)
+                .category(loanCategory)
                 .reasonForLoan(reasonForLoan)
                 .loanAt(loanAt).permit(permit)
                 .build();
@@ -50,6 +60,7 @@ public class LoanDto {
         this.companyName = loanModel.getCompanyName();
         this.companyPayday = loanModel.getCompanyPayday();
         this.channelAddress = loanModel.getChannelAddress();
+        this.loanCategory = loanModel.getCategory();
         this.reasonForLoan = loanModel.getReasonForLoan();
         this.loanAt = loanModel.getLoanAt();
         this.permit = loanModel.getPermit();
