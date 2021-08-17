@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.annotation.Nonnull;
 import javax.persistence.*;
+import java.sql.Date;
 
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -28,7 +28,6 @@ public class InvestModel {
 
     private Long invAmount;
 
-    @Temporal(TemporalType.DATE)
     private Date investAt;
 
 }
