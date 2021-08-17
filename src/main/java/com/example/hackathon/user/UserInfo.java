@@ -9,7 +9,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.Collection;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,11 +34,30 @@ public class UserInfo implements UserDetails {
     @Column(name = "auth")
     private String auth;
 
+    private String name;
+
+    private String socialNumber;
+
+    private String mobileNumber;
+
+    private String account;
+
+    private Date signAt;
+
+    private Long balance;
+
     @Builder
-    public UserInfo(String email, String password, String auth) {
+    public UserInfo(String email, String password, String auth,
+                    String name,String socialNumber,String mobileNumber,String account,Date signAt,Long balance) {
         this.email = email;
         this.password = password;
         this.auth = auth;
+        this.name = name;
+        this.socialNumber = socialNumber;
+        this.mobileNumber = mobileNumber;
+        this.account = account;
+        this.signAt = signAt;
+        this.balance = balance;
     }
 
     // 사용자의 권한을 콜렉션 형태로 반환

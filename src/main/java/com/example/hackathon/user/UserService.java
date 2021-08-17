@@ -38,6 +38,13 @@ public class UserService implements UserDetailsService {
         return userRepository.save(UserInfo.builder()
                 .email(infoDto.getEmail())
                 .auth(infoDto.getAuth())
-                .password(infoDto.getPassword()).build()).getSeq();
+                .password(infoDto.getPassword())
+                .name(infoDto.getName())
+                .socialNumber(infoDto.getSocialNumber())
+                .mobileNumber(infoDto.getMobileNumber())
+                .account(infoDto.getAccount())
+                .balance(infoDto.getBalance())
+                .signAt(infoDto.getSignAt())
+                .build()).getSeq();
     }
 }
