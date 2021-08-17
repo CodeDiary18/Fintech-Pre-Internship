@@ -1,22 +1,23 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>채널을 자산으로, 머니튜브(Money Tube)</title>
-    <link rel="stylesheet" href="../static/style.css">
+
 </head>
 <body>
 
 
 <div id="header">
     <div id="nav">
-        <img id="logo" src="../static/img/Artboard%20Copy%205@3x.png" height="35">
+
         <ul id="menu">
             <li><a href="/loan">대출하기</a></li>
             <li><a href="/investment">투자하기</a></li>
-            <li><a href="/mypage">마이페이지</a></li>
-            <li><a href="/login">로그인</a></li>
-            <li><a href="/signup">회원가입</a></li>
+            <li><a sec:authorize="isAuthenticated()" href="/mypage">마이페이지</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/login">로그인</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/signup">회원가입</a></li>
         </ul>
     </div>
 </div>
@@ -42,9 +43,7 @@
         </button>
     </div>
 
-    <div id="home">
-        <img id="homeimg" src="../static/img/Artboard@3x.png" width="370" height="370">
-    </div>
+
 </div>
 
 
