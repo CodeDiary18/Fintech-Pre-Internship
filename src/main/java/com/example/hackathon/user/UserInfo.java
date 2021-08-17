@@ -19,9 +19,9 @@ import java.util.Set;
 public class UserInfo implements UserDetails {
 
     @Id
-    @Column(name = "code")
+    @Column(name = "seq")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long code;
+    private Long seq;
 
     @Column(name = "email", unique = true)
     private String email;
