@@ -4,6 +4,7 @@ import com.example.hackathon.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import javax.validation.constraints.Pattern;
 
 @Data
 @NoArgsConstructor
@@ -12,6 +13,7 @@ public class MemberDto {
     private String name;
     private String socialNumber;
     private String mobileNumber;
+    @Pattern(regexp = "^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$")
     private String email;
     private String password;
     private String account;
