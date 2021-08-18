@@ -39,10 +39,18 @@
         <td th:text="${loan.reasonForLoan}"></td>
         <td th:text="${loan.loanAt}"></td>
         <td th:text="${loan.permit}"></td>
+        <td><form th:action="@{/admin/loan-approve(loan_id=${loan.seq}, action='approve')}" method="POST">
+            <button type="submit">승인</button>
+        </form></td>
+        <td><form th:action="@{/admin/loan-approve(loan_id=${loan.seq}, action='reject')}" method="POST">
+            <button type="submit">거절</button>
+        </form></td>
 
     </tr>
     </tbody>
 </table>
+
+
 
 </body>
 </html>
