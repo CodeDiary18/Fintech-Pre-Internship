@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 3.png}">
     <title>채널을 자산으로, 머니튜브(Money Tube)</title>
-
 </head>
 <body>
-
-
 <div id="header">
     <div id="nav">
-
+        <a href="redirect:/">
+            <img id="logo" src="img/Artboard Copy 5@3x.png" height="35">
+        </a>
         <ul id="menu">
             <li><a href="/loan">대출하기</a></li>
             <li><a href="/invest">투자하기</a></li>
@@ -35,24 +36,18 @@
             유튜버 채널 AI기반 P2P 담보 대출 플랫폼
         </div>
 
-        <button id="btn1" onclick="location.href='Loan.html'">
+        <button id="btn1" onclick="location.href='/loan'">
             대출하기
         </button>
 
-        <button id="btn1" onclick="location.href='Investment.html'">
+        <button id="btn1" onclick="location.href='/investment'">
             투자하기
         </button>
     </div>
 
-
+    <div id="home">
+        <img id="homeimg" src="img/Artboard@3x.png" width="370" height="370">
+    </div>
 </div>
-
-
-
-
-
-
-
-
 </body>
 </html>
