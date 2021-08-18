@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 public class LoanDto {
     @NotNull
     private Long userId;
+
     @NotNull
     private boolean agency;
 
@@ -40,7 +41,7 @@ public class LoanDto {
 
     public LoanModel toEntity() {   // dto -> entity
         return LoanModel.builder()
-//                .seq(null)
+                .seq(null)
                 .userId(userId)
                 .agency(agency)
                 .businessNumber(businessNumber)

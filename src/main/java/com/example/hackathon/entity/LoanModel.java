@@ -18,8 +18,8 @@ public class LoanModel {
     @Id
     @GeneratedValue
     private Long seq;
-
-    @Column(unique = true)
+  
+    @Column
     private Long userId;
 
     @Column(nullable = false)
@@ -32,6 +32,7 @@ public class LoanModel {
     private String companyName;
 
     private String companyPayday;
+
 
     private String channelAddress;
 
