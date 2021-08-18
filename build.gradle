@@ -23,11 +23,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-mustache'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	// 크롤링 관련 환경
 	implementation 'org.jsoup:jsoup:1.14.1'
 	implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
-
+	//시큐리티
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	// swagger-ui
 	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
 
