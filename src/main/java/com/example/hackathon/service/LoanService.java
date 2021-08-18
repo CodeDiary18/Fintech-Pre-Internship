@@ -2,8 +2,10 @@ package com.example.hackathon.service;
 
 import com.example.hackathon.dto.LoanDto;
 import com.example.hackathon.repository.LoanModelRepository;
+import com.example.hackathon.user.UserInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,8 +15,9 @@ public class LoanService {
     private final LoanModelRepository loanModelRepository;
 
     public boolean apply(LoanDto loanDto) {    // 대출 신청
+        System.out.println(loanDto.toString());
         try {
-            if (loanDto.isAgency() == true) {
+            if (loanDto.isAgency() == true) {   // 개인
                 loanDto.setBusinessNumber(null);
                 loanDto.setBusinessName(null);
             } else {
@@ -24,6 +27,7 @@ public class LoanService {
             loanModelRepository.save(loanDto.toEntity());
             return true;
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }
