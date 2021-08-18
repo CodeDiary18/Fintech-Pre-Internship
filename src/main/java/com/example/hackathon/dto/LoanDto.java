@@ -16,8 +16,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoanDto {
-    @NotBlank
-    private String userId;
+    @NotNull
+    private Long userId;
+
     @NotNull
     private boolean agency;
 
