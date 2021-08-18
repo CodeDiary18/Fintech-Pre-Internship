@@ -15,9 +15,12 @@ public class LoanController {
 
     @PostMapping("/loan-apply")
     public String loan(@AuthenticationPrincipal UserInfo userInfo, LoanDto loanDto) { // 대출신청
-        loanDto.setUserId(userInfo.getSeq());
-//        System.out.println(loanDto.toString());
-        loanService.apply(loanDto);
+        if (loanService.preHistoryCheck(userInfo.getSeq()) == false) { // 이전 대출 신청 처리 확인
+            System.out.println("아직 처리되지 않은 대출 신청건 존재");
+        } else {
+            loanDto.setUserId(userInfo.getSeq());
+            loanService.apply(loanDto); // 대출 신청
+        }
         return "redirect:/";
     }
 
