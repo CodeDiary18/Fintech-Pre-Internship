@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface LoanModelRepository extends JpaRepository<LoanModel, Long> {
-    LoanModel findByUserId(String userId);
+    LoanModel findByUserId(Long userId);
+    LoanModel findFirstByUserIdOrderByLoanAtDesc(Long userId);
 }

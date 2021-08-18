@@ -12,12 +12,12 @@ import java.util.List;
 
 
 @Service
-public class InvestModelService {
+public class InvestService {
     private final InvestModelRepository investModelRepository;
     private final UserRepository userRepository;
 
     @Autowired
-    public InvestModelService(InvestModelRepository investModelRepository, UserRepository userRepository) {
+    public InvestService(InvestModelRepository investModelRepository, UserRepository userRepository) {
         this.investModelRepository = investModelRepository;
         this.userRepository = userRepository;
     }
