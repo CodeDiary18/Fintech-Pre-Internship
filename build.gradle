@@ -34,6 +34,9 @@ dependencies {
 	// swagger-ui
 	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
 
+	// Validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'

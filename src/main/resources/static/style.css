@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 .nanumsquare {
     font-family: 'NanumSquare', sans-serif !important;
 }
