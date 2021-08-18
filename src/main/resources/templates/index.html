@@ -3,15 +3,15 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{/css/style.css}" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 3.png}">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
     <title>채널을 자산으로, 머니튜브(Money Tube)</title>
 </head>
 <body>
 <div id="header">
     <div id="nav">
-        <a href="redirect:/">
-            <img id="logo" src="img/Artboard Copy 5@3x.png" height="35">
+        <a href="/">
+            <img id="logo" src="img/Artboard Copy 10@3x.png" height="35">
         </a>
         <ul id="menu">
             <li><a href="/loan">대출하기</a></li>
@@ -25,29 +25,95 @@
 </div>
 
 <hr class="one">
+<!-- 홈 메인 -->
+<div id="all">
+    <div id="mainall">
+        <div id="main">
+            <div id="intro">
+                채널을 자산으로 <br>
+                머니튜브
+            </div>
+            <div id="subintro">
+                유튜버 채널 AI기반 P2P 담보 대출 플랫폼
+            </div>
 
-<div id="mainall">
-    <div id="main">
-        <div id="intro">
-            채널을 자산으로 <br>
-            머니튜브
+            <button class="btn1" onclick="location.href='/loan'">
+                대출하기
+            </button>
+
+            <button class="btn1" onclick="location.href='/invest'">
+                투자하기
+            </button>
         </div>
-        <div id="subintro">
-            유튜버 채널 AI기반 P2P 담보 대출 플랫폼
+
+        <div id="home">
+            <img id="homeimg" src="img/Artboard Copy 11@3x.png" width="450" height="450">
         </div>
-
-        <button id="btn1" onclick="location.href='/loan'">
-            대출하기
-        </button>
-
-        <button id="btn1" onclick="location.href='/invest'">
-            투자하기
-        </button>
-    </div>
-
-    <div id="home">
-        <img id="homeimg" src="img/Artboard@3x.png" width="370" height="370">
     </div>
 </div>
+
+
+<!-- 홈 메인_이모지(페르소나) -->
+
+<div id=all2>
+    <div id="intro2">
+        <div id="persona">
+            <div id="name">
+                박**
+            </div>
+            <div id="talk">
+                "유튜브에서 저만의 뮤직비디오를 만들고 싶어요... 자금이 부족한게 문제지만요<br>
+                유튜브 수입은 받기 시작한지 얼마 안돼서 대출이 불가능해요. <br>
+                조회수나 구독자의 반응을 보아서는 앞으로 꾸준히 상승할 것 같은데<br>
+                더 좋은 콘텐츠를 제작하고 싶은데 당장 자금이 없어 시작도 못했어요..."
+            </div>
+            <div class="talk2">
+                *25살/유튜버/실버버튼/노래
+            </div>
+        </div>
+        <img id="youtuber" src="img/Artboard Copy 6@3x.png" width="250" height="250">
+    </div>
+</div>
+
+
+<div id=all3>
+    <div id="intro3">
+        <div id="persona2">
+            <div id="name2">
+                김**
+            </div>
+            <div id="talk3">
+                "저는 P2P 투자를 하고 있어요 최근엔 흥미있는 상품을 발견하지 못했어요... <br>
+                제가 관심있는 분야의 상품이 있다면 좋을텐데<br>
+                또 상환이 늦어질수록 불안해요 신뢰성 있는 상품이라면 더 좋을 것 같아요<br>
+                이런 상품 어디 없을까요?"
+            </div>
+            <div class="talk4">
+                *30살/직장인/유튜브보기,노래듣기
+            </div>
+        </div>
+        <img id="youtuber2" src="img/Artboard Copy 7@3x.png" width="250" height="250">
+    </div>
+</div>
+
+<!-- 홈 하단 회사정보 -->
+
+<div id="all4">
+    <div id="last">
+        <div id="bottom">
+            <img id="logo_b" src="img/Artboard Copy 8@3x.png" height="50px">
+            <div id="intro4">
+                회사명 : 머니튜브 | 대표 : 김 머니 <br>
+                주소 : 서울시 마포구 <br>
+                영업시간 : 오전 9시 - 오후 6시 <br>
+                고객센터 : 1588-1234
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
 </body>
 </html>
