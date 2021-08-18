@@ -2,11 +2,8 @@ package com.example.hackathon.service;
 
 import com.example.hackathon.dto.LoanDto;
 import com.example.hackathon.repository.LoanModelRepository;
-import com.example.hackathon.user.UserInfo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,8 +1,8 @@
 package com.example.hackathon.controller;
 
 import com.example.hackathon.dto.LoanDto;
+import com.example.hackathon.entity.UserInfo;
 import com.example.hackathon.service.LoanService;
-import com.example.hackathon.user.UserInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
