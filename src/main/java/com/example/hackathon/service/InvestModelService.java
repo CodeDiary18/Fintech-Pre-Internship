@@ -1,10 +1,9 @@
 package com.example.hackathon.service;
 
 import com.example.hackathon.entity.InvestModel;
-import com.example.hackathon.entity.Member;
 import com.example.hackathon.repository.InvestModelRepository;
-import com.example.hackathon.user.UserInfo;
-import com.example.hackathon.user.UserRepository;
+import com.example.hackathon.entity.UserInfo;
+import com.example.hackathon.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;

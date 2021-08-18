@@ -1,4 +1,4 @@
-package com.example.hackathon.user;
+package com.example.hackathon.dto;
 
 import lombok.Getter;
 import lombok.Setter;

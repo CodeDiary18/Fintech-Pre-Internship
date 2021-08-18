@@ -1,5 +1,6 @@
 package com.example.hackathon.user;
 
+import com.example.hackathon.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -25,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception { // http 관련 인증 설정
         http
                 .authorizeRequests() // # 권한에 따른 접근가능한 주소 설정
-                .antMatchers("/login", "/signup", "/user","/").permitAll() // 누구나 접근 허용
+                .antMatchers("/login", "/signup","/","/invest","loan").permitAll() // 누구나 접근 허용
                 .antMatchers("/mypage").hasRole("USER") // USER, ADMIN만 접근 가능
                 .antMatchers("/admin").hasRole("ADMIN") // ADMIN만 접근 가능
                 .anyRequest().authenticated() // 나머지 요청(주소)들은 권한의 종류에 상관 없이 권한이 있어야 접근 가능

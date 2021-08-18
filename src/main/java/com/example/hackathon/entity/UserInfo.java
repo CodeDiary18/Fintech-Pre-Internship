@@ -1,4 +1,4 @@
-package com.example.hackathon.user;
+package com.example.hackathon.entity;
 
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,5 +1,8 @@
-package com.example.hackathon.user;
+package com.example.hackathon.service;
 
+import com.example.hackathon.dto.UserInfoDto;
+import com.example.hackathon.entity.UserInfo;
+import com.example.hackathon.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
