@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -64,5 +66,15 @@ public class LoanService {
 
     public Long predict(LoanDto loanDto) {  // 예상 대출 가능 금액
         return 5000000L;
+    }
+
+    public List<LoanModel> findLoans() {
+        return loanModelRepository.findAll();
+    }
+
+    public void updatePermit(Long loan_id, int permit) {
+        LoanModel temp = loanModelRepository.findById(loan_id).orElseThrow();
+        temp.setPermit(permit);
+        loanModelRepository.save(temp);
     }
 }
