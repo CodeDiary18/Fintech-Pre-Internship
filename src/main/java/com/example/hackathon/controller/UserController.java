@@ -1,5 +1,7 @@
-package com.example.hackathon.user;
+package com.example.hackathon.controller;
 
+import com.example.hackathon.dto.UserInfoDto;
+import com.example.hackathon.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
