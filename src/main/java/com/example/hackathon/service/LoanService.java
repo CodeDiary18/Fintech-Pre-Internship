@@ -1,10 +1,13 @@
 package com.example.hackathon.service;
 
 import com.example.hackathon.dto.LoanDto;
+import com.example.hackathon.entity.LoanModel;
 import com.example.hackathon.repository.LoanModelRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -50,5 +53,9 @@ public class LoanService {
 
     public Long predict(LoanDto loanDto) {  // 예상 대출 가능 금액
         return 5000000L;
+    }
+
+    public List<LoanModel> findLoans() {
+        return loanModelRepository.findAll();
     }
 }
