@@ -6,9 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.annotation.Nonnull;
-import javax.persistence.*;
-import java.sql.Date;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -16,7 +17,7 @@ import java.sql.Date;
 @Entity
 @Builder
 @Nonnull
-public class InvestModel {
+public class investModel {
 
     @Id
     @GeneratedValue
