@@ -1,0 +1,154 @@
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+.nanumsquare {
+    font-family: 'NanumSquare', sans-serif !important;
+}
+
+@font-face {
+    font-family: 'paybooc-ExtraBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-ExtraBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'paybooc-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'paybooc-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'paybooc-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0px;
+}
+
+#header {
+    width: 1440px;
+    height: 72px;
+    background-color: white;    
+}
+
+#logo {
+    float: left;
+    margin-top: 20px;
+    margin-left:20px;
+}
+
+#nav {
+    width: 1130px;
+    height: 72px;
+    margin : 0 125px 0 125px;
+}
+
+#menu {    
+    list-style: none;
+    float: right;
+    line-height: 72px;
+    margin: 0px;
+    padding-left: 0px;
+}
+
+#menu li{   
+    float:left;
+    position: relative;
+    padding-right: 15px;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    font-weight: normal;
+    
+    
+}
+
+#menu a{
+    list-style: none;
+    float: left;
+    display: block;
+    text-decoration: none;
+    color: #404041;
+    
+}
+
+.one {
+    color: #d8d8d8;
+    opacity: 70%;
+    margin: 0px;
+    width: 1440px;
+}
+
+/* #mainall {
+    float: left;
+} */
+
+#mainall {
+    background-color: #f2f2f2c5;  
+    padding-left: 150px;
+    padding-bottom: 110px;
+    padding-top:110px;
+}
+
+#main {
+    
+    
+    display: block;
+    float:left;
+}
+
+#intro {   
+    font-family: 'paybooc-Bold';
+    font-size: 32px;
+    line-height: 70px;
+    color: #404041;
+    
+}
+
+#subintro {
+    font-family: 'NanumSquare';
+    font-weight: lighter;
+    font-size: 18px;
+    color: #404041;
+    margin-top: 30px;
+}
+
+#home {
+    /* padding-right: 220px;
+    padding-bottom: 78px;
+    padding-top: 80px; */
+    display: block;
+    float: right;
+}
+
+
+#btn1 {
+    width: 120px;
+    height: 40px;
+    color: white;
+    background-color: red;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    border: none;
+    border-radius: 20px;
+    margin-right:15px;
+    margin-top: 40px;
+    
+	
+}
+
+#btn:hover {
+    cursor: pointer;
+
+}
+
+
+
