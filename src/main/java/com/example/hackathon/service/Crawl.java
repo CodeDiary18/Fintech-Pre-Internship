@@ -1,6 +1,8 @@
 package com.example.hackathon.service;
 import com.example.hackathon.dto.CrawledDto;
+import com.example.hackathon.entity.LoanModel;
 import com.example.hackathon.repository.CrawledModelRepository;
+import com.example.hackathon.repository.LoanModelRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -17,10 +19,12 @@ import java.io.IOException;
 public class Crawl {
 
     private final CrawledModelRepository crawledModelRepository;
+    private final LoanModelRepository loanModelRepository;
 
     @Autowired
-    public Crawl(CrawledModelRepository crawledModelRepository) {
+    public Crawl(CrawledModelRepository crawledModelRepository,LoanModelRepository loanModelRepository) {
         this.crawledModelRepository = crawledModelRepository;
+        this.loanModelRepository = loanModelRepository;
     }
 
     private static Integer stringToInt(String in){
@@ -71,6 +75,7 @@ public class Crawl {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         WebDriver driver = new ChromeDriver(options);
+
         driver.get(URL);
         driver.findElement(By.xpath("/html/body/div[13]/div[5]/div/p/a")).click();
         driver.findElement(By.xpath("//button[@type='button']")).click();
@@ -78,7 +83,6 @@ public class Crawl {
         driver.findElement(By.xpath("/html/body/div[4]/div/div[1]/div[2]/div[1]/form/fieldset/div/div[1]/div/input")).sendKeys(find);
         driver.findElement(By.xpath("/html/body/div[4]/div/div[1]/div[2]/div[2]/div/div[2]/button")).click();
         try {Thread.sleep(6000);} catch (InterruptedException e) {}
-
         Document html = Jsoup.connect(URL).get();
 
         Elements p = html.select("span.legend-value");
@@ -107,7 +111,29 @@ public class Crawl {
         crawledDto.setNoxScore(html.select("div.noxscore-content span.score").text().strip());
 
         driver.close();
-        crawledModelRepository.save(crawledDto.toEntity());
+
+        LoanModel temp = loanModelRepository.findById(loan_id).orElseThrow();
+        if (isvalid(crawledDto)) {
+            crawledModelRepository.save(crawledDto.toEntity());
+            temp.setCrawlValid(1);
+        }
+        else{
+            temp.setCrawlValid(-1);
+        }
+        loanModelRepository.save(temp);
         System.out.println(crawledDto.toString());
+    }
+
+    private boolean isvalid(CrawledDto crawledDto) {
+        if(crawledDto.getRank() == null
+                && crawledDto.getView() == null
+                && crawledDto.getNoxScore() == null
+                && crawledDto.getView() == null
+                && crawledDto.getPositiveNum() == null
+                && crawledDto.getNegativeNum() == null
+                && crawledDto.getNeutralNum() == null
+        )return false;
+
+        return true;
     }
 }
