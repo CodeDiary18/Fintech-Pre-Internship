@@ -1,5 +1,6 @@
 package com.example.hackathon.service;
 import com.example.hackathon.dto.CrawledDto;
+import com.example.hackathon.entity.CrawledModel;
 import com.example.hackathon.entity.LoanModel;
 import com.example.hackathon.repository.CrawledModelRepository;
 import com.example.hackathon.repository.LoanModelRepository;
@@ -135,5 +136,9 @@ public class Crawl {
         )return false;
 
         return true;
+    }
+
+    public CrawledModel findCrawled(Long loan_id) {
+        return crawledModelRepository.findByLoanId(loan_id);
     }
 }
