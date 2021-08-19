@@ -18,27 +18,22 @@ import java.time.LocalDateTime;
 public class LoanDto {
     @NotNull
     private Long userId;
-
     @NotNull
     private boolean agency;
-
 //    @Pattern(regexp = "^\\d{3}-\\d{2}-\\d{5}$", message = "xxx-xx-xxxxx 형식으로 입력")
     private String businessNumber;
     private String businessName;
-
     private String companyName;
     private String companyPayday;
-
     private String channelAddress;
-
+    private String channelName;
     private String loanCategory;
-
     @Size(min = 10)
     private String reasonForLoan;
     private Long loanAmount;
     private LocalDateTime loanAt;
     private int permit;
-
+    private int crawlValid;
 
     public LoanModel toEntity() {   // dto -> entity
         return LoanModel.builder()
@@ -50,10 +45,13 @@ public class LoanDto {
                 .companyName(companyName)
                 .companyPayday(companyPayday)
                 .channelAddress(channelAddress)
+                .channelName(channelName)
                 .category(loanCategory)
                 .reasonForLoan(reasonForLoan)
                 .loanAmount(loanAmount)
-                .loanAt(loanAt).permit(permit)
+                .loanAt(loanAt)
+                .permit(permit)
+                .crawlValid(crawlValid)
                 .build();
     }
 
@@ -65,11 +63,13 @@ public class LoanDto {
         this.companyName = loanModel.getCompanyName();
         this.companyPayday = loanModel.getCompanyPayday();
         this.channelAddress = loanModel.getChannelAddress();
+        this.channelName = loanModel.getChannelName();
         this.loanCategory = loanModel.getCategory();
         this.reasonForLoan = loanModel.getReasonForLoan();
         this.loanAmount = loanModel.getLoanAmount();
         this.loanAt = loanModel.getLoanAt();
         this.permit = loanModel.getPermit();
+        this.crawlValid = loanModel.getCrawlValid();
     }
 
 }

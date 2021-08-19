@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @Controller
@@ -19,7 +20,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user")
-    public String signup(UserInfoDto infoDto) { // 회원 추가
+    public String signup(UserInfoDto infoDto) { // @Valid 붙이기!!
         userService.save(infoDto);
         return "redirect:/login";
     }
