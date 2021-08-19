@@ -19,9 +19,15 @@ public class LoanService {
         System.out.println(loanDto.toString());
         try {
             if (loanDto.isAgency() == true) {   // 개인
+                if (loanDto.getCompanyName() == null | loanDto.getCompanyPayday() == null) {
+                    return false;
+                }
                 loanDto.setBusinessNumber(null);
                 loanDto.setBusinessName(null);
             } else {
+                if (loanDto.getBusinessName() == null | loanDto.getBusinessNumber() == null) {
+                    return false;
+                }
                 loanDto.setCompanyName(null);
                 loanDto.setCompanyPayday(null);
             }
@@ -70,6 +76,10 @@ public class LoanService {
 
     public List<LoanModel> findLoans() {
         return loanModelRepository.findAll();
+    }
+
+    public List<LoanModel> findUserLoans(Long userId){
+        return loanModelRepository.findAllByUserIdOrderByLoanAtDesc(userId);
     }
 
     public void updatePermit(Long loan_id, int permit) {

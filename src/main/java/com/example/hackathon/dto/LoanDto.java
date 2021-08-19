@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoanDto {
-    @NotNull
     private Long userId;
 
     @NotNull
@@ -29,8 +28,10 @@ public class LoanDto {
     private String companyName;
     private String companyPayday;
 
+    @NotBlank
     private String channelAddress;
 
+    @NotBlank
     private String loanCategory;
 
     @Size(min = 10)
