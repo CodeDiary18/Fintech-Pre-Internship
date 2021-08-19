@@ -78,6 +78,10 @@ public class LoanService {
         return loanModelRepository.findAll();
     }
 
+    public List<LoanModel> findUserLoans(Long userId){
+        return loanModelRepository.findAllByUserIdOrderByLoanAtDesc(userId);
+    }
+
     public void updatePermit(Long loan_id, int permit) {
         LoanModel temp = loanModelRepository.findById(loan_id).orElseThrow();
         temp.setPermit(permit);
