@@ -1,26 +1,26 @@
 package com.example.hackathon.entity;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.Collection;
-
 import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Getter
-@Setter
+@Data
 public class UserInfo implements UserDetails {
-
     @Id
     @Column(name = "seq")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
 
     @Column(name = "email", unique = true)
@@ -40,13 +40,14 @@ public class UserInfo implements UserDetails {
 
     private String account;
 
-    private Date signAt;
+    private LocalDateTime signAt;
 
     private Long balance;
 
     @Builder
     public UserInfo(String email, String password, String auth,
-                    String name,String socialNumber,String mobileNumber,String account,Date signAt,Long balance) {
+                    String name, String socialNumber, String mobileNumber, String account,
+                    LocalDateTime signAt, Long balance) {
         this.email = email;
         this.password = password;
         this.auth = auth;
@@ -108,5 +109,11 @@ public class UserInfo implements UserDetails {
     public boolean isEnabled() {
         // 계정이 사용 가능한지 확인하는 로직
         return true; // true -> 사용 가능
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.signAt = LocalDateTime.now();
+        this.balance = 1000000L;
     }
 }

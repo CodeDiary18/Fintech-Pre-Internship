@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>sign up</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
+    <title>회원가입</title>
 </head>
 <body>
+<div id="header">
+    <div id="nav">
+        <a href="/">
+            <img id="logo" src="img/Artboard Copy 10@3x.png" height="35">
+        </a>
+        <ul id="menu">
+            <li><a href="/loan">대출하기</a></li>
+            <li><a href="/invest">투자하기</a></li>
+            <li><a sec:authorize="isAuthenticated()" href="/mypage">마이페이지</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/signup">회원가입</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/login">로그인</a></li>
+            <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">관리자</a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/logout">로그아웃</a></li>
+        </ul>
+    </div>
+</div>
+
+<hr class="one">
+
 <h1>Sign Up</h1> <hr>
 
 <form th:action="@{/user}" method="POST">
@@ -14,8 +35,6 @@
     social number : <input type="text" name="socialNumber"> <br>
     mobile number : <input type="text" name="mobileNumber"> <br>
     account : <input type="text" name="account"> <br>
-    balance : <input type="text" name="balance"> <br>
-    sign at : <input type="date" name="signAt"> <br>
     <input type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER"> admin
     <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user <br>
     <button type="submit">Join</button>
