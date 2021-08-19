@@ -77,4 +77,8 @@ public class LoanService {
         temp.setPermit(permit);
         loanModelRepository.save(temp);
     }
+
+    public LoanModel findLoan(Long loan_id) {
+        return loanModelRepository.findById(loan_id).orElseThrow();
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.hackathon.service;
 
+import com.example.hackathon.dto.InvestDto;
 import com.example.hackathon.entity.InvestModel;
 import com.example.hackathon.repository.InvestModelRepository;
 import com.example.hackathon.entity.UserInfo;
@@ -23,13 +24,12 @@ public class InvestService {
     }
 
     //투자정보 생성
-    public void save(InvestModel investModel, @AuthenticationPrincipal UserInfo userInfo) {
-        userRepository.getById(userInfo.getSeq()).setBalance(userInfo.getBalance()-investModel.getInvAmount());
-        //investModel.save();
+    public void apply(InvestDto investDto) {
+        investModelRepository.save(investDto.toEntity());
     }
 
     //로그인한 회원이 투자한 객체 모두 찾기
-    public List<InvestModel> findAllInvested(@AuthenticationPrincipal UserInfo userInfo) {
+    public List<InvestModel> findAllInvested(UserInfo userInfo) {
        return investModelRepository.findByUserId(userInfo.getSeq());
     }
 

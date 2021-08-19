@@ -4,15 +4,15 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{/css/style.css}" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 3.png}">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
     <title>투자</title>
 </head>
 <body>
 <div id="header">
     <div id="nav">
         <a href="/">
-            <img id="logo" src="img/Artboard Copy 5@3x.png" height="35">
+            <img id="logo" src="img/Artboard Copy 10@3x.png" height="35">
         </a>
         <ul id="menu">
             <li><a href="/loan">대출하기</a></li>
@@ -26,31 +26,17 @@
 </div>
 
 <hr class="one">
-
-<div id="mainall">
-    <div id="main">
-        <div id="intro">
-            투자
+<!-- 홈 메인 -->
+<div id="all">
+    <div id="mainall">
+        <div id="main">
+            <div id="intro">
+                채널을 자산으로 <br>
+                머니튜브
+            </div>
         </div>
 
         <table>
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>대출 번호</th>
-                <th>사용자 번호</th>
-                <th>소속여부</th>
-                <th>사업자번호</th>
-                <th>사업자명</th>
-                <th>회사명</th>
-                <th>회사지급일</th>
-                <th>채널주소</th>
-                <th>카테고리</th>
-                <th>대출사유</th>
-                <th>대출날짜</th>
-                <th>승인여부</th>
-            </tr>
-            </thead>
             <tbody>
             <tr th:each="loan : ${loans}">
                 <td th:text="${loan.seq}"></td>
@@ -62,7 +48,9 @@
                 <td th:text="${loan.companyPayday}"></td>
                 <td th:text="${loan.channelAddress}"></td>
                 <td th:text="${loan.category}"></td>
-                <td th:text="${loan.reasonForLoan}"></td>
+                <td>
+                <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.reasonForLoan}"></a>
+                </td>
                 <td th:text="${loan.loanAt}"></td>
                 <td th:text="${loan.permit}"></td>
 
@@ -70,10 +58,6 @@
             </tbody>
         </table>
 
-    </div>
-
-    <div id="home">
-        <img id="homeimg" src="img/Artboard@3x.png" width="370" height="370">
     </div>
 </div>
 </body>
