@@ -41,6 +41,8 @@ public class LoanModel {
 
     private String reasonForLoan;
 
+    private Long loanAmount;
+
     @Column(updatable = false)
     private LocalDateTime loanAt;
 
