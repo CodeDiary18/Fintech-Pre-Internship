@@ -48,8 +48,9 @@
                 <td th:text="${loan.companyPayday}"></td>
                 <td th:text="${loan.channelAddress}"></td>
                 <td th:text="${loan.category}"></td>
+                <td th:text="${loan.reasonForLoan}"></td>
                 <td>
-                <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.reasonForLoan}"></a>
+                <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.loanAmount}"></a>
                 </td>
                 <td th:text="${loan.loanAt}"></td>
                 <td th:text="${loan.permit}"></td>
