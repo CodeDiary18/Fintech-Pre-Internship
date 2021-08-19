@@ -28,12 +28,27 @@ public class UserService implements UserDetailsService {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException((email)));
     }
+
     /**
      * 회원정보 저장
      *
      * @param infoDto 회원정보가 들어있는 DTO
      * @return 저장되는 회원의 PK
      */
+    public boolean sn_check(String sn) {
+        if (userRepository.findBySocialNumber(sn).isEmpty() == true) {
+            return true;
+        }
+        return false;   // 이미 존재
+    }
+
+    public boolean email_check(String email) {
+        if (userRepository.findByEmail(email).isEmpty() == true) {
+            return true;
+        }
+        return false;   // 이미 존재
+    }
+
     public Long save(UserInfoDto infoDto) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         infoDto.setPassword(encoder.encode(infoDto.getPassword()));
