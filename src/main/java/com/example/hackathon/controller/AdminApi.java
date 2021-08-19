@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/admin")
@@ -19,7 +20,10 @@ public class AdminApi { // 관리자 api
 
     @GetMapping("/loan-list")
     public String loanList(Model model){
-        List<LoanModel> loans = loanService.findLoans();
+        List<LoanModel> loans = loanService.findLoans()
+                .stream()
+                .filter(loan -> loan.getCrawlValid()!=0) //crawled 진행된 대출만 노출
+                .collect(Collectors.toList());
         model.addAttribute("loans",loans);
         return "admin/loanList";
     }
