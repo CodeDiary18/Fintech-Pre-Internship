@@ -13,5 +13,9 @@
     투자 금액 : <input type="number" name="invAmount"> <br>
     <button type="submit">투자하기</button>
 </form>
+
+<p th:text="${crawled.positiveNum}">:긍정적 언급수</p>
+<p th:text="${crawled.negativeNum}">:부정적 언급수</p>
+<p th:text="${crawled.neutralNum}">:중립적 언급수</p>
 </body>
 </html>

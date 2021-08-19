@@ -3,6 +3,7 @@ package com.example.hackathon.controller;
 import com.example.hackathon.dto.InvestDto;
 import com.example.hackathon.entity.LoanModel;
 import com.example.hackathon.entity.UserInfo;
+import com.example.hackathon.service.Crawl;
 import com.example.hackathon.service.InvestService;
 import com.example.hackathon.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,12 @@ import java.util.stream.Collectors;
 public class InvestController {
     private final InvestService investService;
     private final LoanService loanService;
-
+    private final Crawl crawl;
     @Autowired
-    public InvestController(InvestService investService, LoanService loanService) {
+    public InvestController(InvestService investService, LoanService loanService, Crawl crawl) {
         this.investService = investService;
         this.loanService = loanService;
+        this.crawl = crawl;
     }
 
     @GetMapping("/invest")
@@ -42,6 +44,7 @@ public class InvestController {
     @GetMapping("/invest-details/{id}")
     public String investOn(@PathVariable("id") Long loan_id, Model model) {
         model.addAttribute("loan",loanService.findLoan(loan_id));
+        model.addAttribute("crawled", crawl.findCrawled(loan_id));
         return "invest/investDetails";
     }
     @PostMapping("/invest-details/{id}")
