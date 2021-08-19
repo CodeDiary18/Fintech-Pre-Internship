@@ -35,6 +35,7 @@ public class LoanModel {
 
 
     private String channelAddress;
+    private String channelName;
 
     //    @Enumerated(EnumType.STRING)
     private String category;
@@ -48,6 +49,9 @@ public class LoanModel {
 
     @ColumnDefault("0")
     private int permit;
+
+    @ColumnDefault("0")
+    private int crawlValid;
 
     @PrePersist
     public void prePersist() {
