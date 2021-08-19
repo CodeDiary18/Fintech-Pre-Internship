@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.annotation.Nonnull;
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 
 @Data
@@ -15,9 +16,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @Entity
 @Builder
-@Nonnull
 public class InvestModel {
-
     @Id
     @GeneratedValue
     private Long seq;
@@ -28,6 +27,12 @@ public class InvestModel {
 
     private Long invAmount;
 
-    private Date investAt;
+    @Column(updatable = false)
+    private LocalDateTime investAt;
 
+
+    @PrePersist
+    public void prePersist() {
+        this.investAt = LocalDateTime.now();
+    }
 }
