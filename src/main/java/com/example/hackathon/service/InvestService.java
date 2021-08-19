@@ -1,5 +1,6 @@
 package com.example.hackathon.service;
 
+import com.example.hackathon.dto.InvestDto;
 import com.example.hackathon.entity.InvestModel;
 import com.example.hackathon.repository.InvestModelRepository;
 import com.example.hackathon.entity.UserInfo;
@@ -12,24 +13,23 @@ import java.util.List;
 
 
 @Service
-public class InvestModelService {
+public class InvestService {
     private final InvestModelRepository investModelRepository;
     private final UserRepository userRepository;
 
     @Autowired
-    public InvestModelService(InvestModelRepository investModelRepository, UserRepository userRepository) {
+    public InvestService(InvestModelRepository investModelRepository, UserRepository userRepository) {
         this.investModelRepository = investModelRepository;
         this.userRepository = userRepository;
     }
 
     //투자정보 생성
-    public void save(InvestModel investModel, @AuthenticationPrincipal UserInfo userInfo) {
-        userRepository.getById(userInfo.getSeq()).setBalance(userInfo.getBalance()-investModel.getInvAmount());
-        //investModel.save();
+    public void apply(InvestDto investDto) {
+        investModelRepository.save(investDto.toEntity());
     }
 
     //로그인한 회원이 투자한 객체 모두 찾기
-    public List<InvestModel> findAllInvested(@AuthenticationPrincipal UserInfo userInfo) {
+    public List<InvestModel> findAllInvested(UserInfo userInfo) {
        return investModelRepository.findByUserId(userInfo.getSeq());
     }
 

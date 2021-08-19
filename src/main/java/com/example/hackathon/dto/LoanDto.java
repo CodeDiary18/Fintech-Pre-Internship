@@ -35,6 +35,7 @@ public class LoanDto {
 
     @Size(min = 10)
     private String reasonForLoan;
+    private Long loanAmount;
     private LocalDateTime loanAt;
     private int permit;
 
@@ -51,6 +52,7 @@ public class LoanDto {
                 .channelAddress(channelAddress)
                 .category(loanCategory)
                 .reasonForLoan(reasonForLoan)
+                .loanAmount(loanAmount)
                 .loanAt(loanAt).permit(permit)
                 .build();
     }
@@ -65,6 +67,7 @@ public class LoanDto {
         this.channelAddress = loanModel.getChannelAddress();
         this.loanCategory = loanModel.getCategory();
         this.reasonForLoan = loanModel.getReasonForLoan();
+        this.loanAmount = loanModel.getLoanAmount();
         this.loanAt = loanModel.getLoanAt();
         this.permit = loanModel.getPermit();
     }
