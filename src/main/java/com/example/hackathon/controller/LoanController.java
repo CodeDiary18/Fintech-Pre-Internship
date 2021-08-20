@@ -51,7 +51,7 @@ public class LoanController {
                 out.println("<script>alert('정보를 모두 입력해주세요'); history.go(-1);</script>");
             } else {
                 out.println("<script>alert('대출 신청이 정상적으로 처리되었습니다.'); location.href ='/';</script>");
-                crawl.crawl(temp.getSeq(), loanDto.getChannelName(), loanDto.getChannelAddress());
+                crawl.crawl(temp.getSeq(), loanDto.getChannelName(), loanDto.getChannelAddress(), false, 0L);
             }
         }
         out.flush();
