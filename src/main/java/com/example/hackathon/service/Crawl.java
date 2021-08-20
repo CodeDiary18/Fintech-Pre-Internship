@@ -67,7 +67,7 @@ public class Crawl {
     @Async
     public void crawl(Long loan_id, String find, String channel, boolean secondTime, Long crawl_id) throws IOException {
 
-        String filePath = "/root/chromedriver.exe";
+        String filePath = "/root/chromedriver";
         CrawledDto crawledDto = new CrawledDto();
         crawledDto.setLoanId(loan_id);
       
