@@ -5,6 +5,8 @@ import com.example.hackathon.entity.ApprovedLoanModel;
 import com.example.hackathon.repository.ApprovedLoanModelRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -33,6 +35,12 @@ public class ApprovedLoanService {
     public void updateCollectedAmount(Long seq, Long invAmount) {
         ApprovedLoanModel temp = approvedLoanModelRepository.findById(seq).orElseThrow();
         temp.setCollectedAmount(temp.getCollectedAmount()+invAmount);
+        approvedLoanModelRepository.save(temp);
+    }
+
+    public void updateRepayment(Long loan_id, Long repayment) {
+        ApprovedLoanModel temp = approvedLoanModelRepository.findByLoanId(loan_id);
+        temp.setRepayment(temp.getRepayment()+repayment);
         approvedLoanModelRepository.save(temp);
     }
 }

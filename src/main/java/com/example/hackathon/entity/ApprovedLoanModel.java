@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
+
 
 import javax.persistence.*;
 
@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Builder
-public class ApprovedLoanModel {
+public class ApprovedLoanModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
