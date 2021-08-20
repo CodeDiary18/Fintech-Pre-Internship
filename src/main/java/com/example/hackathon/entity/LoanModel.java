@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Data
@@ -33,8 +34,8 @@ public class LoanModel {
 
     private String companyPayday;
 
-
     private String channelAddress;
+
     private String channelName;
 
     //    @Enumerated(EnumType.STRING)
@@ -46,6 +47,8 @@ public class LoanModel {
 
     @Column(updatable = false)
     private LocalDateTime loanAt;
+
+    private Date repayAt;
 
     @ColumnDefault("0")
     private int permit;

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="ko">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/css/style.css}" rel="stylesheet"/>
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
     <title>투자</title>
-</head>
 <body>
 <div id="header">
     <div id="nav">
@@ -18,14 +17,16 @@
             <li><a href="/loan">대출하기</a></li>
             <li><a href="/invest">투자하기</a></li>
             <li><a sec:authorize="isAuthenticated()" href="/mypage">마이페이지</a></li>
-            <li><a sec:authorize="isAnonymous()" href="/login">로그인</a></li>
             <li><a sec:authorize="isAnonymous()" href="/signup">회원가입</a></li>
-            <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">어드민</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/login">로그인</a></li>
+            <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">관리자</a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/logout">로그아웃</a></li>
         </ul>
     </div>
 </div>
 
 <hr class="one">
+
 <!-- 홈 메인 -->
 <div id="all">
     <div id="mainall">
@@ -50,7 +51,7 @@
                 <td th:text="${loan.category}"></td>
                 <td th:text="${loan.reasonForLoan}"></td>
                 <td>
-                <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.loanAmount}"></a>
+                    <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.loanAmount}"></a>
                 </td>
                 <td th:text="${loan.loanAt}"></td>
                 <td th:text="${loan.permit}"></td>

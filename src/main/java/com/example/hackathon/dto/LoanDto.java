@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Data
@@ -18,21 +19,38 @@ import java.time.LocalDateTime;
 public class LoanDto {
     @NotNull
     private Long userId;
+
     @NotNull
     private boolean agency;
+
 //    @Pattern(regexp = "^\\d{3}-\\d{2}-\\d{5}$", message = "xxx-xx-xxxxx 형식으로 입력")
     private String businessNumber;
+
     private String businessName;
+
     private String companyName;
+
     private String companyPayday;
+
+    @NotBlank
     private String channelAddress;
+
     private String channelName;
+
+    @NotBlank
     private String loanCategory;
+
     @Size(min = 10)
     private String reasonForLoan;
+
     private Long loanAmount;
+
     private LocalDateTime loanAt;
+
+    private Date repayAt;
+
     private int permit;
+
     private int crawlValid;
 
     public LoanModel toEntity() {   // dto -> entity
@@ -50,6 +68,7 @@ public class LoanDto {
                 .reasonForLoan(reasonForLoan)
                 .loanAmount(loanAmount)
                 .loanAt(loanAt)
+                .repayAt(repayAt)
                 .permit(permit)
                 .crawlValid(crawlValid)
                 .build();
@@ -68,6 +87,7 @@ public class LoanDto {
         this.reasonForLoan = loanModel.getReasonForLoan();
         this.loanAmount = loanModel.getLoanAmount();
         this.loanAt = loanModel.getLoanAt();
+        this.repayAt = loanModel.getRepayAt();
         this.permit = loanModel.getPermit();
         this.crawlValid = loanModel.getCrawlValid();
     }
