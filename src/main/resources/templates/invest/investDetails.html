@@ -9,9 +9,27 @@
 <body>
 <h th:text="${loan.userId}"></h>
 
-<form th:action="@{/invest-details/{id}(id=${loan.seq})}" method="POST">
+<form th:action="@{/invest-details/{id}(id=${approvedLoan.seq})}" method="POST">
     투자 금액 : <input type="number" name="invAmount"> <br>
     <button type="submit">투자하기</button>
 </form>
+
+<h th:text="${loan.channelName}"></h>
+대출 희망 금액 <h th:text="${loan.loanAmount}"></h>
+상환 날짜 <h th:text="${loan.repayAt}"></h>
+
+모인금액 <p th:text="${approvedLoan.collectedAmount}"></p>
+상환금액 <p th:text="${approvedLoan.repayment}"></p>
+
+긍정적 언급수 <p th:text="${crawled.positiveNum}"></p>
+부정적 언급수 <p th:text="${crawled.negativeNum}"></p>
+중립적 언급수 <p th:text="${crawled.neutralNum}"></p>
+순위 <p th:text="${crawled.rank}"></p>
+구독자수 <p th:text="${crawled.subscriber}"></p>
+조회수 <p th:text="${crawled.view}"></p>
+평균조회수 <p th:text="${crawled.avgView}"></p>
+동영상수 <p th:text="${crawled.video}"></p>
+라이브 수입 <p th:text="${crawled.liveIncome}"></p>
+녹스 점수 <p th:text="${crawled.noxScore}"></p>
 </body>
 </html>

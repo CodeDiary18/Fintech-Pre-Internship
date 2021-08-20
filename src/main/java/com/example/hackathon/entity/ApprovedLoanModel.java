@@ -4,35 +4,26 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
-import javax.annotation.Nonnull;
 import javax.persistence.*;
-import java.sql.Date;
-import java.time.LocalDateTime;
-
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Builder
-public class InvestModel {
+public class ApprovedLoanModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
-
-    private Long userId;
-
-    private Long invId;
-
-    private Long invAmount;
-
-    @Column(updatable = false)
-    private LocalDateTime investAt;
-
+    private Long loanId;
+    private Long collectedAmount;
+    private Long repayment;
 
     @PrePersist
     public void prePersist() {
-        this.investAt = LocalDateTime.now();
+        this.collectedAmount = this.collectedAmount == null ? 0 : this.collectedAmount;
+        this.repayment = this.repayment == null ? 0 : this.repayment;
     }
 }

@@ -42,6 +42,7 @@ public class UserController {
                 String message = objectError.getDefaultMessage();
                 sb.append(message + "\n");
             });
+            log.info(sb.toString());
             out.println("<script>alert('회원가입에 실패하셨습니다'); history.go(-1);</script>");
             out.flush();
         } else {

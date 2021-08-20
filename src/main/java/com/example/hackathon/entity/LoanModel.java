@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Data
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @Builder
 public class LoanModel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
   
     @Column
@@ -33,8 +34,9 @@ public class LoanModel {
 
     private String companyPayday;
 
-
     private String channelAddress;
+
+    private String channelName;
 
     //    @Enumerated(EnumType.STRING)
     private String category;
@@ -46,8 +48,13 @@ public class LoanModel {
     @Column(updatable = false)
     private LocalDateTime loanAt;
 
+    private Date repayAt;
+
     @ColumnDefault("0")
     private int permit;
+
+    @ColumnDefault("0")
+    private int crawlValid;
 
     @PrePersist
     public void prePersist() {

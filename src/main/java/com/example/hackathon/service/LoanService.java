@@ -15,27 +15,27 @@ import java.util.List;
 public class LoanService {
     private final LoanModelRepository loanModelRepository;
 
-    public boolean apply(LoanDto loanDto) {    // 대출 신청
+    public LoanModel apply(LoanDto loanDto) {    // 대출 신청
         System.out.println(loanDto.toString());
         try {
             if (loanDto.isAgency() == true) {   // 개인
                 if (loanDto.getCompanyName() == null | loanDto.getCompanyPayday() == null) {
-                    return false;
+                    return null;
                 }
                 loanDto.setBusinessNumber(null);
                 loanDto.setBusinessName(null);
             } else {
                 if (loanDto.getBusinessName() == null | loanDto.getBusinessNumber() == null) {
-                    return false;
+                    return null;
                 }
                 loanDto.setCompanyName(null);
                 loanDto.setCompanyPayday(null);
             }
-            loanModelRepository.save(loanDto.toEntity());
-            return true;
+            return loanModelRepository.save(loanDto.toEntity());
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return false;
+            return null;
         }
     }
 
