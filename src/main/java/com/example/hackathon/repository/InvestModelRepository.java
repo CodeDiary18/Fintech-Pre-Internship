@@ -1,6 +1,7 @@
 package com.example.hackathon.repository;
 
 import com.example.hackathon.entity.InvestModel;
+import com.example.hackathon.entity.LoanModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
