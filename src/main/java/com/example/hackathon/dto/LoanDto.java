@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Data
@@ -24,23 +25,33 @@ public class LoanDto {
 
 //    @Pattern(regexp = "^\\d{3}-\\d{2}-\\d{5}$", message = "xxx-xx-xxxxx 형식으로 입력")
     private String businessNumber;
+
     private String businessName;
 
     private String companyName;
+
     private String companyPayday;
 
     @NotBlank
     private String channelAddress;
+
+    private String channelName;
 
     @NotBlank
     private String loanCategory;
 
     @Size(min = 10)
     private String reasonForLoan;
+
     private Long loanAmount;
+
     private LocalDateTime loanAt;
+
+    private Date repayAt;
+
     private int permit;
 
+    private int crawlValid;
 
     public LoanModel toEntity() {   // dto -> entity
         return LoanModel.builder()
@@ -52,10 +63,14 @@ public class LoanDto {
                 .companyName(companyName)
                 .companyPayday(companyPayday)
                 .channelAddress(channelAddress)
+                .channelName(channelName)
                 .category(loanCategory)
                 .reasonForLoan(reasonForLoan)
                 .loanAmount(loanAmount)
-                .loanAt(loanAt).permit(permit)
+                .loanAt(loanAt)
+                .repayAt(repayAt)
+                .permit(permit)
+                .crawlValid(crawlValid)
                 .build();
     }
 
@@ -67,11 +82,14 @@ public class LoanDto {
         this.companyName = loanModel.getCompanyName();
         this.companyPayday = loanModel.getCompanyPayday();
         this.channelAddress = loanModel.getChannelAddress();
+        this.channelName = loanModel.getChannelName();
         this.loanCategory = loanModel.getCategory();
         this.reasonForLoan = loanModel.getReasonForLoan();
         this.loanAmount = loanModel.getLoanAmount();
         this.loanAt = loanModel.getLoanAt();
+        this.repayAt = loanModel.getRepayAt();
         this.permit = loanModel.getPermit();
+        this.crawlValid = loanModel.getCrawlValid();
     }
 
 }
