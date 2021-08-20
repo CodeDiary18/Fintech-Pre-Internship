@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -61,6 +62,8 @@ public class Crawl {
         }
         return Long.parseLong(in);
     }
+
+    @Async
     public void crawl(Long loan_id, String find, String channel) throws IOException {
 
         String filePath = "C:\\Tools\\chromedriver.exe";
