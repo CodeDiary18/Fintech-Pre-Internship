@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface InvestModelRepository extends JpaRepository<InvestModel, Long> {
-    List<InvestModel> findByUserId(Long userId);
+    List<InvestModel> findByUserIdOrderByInvestAtDesc(Long userId);
 }

@@ -1,11 +1,15 @@
 package com.example.hackathon.controller;
 
+import com.example.hackathon.dto.ApprovedLoanDto;
 import com.example.hackathon.dto.InvestDto;
+import com.example.hackathon.entity.ApprovedLoanModel;
 import com.example.hackathon.entity.LoanModel;
 import com.example.hackathon.entity.UserInfo;
+import com.example.hackathon.service.ApprovedLoanService;
 import com.example.hackathon.service.Crawl;
 import com.example.hackathon.service.InvestService;
 import com.example.hackathon.service.LoanService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -19,41 +23,49 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
+@RequiredArgsConstructor
 public class InvestController {
     private final InvestService investService;
     private final LoanService loanService;
     private final Crawl crawl;
-    @Autowired
-    public InvestController(InvestService investService, LoanService loanService, Crawl crawl) {
-        this.investService = investService;
-        this.loanService = loanService;
-        this.crawl = crawl;
-    }
+    private final ApprovedLoanService approvedLoanService;
+
 
     @GetMapping("/invest")
     public String investList(Model model) {
-        List<LoanModel> loans = loanService.findLoans()
-                .stream()
-                .filter(loan->loan.getPermit()==1) //승인된 대출만 노출
-                .collect(Collectors.toList());
-
-        model.addAttribute("loans",loans);
+        List<ApprovedLoanModel> loans = approvedLoanService.findLoans();
+        model.addAttribute("approvedLoans",loans);
         return "invest";
     }
 
     @GetMapping("/invest-details/{id}")
-    public String investOn(@PathVariable("id") Long loan_id, Model model) {
+    public String investOn(@PathVariable("id") Long seq, Model model) {
+        Long loan_id = approvedLoanService.findBySeq(seq).getLoanId();
         model.addAttribute("loan",loanService.findLoan(loan_id));
+        model.addAttribute("approvedLoan",approvedLoanService.findBySeq(seq));
         model.addAttribute("crawled", crawl.findCrawled(loan_id));
         return "invest/investDetails";
     }
     @PostMapping("/invest-details/{id}")
-    public String invest(@PathVariable("id") Long loan_id,
+    public String invest(@PathVariable("id") Long seq,
                          @AuthenticationPrincipal UserInfo userInfo,
                          InvestDto investDto) {
-        investDto.setInvId(loan_id);
-        investDto.setUserId(userInfo.getSeq());
-        investService.apply(investDto);
-        return "redirect:/";
+        ApprovedLoanModel temp = approvedLoanService.findBySeq(seq);
+        LoanModel loan = loanService.findLoan(temp.getLoanId());
+
+       if(investDto.getInvAmount() <= loan.getLoanAmount() - temp.getCollectedAmount()){
+            //투자객체 생성
+            investDto.setInvId(temp.getLoanId());
+            investDto.setUserId(userInfo.getSeq());
+            investService.apply(investDto);
+            //승인된 대출 모인금액 갱신
+            approvedLoanService.updateCollectedAmount(seq,investDto.getInvAmount());
+        }
+
+        else{
+            //투자금액 초과
+
+        }
+        return "redirect:/invest-details/{id}";
     }
 }

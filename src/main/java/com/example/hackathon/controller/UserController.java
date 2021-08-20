@@ -3,6 +3,7 @@ package com.example.hackathon.controller;
 import com.example.hackathon.dto.UserInfoDto;
 import com.example.hackathon.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import java.io.PrintWriter;
 
 @RequiredArgsConstructor
 @Controller
+@Slf4j
 public class UserController {
 
     private final UserService userService;
@@ -40,6 +42,7 @@ public class UserController {
                 String message = objectError.getDefaultMessage();
                 sb.append(message + "\n");
             });
+            log.info(sb.toString());
             out.println("<script>alert('회원가입에 실패하셨습니다'); history.go(-1);</script>");
             out.flush();
         } else {

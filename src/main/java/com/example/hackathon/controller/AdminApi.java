@@ -1,6 +1,7 @@
 package com.example.hackathon.controller;
 
 import com.example.hackathon.entity.LoanModel;
+import com.example.hackathon.service.ApprovedLoanService;
 import com.example.hackathon.service.LoanService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 public class AdminApi { // 관리자 api
 
     private final LoanService loanService;
+    private final ApprovedLoanService approvedLoanService;
 
     @GetMapping("/loan-list")
     public String loanList(Model model){
@@ -32,6 +34,8 @@ public class AdminApi { // 관리자 api
     public String approveLoan(@RequestParam Long loan_id, String action) {
         if (action.equals("approve")) {
             loanService.updatePermit(loan_id, 1);
+            //approvedLoan 생성
+            approvedLoanService.apply(loan_id);
         } else if (action.equals("reject")) {
             loanService.updatePermit(loan_id, -1);
         }
