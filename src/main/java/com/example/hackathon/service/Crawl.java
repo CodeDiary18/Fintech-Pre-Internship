@@ -63,18 +63,20 @@ public class Crawl {
         return Long.parseLong(in);
     }
 
+
     @Async
     public void crawl(Long loan_id, String find, String channel, boolean secondTime, Long crawl_id) throws IOException {
 
         String filePath = "C:\\Tools\\chromedriver.exe";
         CrawledDto crawledDto = new CrawledDto();
         crawledDto.setLoanId(loan_id);
-
+      
         try {
             System.setProperty("webdriver.chrome.driver", filePath);
         } catch (Exception e) {
             e.printStackTrace();
         }
+      
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         WebDriver driver = new ChromeDriver(options);
@@ -115,7 +117,6 @@ public class Crawl {
         html = Jsoup.connect(URL).get();
         html.select("#img");
         //유튜브 이미지 가져오고 싶은데..
-
 
         driver.close();
 
