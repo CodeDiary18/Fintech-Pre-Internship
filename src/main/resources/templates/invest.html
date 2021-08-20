@@ -39,23 +39,10 @@
 
         <table>
             <tbody>
-            <tr th:each="loan : ${loans}">
-                <td th:text="${loan.seq}"></td>
-                <td th:text="${loan.userId}"></td>
-                <td th:text="${loan.agency}"></td>
-                <td th:text="${loan.businessNumber}"></td>
-                <td th:text="${loan.businessName}"></td>
-                <td th:text="${loan.companyName}"></td>
-                <td th:text="${loan.companyPayday}"></td>
-                <td th:text="${loan.channelAddress}"></td>
-                <td th:text="${loan.category}"></td>
-                <td th:text="${loan.reasonForLoan}"></td>
+            <tr th:each="loan : ${approvedLoans}">
                 <td>
-                    <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.loanAmount}"></a>
+                    <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.seq}"></a>
                 </td>
-                <td th:text="${loan.loanAt}"></td>
-                <td th:text="${loan.permit}"></td>
-
             </tr>
             </tbody>
         </table>

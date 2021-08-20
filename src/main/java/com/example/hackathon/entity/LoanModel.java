@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Builder
 public class LoanModel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
   
     @Column

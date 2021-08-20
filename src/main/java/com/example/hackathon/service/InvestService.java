@@ -30,7 +30,7 @@ public class InvestService {
 
     //로그인한 회원이 투자한 객체 모두 찾기
     public List<InvestModel> findAllInvested(UserInfo userInfo) {
-       return investModelRepository.findByUserId(userInfo.getSeq());
+       return investModelRepository.findByUserIdOrderByInvestAtDesc(userInfo.getSeq());
     }
 
 
