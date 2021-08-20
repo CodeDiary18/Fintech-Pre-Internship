@@ -41,6 +41,8 @@ public class Crawl {
         Double result;
         if(in.contains(("￦")))
             in = in.replace("￦", "").trim();
+        if(in.contains(","))
+            in = in.replace(",", "");
         if(in.equals("-"))
             return null;
         if(in.contains("만")){
@@ -61,12 +63,11 @@ public class Crawl {
     }
     public void crawl(Long loan_id, String find, String channel) throws IOException {
 
+        String filePath = "C:\\Tools\\chromedriver.exe";
         CrawledDto crawledDto = new CrawledDto();
         crawledDto.setLoanId(loan_id);
-
+//1
         String URL = "https://some.co.kr/analysis/social/reputation";
-        String filePath = "C:\\Tools\\chromedriver.exe";
-
         try {
             System.setProperty("webdriver.chrome.driver", filePath);
         } catch (Exception e) {
@@ -90,7 +91,7 @@ public class Crawl {
         crawledDto.setPositiveNum(stringToInt(p.get(0).text()));
         crawledDto.setNegativeNum(stringToInt(p.get(1).text()));
         crawledDto.setNeutralNum(stringToInt(p.get(2).text()));
-
+//2
         URL = "https://kr.noxinfluencer.com/youtube/channel/" + channel;
         driver.get(URL);
         try {Thread.sleep(3000);} catch (InterruptedException e) {}
@@ -110,6 +111,12 @@ public class Crawl {
 
         //nox 보고서
         crawledDto.setNoxScore(html.select("div.noxscore-content span.score").text().strip());
+//3
+        URL = "https://www.youtube.com/channel/" + channel;
+        driver.get(URL);
+        try {Thread.sleep(3000);} catch (InterruptedException e) {}
+        html = Jsoup.connect(URL).get();
+        html.select("#img");
 
         driver.close();
 
