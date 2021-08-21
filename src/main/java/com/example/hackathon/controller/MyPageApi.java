@@ -34,11 +34,13 @@ public class MyPageApi {
 
     @GetMapping("/loan")
     public String loanList(@AuthenticationPrincipal UserInfo userInfo, Model model) {
-        List<LoanModel> loans = loanService
-                .findUserLoans(userInfo.getSeq())
-                .stream()
-                .filter(loan -> loan.getPermit() == 1)
-                .collect(Collectors.toList());
+
+        List<MyLoanedModel> loans = myPageService.extendLoan(
+                loanService.findUserLoans(userInfo.getSeq())
+                        .stream()
+                        .filter(loan -> loan.getPermit() == 1)
+                        .collect(Collectors.toList())
+        );
         model.addAttribute("loans", loans);
         return "mypage/loanList";
     }
@@ -46,15 +48,7 @@ public class MyPageApi {
     @GetMapping("/invest")
     public String investList(@AuthenticationPrincipal UserInfo userInfo, Model model){
 
-
-        List<InvestModel> myInvests = investService.findAllInvested(userInfo.getSeq());
-       /* List<ApprovedLoanModel> approvedLoanModels = approvedLoanService.findMyPageApproved(invests);
-        List<LoanModel> loanModels = loanService.findMyPageLoan(approvedLoanModels);
-        model.addAttribute("invests", invests);
-        model.addAttribute("approveds", approvedLoanModels);
-        model.addAttribute("loans", loanModels);*/
-
-        List<MyInvestedModel> invests = myPageService.extend(myInvests);
+        List<MyInvestedModel> invests = myPageService.extendInvest(investService.findAllInvested(userInfo.getSeq()));
         model.addAttribute("invests", invests);
 
         return "mypage/investList";
