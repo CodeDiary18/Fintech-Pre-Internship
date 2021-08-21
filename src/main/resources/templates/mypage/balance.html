@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>잔액 조회,충전</title>
+</head>
+<body>
+<!-- 메뉴바 -->
+<div th:replace="fragments/common :: navbar"></div>
+
+<h2>내 잔액</h2>
+<h th:text="${userInfo.balance}"></h>
+
+<h2>잔액 충전하기</h2>
+
+<form th:action="@{/mypage/fill-balance}" method="POST">
+    <input type="number" name="balance">
+    <button type="submit">충전하기</button>
+</form>
+
+</body>
+</html>

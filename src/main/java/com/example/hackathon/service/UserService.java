@@ -77,4 +77,8 @@ public class UserService implements UserDetailsService {
         }
         userRepository.save(userInfo);
     }
+
+    public UserInfo findUser(Long seq) {
+        return userRepository.findById(seq).orElseThrow();
+    }
 }
