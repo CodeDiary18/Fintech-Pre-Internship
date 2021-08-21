@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
+    <title>My Page</title>
+</head>
+<body>
+<div id="header">
+    <div id="nav">
+        <a href="/">
+            <img id="logo" src="img/Artboard Copy 10@3x.png" height="35">
+        </a>
+        <ul id="menu">
+            <li><a href="/loan">대출하기</a></li>
+            <li><a href="/invest">투자하기</a></li>
+            <li><a sec:authorize="isAuthenticated()" href="/mypage">마이페이지</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/signup">회원가입</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/login">로그인</a></li>
+            <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">관리자</a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/logout">로그아웃</a></li>
+        </ul>
+    </div>
+</div>
+
+<hr class="one">
+
+<h2>회원 전용 페이지</h2>
+ID : <span sec:authentication="name"></span> <br>
+소유 권한 : <span sec:authentication="authorities"></span> <br>
+
+<form id="logout" action="/logout" method="POST">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <input type="submit" value="로그아웃"/>
+    <br>
+    <input type="button" value="대출리스트" onClick="location.href='/mypage/loan'">
+</form>
+
+</body>
+</html>

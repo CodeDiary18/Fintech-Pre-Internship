@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
+    <title>채널을 자산으로, 머니튜브(Money Tube)</title>
+</head>
+<body>
+<div id="header">
+    <div id="nav">
+        <a href="/">
+            <img id="logo" src="img/Artboard Copy 10@3x.png" height="35">
+        </a>
+        <ul id="menu">
+            <li><a href="/loan">대출하기</a></li>
+            <li><a href="/invest">투자하기</a></li>
+            <li><a sec:authorize="isAuthenticated()" href="/mypage">마이페이지</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/signup">회원가입</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/login">로그인</a></li>
+            <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">관리자</a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/logout">로그아웃</a></li>
+        </ul>
+    </div>
+</div>
+
+<hr class="one">
+
+<!-- 홈 메인 -->
+<div id="all">
+    <div id="mainall">
+        <div id="main">
+            <div id="intro">
+                채널을 자산으로 <br>
+                머니튜브
+            </div>
+            <div id="subintro">
+                유튜버 채널 AI기반 P2P 담보 대출 플랫폼
+            </div>
+
+            <button class="btn1" onclick="location.href='/loan'">
+                대출하기
+            </button>
+
+            <button class="btn1" onclick="location.href='/invest'">
+                투자하기
+            </button>
+        </div>
+
+        <div id="home">
+            <img id="homeimg" src="img/Artboard Copy 11@3x.png" width="450" height="450">
+        </div>
+    </div>
+</div>
+
+
+<!-- 홈 메인_이모지(페르소나) -->
+<div id=all2>
+    <img src="img/persona_boy.png" width="850px">
+</div>
+<div id=all3>
+    <img src="img/persona_woman.png" width="850px">
+</div>
+
+<!-- 홈 하단 회사정보 -->
+
+<div id="all4">
+    <div id="last">
+        <div id="bottom">
+            <img id="logo_b" src="img/Artboard Copy 8@3x.png" height="50px">
+            <div id="intro4">
+                회사명 : 머니튜브 | 대표 : 김 머니 <br>
+                주소 : 서울시 마포구 <br>
+                영업시간 : 오전 9시 - 오후 6시 <br>
+                고객센터 : 1588-1234
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
