@@ -79,6 +79,7 @@ public class Crawl {
       
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
         WebDriver driver = new ChromeDriver(options);
 //1
         String URL = "https://some.co.kr/analysis/social/reputation";
