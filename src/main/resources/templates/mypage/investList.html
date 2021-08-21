@@ -10,7 +10,7 @@
 <div th:replace="fragments/common :: navbar"></div>
 
 <table>
-    <h2>InvestModel</h2>
+
     <thead>
     <tr>
         <!--        <th>#</th>-->
@@ -19,59 +19,49 @@
         <th>invId</th>
         <th>invAmount</th>
         <th>investAt</th>
+        <th>collectedAmount</th>
+        <th>repayment</th>
+        <th>businessNumber</th>
+        <th>businessName</th>
+        <th>companyName</th>
+        <th>companyPayday</th>
+        <th>channelAddress</th>
+        <th>channelName</th>
+        <th>category</th>
+        <th>reasonForLoan</th>
+        <th>loanAmount</th>
+        <th>loanAt</th>
+        <th>repayAt</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="invest : ${invests}">
 <!--        <td th:text="${invest.seq}"></td>-->
+        <td th:text="${invest.seq}"></td>
         <td th:text="${invest.userId}"></td>
         <td th:text="${invest.invId}"></td>
         <td th:text="${invest.invAmount}"></td>
         <td th:text="${invest.investAt}"></td>
+        <td th:text="${invest.collectedAmount}"></td>
+        <td th:text="${invest.repayment}"></td>
+        <td th:text="${invest.businessNumber}"></td>
+        <td th:text="${invest.businessName}"></td>
+        <td th:text="${invest.companyName}"></td>
+        <td th:text="${invest.companyPayday}"></td>
+        <td th:text="${invest.channelAddress}"></td>
+        <td th:text="${invest.channelName}"></td>
+        <td th:text="${invest.category}"></td>
+        <td th:text="${invest.reasonForLoan}"></td>
+        <td th:text="${invest.loanAmount}"></td>
+        <td th:text="${invest.loanAt}"></td>
+        <td th:text="${invest.repayAt}"></td>
+
     </tr>
     </tbody>
 </table>
 
 
-<table>
-    <h2>ApprovedLoanModel</h2>
-    <thead>
-    <tr>
-        <!--        <th>#</th>-->
-        <th>seq</th>
-        <th>loanId</th>
-        <th>collectedAmount</th>
-        <th>repayment</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="approve : ${approveds}">
-        <td th:text="${approve.seq}"></td>
-        <td th:text="${approve.loanId}"></td>
-        <td th:text="${approve.collectedAmount}"></td>
-        <td th:text="${approve.repayment}"></td>
-    </tr>
-    </tbody>
-</table>
 
-<table>
-    <h2>LoanModel</h2>
-    <thead>
-    <tr>
-        <!--        <th>#</th>-->
-        <th>seq</th>
-        <th>loanId</th>
-        <th>collectedAmount</th>
-        <th>repayment</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="loan : ${loans}">
-        <td th:text="${loan.seq}"></td>
-        <td th:text="${loan.agency}"></td>
-        <td th:text="${loan.channelName}"></td>
-    </tr>
-    </tbody>
-</table>
+
 </body>
 </html>
