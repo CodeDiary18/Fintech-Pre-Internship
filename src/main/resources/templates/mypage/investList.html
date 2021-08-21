@@ -19,7 +19,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="invest : ${invests}">
+    <tr th:each="invest : ${invests}"; th:each="">
 <!--        <td th:text="${invest.seq}"></td>-->
         <td th:text="${invest.userId}"></td>
         <td th:text="${invest.invId}"></td>
