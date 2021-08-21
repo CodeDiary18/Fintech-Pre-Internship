@@ -29,7 +29,7 @@
 <hr class="one">
 
 <h2>회원 전용 페이지</h2>
-ID : <span sec:authentication="name"></span> <br>
+ID : <span sec:authentication="principal.name"></span> <br>
 소유 권한 : <span sec:authentication="authorities"></span> <br>
 
 <form id="logout" action="/logout" method="POST">

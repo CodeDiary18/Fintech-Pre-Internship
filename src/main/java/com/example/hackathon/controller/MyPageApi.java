@@ -1,6 +1,7 @@
 package com.example.hackathon.controller;
 
 import com.example.hackathon.dto.ApprovedLoanDto;
+import com.example.hackathon.dto.MypageInvestDto;
 import com.example.hackathon.entity.ApprovedLoanModel;
 import com.example.hackathon.entity.InvestModel;
 import com.example.hackathon.entity.LoanModel;
@@ -25,9 +26,9 @@ public class MyPageApi {
     private final ApprovedLoanService approvedLoanService;
 
     @GetMapping("/loan")
-    public String loanList(@AuthenticationPrincipal UserInfo userInfo, Model model) {
+    public String loanList(@AuthenticationPrincipal UserInfo userInfo, Model model){
         List<LoanModel> loans = loanService.findUserLoans(userInfo.getSeq());
-        model.addAttribute("loans", loans);
+        model.addAttribute("loans",loans);
         return "mypage/loanList";
     }
 
@@ -38,6 +39,7 @@ public class MyPageApi {
         // 다른거 끌고 오기
         return "mypage/investList";
     }
+
 
     @PostMapping("/repay/{id}")
     public String repay(@PathVariable("id") Long loan_id, ApprovedLoanDto approvedLoanDto){
