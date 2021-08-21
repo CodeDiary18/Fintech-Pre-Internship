@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>투자목록</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>대출 번호</th>
+        <th>사용자 번호</th>
+        <th>소속여부</th>
+        <th>사업자번호</th>
+        <th>사업자명</th>
+        <th>회사명</th>
+        <th>회사지급일</th>
+        <th>채널주소</th>
+        <th>카테고리</th>
+        <th>대출사유</th>
+        <th>대출날짜</th>
+        <th>승인여부</th>
+        <th>크롤링여부</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="invest : ${invests}, loan : ${loans}">
+        <td th:text="${invest.userId}"></td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
