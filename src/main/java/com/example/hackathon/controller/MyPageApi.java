@@ -1,7 +1,9 @@
 package com.example.hackathon.controller;
 
 import com.example.hackathon.dto.ApprovedLoanDto;
+import com.example.hackathon.dto.MypageInvestDto;
 import com.example.hackathon.entity.ApprovedLoanModel;
+import com.example.hackathon.entity.InvestModel;
 import com.example.hackathon.entity.LoanModel;
 import com.example.hackathon.entity.UserInfo;
 import com.example.hackathon.service.ApprovedLoanService;
@@ -28,6 +30,14 @@ public class MyPageApi {
         List<LoanModel> loans = loanService.findUserLoans(userInfo.getSeq());
         model.addAttribute("loans",loans);
         return "mypage/loanList";
+    }
+
+    @GetMapping("/invest")
+    public String investList(@AuthenticationPrincipal UserInfo userInfo, Model model) {
+        /*
+        List<MypageInvestDto> invests = investService.findAllInvested(userInfo.getSeq());
+        model.addAttribute("invests", invests);*/
+
     }
 
     @PostMapping("/repay/{id}")
