@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<!-- 메뉴바 -->
+<div th:replace="fragments/common :: navbar"></div>
+
 <h th:text="${loan.userId}"></h>
 
 <form th:action="@{/invest-details/{id}(id=${approvedLoan.seq})}" method="POST">

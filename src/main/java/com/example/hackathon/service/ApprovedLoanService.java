@@ -37,10 +37,28 @@ public class ApprovedLoanService {
         approvedLoanModelRepository.save(temp);
     }
 
-    public void updateRepayment(Long loan_id, Long repayment) {
+    public int updateRepayment(Long loan_id, ApprovedLoanDto approvedLoanDto) {
+
+
+        Long repayment = approvedLoanDto.getRepayment();
         ApprovedLoanModel temp = approvedLoanModelRepository.findByLoanId(loan_id);
-        temp.setRepayment(temp.getRepayment() + repayment);
-        approvedLoanModelRepository.save(temp);
+
+        if(temp.getCollectedAmount() >= temp.getRepayment()+repayment) {
+            //모인금액 범위 안에서 상환 완료
+            temp.setRepayment(temp.getRepayment() + repayment);
+            approvedLoanModelRepository.save(temp);
+            return 1;
+        }
+        else if(temp.getCollectedAmount() == 0){
+            //상환할 금액이 없음
+            return 0;
+        }
+        else{
+            //범위 초과해서 상환함
+            return -1;
+        }
+
+
     }
 
     public List<ApprovedLoanModel> findMyPageApproved(List<InvestModel> invests) {
