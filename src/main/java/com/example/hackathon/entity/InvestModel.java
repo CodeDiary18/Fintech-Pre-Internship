@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.annotation.Nonnull;
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDateTime;
 
 

@@ -1,0 +1,235 @@
+/* 회원가입 */
+
+#all_signup {
+    width: 100%;
+    background-color: #f2f2f25c;
+}
+
+#main_content {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
+    padding: 0px 40px 40px 40px;
+    margin-top: 0px;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: 'NanumSquare';
+    font-size: 20px;
+    font-weight:normal;
+    padding-top: 48px;
+    padding-left: 54px;
+    padding-right: 54px;
+    color: #828282;
+}
+
+h2 {
+    font-family: 'NanumSquare';
+    font-size:16px;
+    font-weight:bold;
+    color: rgb(45, 107, 241);
+    text-align: left;
+    border-left: 3px solid rgb(45, 107, 241);
+    padding-left: 8px;
+    margin-bottom: 10px;
+    margin-top: 42px;
+    margin-left: -10px;
+}
+
+h3{
+    font-family: 'NanumSquare';
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    color: #404041;
+    margin-top: 20px;
+}
+
+
+
+#email input, #pw input, #name input, #socialNumber input, #mobileNumber input, #Number000, #account input, #bankName  {
+    width: 300px;
+    margin-bottom: 10px;
+    font-family: 'NanumSquare';
+    font-size: 12px;
+    font-weight: lighter;
+    padding: 10px 12px 10px 12px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    color: black;
+}
+#bankName {
+    width: 328px;
+
+}
+#account input{
+    width:174px;
+}
+
+#number000000 input, #bankName input {
+    width: 220px;
+    margin-bottom: 10px;
+    font-family: 'NanumSquare';
+    font-size: 12px;
+    font-weight: lighter;
+    padding: 10px 12px 10px 12px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    color: black;
+}
+
+#mobileNumberRequest, #numberdone, #wonRequest {
+    height: 36px;
+    width: 70px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'NanumSquare';
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(45, 107, 241);
+    margin-left:5px;
+}
+
+#wonRequest {
+    width:120px;
+}
+
+#photo {
+    height: 36px;
+    width: 120px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'NanumSquare';
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(45, 107, 241);
+    margin-bottom: 10px;
+
+}
+#photoGuide {
+    background-color: rgb(245, 245, 245, 0.8);
+    margin-top:20px;
+    margin-bottom: 20px;
+    padding : 20px;
+    border-radius: 10px;
+}
+#camera {
+    font-family: 'NanumSquare';
+    font-size: 12px;
+    font-weight: bold;
+    color: #404041;
+}
+
+#mobileNumberRequest:hover, #photo:hover {
+    background-color: blue;
+}
+
+
+#mobileNumber input{
+    width: 140px;
+    height: 17px;
+    margin-left:5px;
+}
+
+#Number000{
+    width:70px
+
+}
+
+#name p, #socialNumber p, #mobileNumber p, #account p {
+    text-align: left;
+}
+
+#name p {
+    margin-top: 20px;
+}
+
+
+#agreePhone input, #agreePhone p, #agreeinfo input, #agreeinfo p, #email p, #pw p, #agreeinfo2 input, #agreeinfo3 input, #agreeinfo3 p, #bank p {
+    font-family: 'NanumSquare';
+    font-size: 10px;
+    color: #828282;
+    font-weight: normal;
+    float: left;
+
+}
+
+#agreeinfo2 {
+    padding-top: 8px;
+    margin-bottom:10px;
+}
+#agreeinfo2 p {
+    font-family: 'NanumSquare';
+    font-size: 12px;
+    color: #404041;
+    font-weight: normal;
+    float: left;
+    margin-top: 9px;
+
+}
+
+
+#agreePhone input, #agreeinfo input, #agreeinfo2 input, #agreeinfo3 input{
+    margin-top: 9px;
+    margin-right:10px;
+}
+
+.agree1 {
+    margin-right: 20px;
+
+}
+
+.agree2 {
+    margin-left:150px;
+
+}
+
+.agree3 {
+    margin-left: 141px;
+}
+
+.agree4 {
+    margin-left: 130px;
+}
+
+#agreeinfo, #agreePhone, #agreeinfo2, #agreeinfo3 {
+    display: block;
+
+}
+
+#account {
+    margin-top: 20px;
+}
+
+#btn_join {
+    margin-top: 40px;
+    width: 328px;
+    height:36px;
+    margin-bottom: 10px;
+    font-family: 'NanumSquare';
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 12px 10px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(45, 107, 241);
+    color: white;
+
+}
+
+#btn_join:hover {
+    background-color:blue;
+}
+
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>투자목록</title>
+</head>
+<body>
+<table>
+    <h2>InvestModel</h2>
+    <thead>
+    <tr>
+        <!--        <th>#</th>-->
+        <th>seq</th>
+        <th>userId</th>
+        <th>invId</th>
+        <th>invAmount</th>
+        <th>investAt</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="invest : ${invests}">
+<!--        <td th:text="${invest.seq}"></td>-->
+        <td th:text="${invest.userId}"></td>
+        <td th:text="${invest.invId}"></td>
+        <td th:text="${invest.invAmount}"></td>
+        <td th:text="${invest.investAt}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<table>
+    <h2>ApprovedLoanModel</h2>
+    <thead>
+    <tr>
+        <!--        <th>#</th>-->
+        <th>seq</th>
+        <th>loanId</th>
+        <th>collectedAmount</th>
+        <th>repayment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="approve : ${approveds}">
+        <td th:text="${approve.seq}"></td>
+        <td th:text="${approve.loanId}"></td>
+        <td th:text="${approve.collectedAmount}"></td>
+        <td th:text="${approve.repayment}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<table>
+    <h2>LoanModel</h2>
+    <thead>
+    <tr>
+        <!--        <th>#</th>-->
+        <th>seq</th>
+        <th>loanId</th>
+        <th>collectedAmount</th>
+        <th>repayment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="loan : ${loans}">
+        <td th:text="${loan.seq}"></td>
+        <td th:text="${loan.agency}"></td>
+        <td th:text="${loan.channelName}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
