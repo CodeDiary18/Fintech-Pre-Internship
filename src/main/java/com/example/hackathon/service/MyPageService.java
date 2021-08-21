@@ -1,9 +1,6 @@
 package com.example.hackathon.service;
 
-import com.example.hackathon.entity.ApprovedLoanModel;
-import com.example.hackathon.entity.InvestModel;
-import com.example.hackathon.entity.LoanModel;
-import com.example.hackathon.entity.MyInvestedModel;
+import com.example.hackathon.entity.*;
 import com.example.hackathon.repository.ApprovedLoanModelRepository;
 import com.example.hackathon.repository.InvestModelRepository;
 import com.example.hackathon.repository.LoanModelRepository;
@@ -12,9 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 @Service
 @Slf4j
@@ -25,7 +21,34 @@ public class MyPageService {
     private final ApprovedLoanModelRepository approvedLoanModelRepository;
     private final LoanModelRepository loanModelRepository;
 
-    public List<MyInvestedModel> extend(List<InvestModel> myInvests) {
+
+    public List<MyLoanedModel> extendLoan(List<LoanModel> myLoans) {
+
+        List<MyLoanedModel> loans = new ArrayList<>();
+        for (LoanModel myLoan : myLoans) {
+
+            Long loan_id = myLoan.getSeq();
+
+            //loan 필드 세팅
+            MyLoanedModel myLoanedModel = new MyLoanedModel(myLoan.getSeq()
+                    ,myLoan.getBusinessName(), myLoan.getBusinessName(),
+                    myLoan.getCompanyName(),myLoan.getCompanyPayday(),
+                    myLoan.getChannelAddress(),myLoan.getChannelName(),myLoan.getCategory(),
+                    myLoan.getReasonForLoan(),myLoan.getLoanAmount(),myLoan.getLoanAt(),myLoan.getRepayAt());
+
+            //approved 필드 세팅
+            ApprovedLoanModel approvedLoanModel = approvedLoanModelRepository.findByLoanId(loan_id);
+            myLoanedModel.setCollectedAmount(approvedLoanModel.getCollectedAmount());
+            myLoanedModel.setRepayment(approvedLoanModel.getRepayment());
+
+            loans.add(myLoanedModel);
+        }
+        return loans;
+
+    }
+
+
+    public List<MyInvestedModel> extendInvest(List<InvestModel> myInvests) {
 
         List<MyInvestedModel> invests = new ArrayList<>();
         for (InvestModel myInvest : myInvests) {
