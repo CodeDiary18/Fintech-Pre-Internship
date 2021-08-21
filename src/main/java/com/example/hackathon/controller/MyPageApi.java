@@ -12,7 +12,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -34,13 +37,18 @@ public class MyPageApi {
     @GetMapping("/invest")
     public String investList(@AuthenticationPrincipal UserInfo userInfo, Model model) {
         List<InvestModel> invests = investService.findAllInvested(userInfo.getSeq());
+        List<ApprovedLoanModel> approvedLoanModels = approvedLoanService.findMyPageApproved(invests);
+        List<LoanModel> loanModels = loanService.findMyPageLoan(approvedLoanModels);
         model.addAttribute("invests", invests);
+        model.addAttribute("approveds", approvedLoanModels);
+        model.addAttribute("loans", loanModels);
         // 다른거 끌고 오기
         return "mypage/investList";
     }
 
+
     @PostMapping("/repay/{id}")
-    public String repay(@PathVariable("id") Long loan_id, ApprovedLoanDto approvedLoanDto){
+    public String repay(@PathVariable("id") Long loan_id, ApprovedLoanDto approvedLoanDto) {
 
         approvedLoanService.updateRepayment(loan_id, approvedLoanDto.getRepayment());
 
