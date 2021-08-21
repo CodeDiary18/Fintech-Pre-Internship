@@ -1,19 +1,14 @@
 package com.example.hackathon.controller;
 
 import com.example.hackathon.dto.ApprovedLoanDto;
+import com.example.hackathon.dto.UserInfoDto;
 import com.example.hackathon.entity.*;
-import com.example.hackathon.service.ApprovedLoanService;
-import com.example.hackathon.service.InvestService;
-import com.example.hackathon.service.LoanService;
-import com.example.hackathon.service.MyPageService;
+import com.example.hackathon.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -31,6 +26,7 @@ public class MyPageApi {
     private final LoanService loanService;
     private final ApprovedLoanService approvedLoanService;
     private final MyPageService myPageService;
+    private final UserService userService;
 
     @GetMapping("/loan")
     public String loanList(@AuthenticationPrincipal UserInfo userInfo, Model model) {
@@ -54,17 +50,28 @@ public class MyPageApi {
         return "mypage/investList";
     }
 
-
+    @PostMapping("/fill-balance")
+    public String fillBalance(UserInfoDto userInfoDto,
+                              @AuthenticationPrincipal UserInfo userInfo,
+                              HttpServletResponse response) throws IOException{
+        response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        //잔액 증가
+        userService.updateBalance(userInfo.getSeq(),userInfoDto.getBalance(),"+");
+        out.println("<script>alert('충전이 성공적으로 처리되었습니다.'); location.href='/mypage'</script>");
+        out.flush();
+        return "";
+    }
     @PostMapping("/repay/{id}")
     public String repay(@PathVariable("id") Long loan_id, ApprovedLoanDto approvedLoanDto,
-                        HttpServletResponse response) throws IOException{
+                        HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
 
         // 1:모인금액 범위 안에서 상환 완료, 0:상환할 금액이 없음, -1:범위 초과해서 상환함
         int result = approvedLoanService.updateRepayment(loan_id, approvedLoanDto);
-        switch(result){
+        switch (result) {
             case 1:
                 out.println("<script>alert('상환이 성공적으로 처리되었습니다.'); location.href='/mypage'</script>");
                 break;
