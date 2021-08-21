@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>투자목록</title>
 </head>
 <body>
+<!-- 메뉴바 -->
+<div th:replace="fragments/common :: navbar"></div>
+
 <table>
     <h2>InvestModel</h2>
     <thead>
@@ -19,7 +22,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="invest : ${invests}"; th:each="">
+    <tr th:each="invest : ${invests}">
 <!--        <td th:text="${invest.seq}"></td>-->
         <td th:text="${invest.userId}"></td>
         <td th:text="${invest.invId}"></td>
