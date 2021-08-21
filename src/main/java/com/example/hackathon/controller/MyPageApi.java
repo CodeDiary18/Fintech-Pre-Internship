@@ -1,13 +1,11 @@
 package com.example.hackathon.controller;
 
 import com.example.hackathon.dto.ApprovedLoanDto;
-import com.example.hackathon.entity.ApprovedLoanModel;
-import com.example.hackathon.entity.InvestModel;
-import com.example.hackathon.entity.LoanModel;
-import com.example.hackathon.entity.UserInfo;
+import com.example.hackathon.entity.*;
 import com.example.hackathon.service.ApprovedLoanService;
 import com.example.hackathon.service.InvestService;
 import com.example.hackathon.service.LoanService;
+import com.example.hackathon.service.MyPageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -20,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
@@ -30,6 +30,7 @@ public class MyPageApi {
     private final InvestService investService;
     private final LoanService loanService;
     private final ApprovedLoanService approvedLoanService;
+    private final MyPageService myPageService;
 
     @GetMapping("/loan")
     public String loanList(@AuthenticationPrincipal UserInfo userInfo, Model model) {
@@ -44,13 +45,18 @@ public class MyPageApi {
 
     @GetMapping("/invest")
     public String investList(@AuthenticationPrincipal UserInfo userInfo, Model model){
-        List<InvestModel> invests = investService.findAllInvested(userInfo.getSeq());
-        List<ApprovedLoanModel> approvedLoanModels = approvedLoanService.findMyPageApproved(invests);
+
+
+        List<InvestModel> myInvests = investService.findAllInvested(userInfo.getSeq());
+       /* List<ApprovedLoanModel> approvedLoanModels = approvedLoanService.findMyPageApproved(invests);
         List<LoanModel> loanModels = loanService.findMyPageLoan(approvedLoanModels);
         model.addAttribute("invests", invests);
         model.addAttribute("approveds", approvedLoanModels);
-        model.addAttribute("loans", loanModels);
-        // 다른거 끌고 오기
+        model.addAttribute("loans", loanModels);*/
+
+        List<MyInvestedModel> invests = myPageService.extend(myInvests);
+        model.addAttribute("invests", invests);
+
         return "mypage/investList";
     }
 
