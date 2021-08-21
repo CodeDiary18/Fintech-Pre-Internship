@@ -39,7 +39,12 @@
         <td th:text="${loan.reasonForLoan}"></td>
         <td th:text="${loan.loanAt}"></td>
         <td th:text="${loan.permit}"></td>
-
+        <td>
+            <form th:action="@{/mypage/repay/{id}(id = ${loan.seq})}" method="POST">
+                <input type="number" name="repayment">
+                <button type="submit">상환하기</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
