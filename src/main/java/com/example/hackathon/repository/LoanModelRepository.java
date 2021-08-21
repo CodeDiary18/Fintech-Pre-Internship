@@ -13,4 +13,6 @@ public interface LoanModelRepository extends JpaRepository<LoanModel, Long> {
     LoanModel findByUserId(Long userId);
 
     LoanModel findFirstByUserIdOrderByLoanAtDesc(Long userId);
+
+    LoanModel findBySeq(Long seq);
 }

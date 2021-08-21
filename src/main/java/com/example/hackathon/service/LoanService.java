@@ -1,12 +1,14 @@
 package com.example.hackathon.service;
 
 import com.example.hackathon.dto.LoanDto;
+import com.example.hackathon.entity.ApprovedLoanModel;
 import com.example.hackathon.entity.LoanModel;
 import com.example.hackathon.repository.LoanModelRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -78,7 +80,7 @@ public class LoanService {
         return loanModelRepository.findAll();
     }
 
-    public List<LoanModel> findUserLoans(Long userId){
+    public List<LoanModel> findUserLoans(Long userId) {
         return loanModelRepository.findAllByUserIdOrderByLoanAtDesc(userId);
     }
 
@@ -90,5 +92,15 @@ public class LoanService {
 
     public LoanModel findLoan(Long loan_id) {
         return loanModelRepository.findById(loan_id).orElseThrow();
+    }
+
+    public List<LoanModel> findMyPageLoan(List<ApprovedLoanModel> approvedLoanModels) {
+        List<LoanModel> loanModels = new ArrayList<>();
+        for (ApprovedLoanModel approvedLoanModel : approvedLoanModels) {
+//            investModel.getInvId(); // 투자한 객체 번호
+            LoanModel temp = loanModelRepository.findBySeq(approvedLoanModel.getLoanId());
+            loanModels.add(temp);
+        }
+        return loanModels;
     }
 }
