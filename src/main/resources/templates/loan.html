@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
+    <title>대출</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="header">
+    <div id="nav">
+        <a href="/">
+            <img id="logo" src="img/Artboard Copy 10@3x.png" height="35">
+        </a>
+        <ul id="menu">
+            <li><a href="/loan">대출하기</a></li>
+            <li><a href="/invest">투자하기</a></li>
+            <li><a sec:authorize="isAuthenticated()" href="/mypage">마이페이지</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/signup">회원가입</a></li>
+            <li><a sec:authorize="isAnonymous()" href="/login">로그인</a></li>
+            <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">관리자</a></li>
+            <li><a sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/logout">로그아웃</a></li>
+        </ul>
+    </div>
+</div>
+<hr class="one">
+
+<h1>대출 신청 페이지</h1>
+<form th:action="@{/loan-apply}" method="POST">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    agency :
+    <input type="radio" id="af" name="agency" checked="checked" value="false" onchange="setDisplay()">개인
+    <input type="radio" id="at" name="agency" value="true" onchange="setDisplay()">소속<br>
+    <div id="agencyF">
+        사업자 번호 : <input type="text" name="businessNumber"> <br>
+        사업자명 : <input type="text" name="businessName"> <br>
+    </div>
+    <div id="agencyT" style="display: none">
+        소속 회사명 : <input type="text" name="companyName"> <br>
+        정산일 : <input type="text" name="companyPayday"> <br>
+    </div>
+    채널 주소 ("https://www.youtube.com/channel/..." 뒤의 키): <input type="text" name="channelAddress">
+    채널 이름 : <input type="text" name="channelName"><br>
+    카테고리 : <input type="text" name="loanCategory"> <br>
+    대출 상세 사유 : <input type="text" name="reasonForLoan"> <br>
+    희망 대출 금액 : <input type="number" name="loanAmount"> <br>
+    상환 날짜 : <input type="date" name="repayAt"> <br>
+    <button type="submit">신청</button>
+</form>
+
+<!-- Javascript -->
+<script type="text/javascript" th:src="@{/js/func.js}"></script>
+</body>
+</html>
