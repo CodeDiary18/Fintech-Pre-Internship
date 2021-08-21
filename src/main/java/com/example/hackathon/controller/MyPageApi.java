@@ -5,6 +5,7 @@ import com.example.hackathon.dto.UserInfoDto;
 import com.example.hackathon.entity.*;
 import com.example.hackathon.service.*;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +51,13 @@ public class MyPageApi {
         return "mypage/investList";
     }
 
+    @GetMapping("/balance")
+    public String balance(@AuthenticationPrincipal UserInfo userInfo, Model model) {
+        UserInfo user = userService.findUser(userInfo.getSeq());
+        model.addAttribute("userInfo", user);
+        return "mypage/balance";
+    }
+
     @PostMapping("/fill-balance")
     public String fillBalance(UserInfoDto userInfoDto,
                               @AuthenticationPrincipal UserInfo userInfo,
@@ -58,7 +66,7 @@ public class MyPageApi {
         PrintWriter out = response.getWriter();
         //잔액 증가
         userService.updateBalance(userInfo.getSeq(),userInfoDto.getBalance(),"+");
-        out.println("<script>alert('충전이 성공적으로 처리되었습니다.'); location.href='/mypage'</script>");
+        out.println("<script>alert('충전이 성공적으로 처리되었습니다.'); location.href='/mypage/balance'</script>");
         out.flush();
         return "";
     }
