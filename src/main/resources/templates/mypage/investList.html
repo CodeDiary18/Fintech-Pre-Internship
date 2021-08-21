@@ -19,7 +19,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="invest : ${invests}">
+    <tr th:each="invest : ${invests}"; th:each="">
 <!--        <td th:text="${invest.seq}"></td>-->
         <td th:text="${invest.userId}"></td>
         <td th:text="${invest.invId}"></td>
@@ -65,7 +65,6 @@
     <tbody>
     <tr th:each="loan : ${loans}">
         <td th:text="${loan.seq}"></td>
-        <td th:text="${loan.loanId}"></td>
         <td th:text="${loan.agency}"></td>
         <td th:text="${loan.channelName}"></td>
     </tr>
