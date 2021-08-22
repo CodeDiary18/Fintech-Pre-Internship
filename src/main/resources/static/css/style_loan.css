@@ -1,3 +1,4 @@
+
 /* 박스 슬라이더 */
 
 * {
@@ -122,6 +123,7 @@
  */
 
 
+
 /* 박스 안 내용 */
 
 
@@ -196,6 +198,7 @@ span {
     float: left;
 }
 
+     
 
 #name input {
     margin-top: 20px;
@@ -210,6 +213,7 @@ span {
     margin-bottom: 20px;
 }
 
+    
 
 #email input, #etc input {
     width: 92%;
@@ -287,65 +291,51 @@ span {
     margin-left: 5px;
 }
 
-p {
-    text-align: left;
-}
+    p{
+        text-align: left;
+    }
 
-#agreePhone input, #agreePhone p, #agreeinfo input, #agreeinfo p, #pw p, #agreeinfo2 input, #agreeinfo3 input, #agreeinfo3 p, #bank p {
-    font-family: 'NanumSquare';
-    font-size: 10px;
-    color: #828282;
-    font-weight: normal;
-    float: left;
+    #agreePhone input, #agreePhone p, #agreeinfo input, #agreeinfo p, #pw p, #agreeinfo2 input, #agreeinfo3 input, #agreeinfo3 p, #bank p {
+        font-family: 'NanumSquare';
+        font-size: 10px;
+        color: #828282;
+        font-weight: normal;
+        float: left;
+        
+    }
 
-}
-
-.agree1 {
-    margin-right: 20px;
-    margin-left: 8px;
-
-}
-
-#agreePhone {
-    margin-top: 10px;
-}
-
-.agree2 {
-    margin-left: 190px;
-}
-
-
-#name p, #email p {
-    margin-top: 40px;
-}
+    .agree1 {
+        margin-right: 20px;
+        margin-left:8px;
+    
+    }
+    #agreePhone {
+        margin-top:10px;
+    }
+    
+    .agree2 {
+        margin-left: 190px;
+    }
 
 
-/* 개인,법인 */
-#agencyF, #agencyT, #agencyF p, #agencyT p {
-    float: left;
-}
+    #name p, #email p{
+        margin-top: 40px;
+    }
+    
 
-#agencyF input, #agencyT input {
-    float: right;
-}
+    /* 개인,법인 */
+    #agencyF, #agencyT, #agencyF p, #agencyT p {
+        float: left;
+    }
 
-#agencyF, #agencyT {
-    width: 100%;
-}
+    #agencyF input, #agencyT input {
+        float: right;
+    }
 
-select {
-    width: 100%;
-    font-family: 'NanumSquare';
-    font-size: 12px;
-    font-weight: lighter;
-    line-height: 1.5;
-    color: black;
-    background-color: #fff;
+    #agencyF, #agencyT {
+        width: 100%;
+    }
 
-    padding: 10px 12px 10px 12px;
-    margin: 0;
+   
 
-    border: 1px solid #aaa;
-    border-radius: 0.5em;
-    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
-}
+    

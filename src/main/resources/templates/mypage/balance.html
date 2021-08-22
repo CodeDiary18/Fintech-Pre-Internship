@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="ko">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
+    <link th:href="@{/css/style_mypage.css}" rel="stylesheet"/>
     <title>잔액 조회,충전</title>
 </head>
 <body>
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
+
+<div id="top_bar">
+    나의 전용계좌 입금
+</div>
+
+<div id="manu_box">
+    <div class="c_menu">
+        <a href="/mypage/invest">나의 투자상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/loan">나의 대출상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/balance">나의 전용계좌 입금하기</a>
+    </div>
+</div>
+
 
 <h2>내 잔액</h2>
 <h th:text="${userInfo.balance}"></h>

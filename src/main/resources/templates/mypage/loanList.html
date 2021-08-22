@@ -1,60 +1,61 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
+    <link th:href="@{/css/style_mypage.css}" rel="stylesheet"/>
     <title>대출목록</title>
 </head>
 <body>
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
 
-<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>대출 번호</th>
-        <th>사업자번호</th>
-        <th>사업자명</th>
-        <th>회사명</th>
-        <th>회사지급일</th>
-        <th>채널주소</th>
-        <th>채널명</th>
-        <th>카테고리</th>
-        <th>대출사유</th>
-        <th>대출금액</th>
-        <th>대출날짜</th>
-        <th>상환날짜</th>
-        <th>모인금액</th>
-        <th>상환금액</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="loan : ${loans}">
-        <td th:text="${loan.seq}"></td>
-        <td th:text="${loan.businessNumber}"></td>
-        <td th:text="${loan.businessName}"></td>
-        <td th:text="${loan.companyName}"></td>
-        <td th:text="${loan.companyPayday}"></td>
-        <td th:text="${loan.channelAddress}"></td>
-        <td th:text="${loan.channelName}"></td>
-        <td th:text="${loan.category}"></td>
-        <td th:text="${loan.reasonForLoan}"></td>
-        <td th:text="${loan.loanAmount}"></td>
-        <td th:text="${loan.loanAt}"></td>
-        <td th:text="${loan.repayAt}"></td>
-        <td th:text="${loan.collectedAmount}"></td>
-        <td th:text="${loan.repayment}"></td>
 
-        <td>
-            <form th:action="@{/mypage/repay/{id}(id = ${loan.seq})}" method="POST">
-                <input type="number" name="repayment">
-                <button type="submit">상환하기</button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div id="top_bar">
+    나의 대출상품
+</div>
 
+<div id="manu_box">
+    <div class="c_menu">
+        <a href="/mypage/invest">나의 투자상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/loan">나의 대출상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/balance">나의 전용계좌 입금하기</a>
+    </div>
+</div>
+
+<div id="all">
+    <div id="mainall">
+        <tr th:each="loan : ${loans}">
+            <div id="listbox1">
+                <div id="seq">
+                    <a style="color: blue; font-weight: bold;">상품코드&nbsp; </a>
+                    #
+                    <text th:text="${loan.seq}"></text>
+                    <span th:if="${loan.permit} == '1'">승인</span>
+                    <span th:if="${loan.permit} == '0'">대기</span>
+                    <span th:if="${loan.permit} == '-1'">거절</span>
+                </div>
+                <div id="listname1_1">
+                    <text th:text="${loan.reasonForLoan}"></text>
+                </div>
+                <div id="investAt">
+                    <a style="color: blue; font-weight: bold;">상환 날짜&nbsp;</a>
+                    <text th:text="${loan.repayAt}"></text>
+                </div>
+                <form th:action="@{/mypage/repay/{id}(id = ${loan.seq})}" method="POST">
+                    <input type="number" class="form-control" name="repayment">
+                    <button type="submit" class="btn btn-outline-dark">상환하기</button>
+                </form>
+            </div>
+            <br><br>
+        </tr>
+        <br>
+    </div>
+</div>
 
 </body>
 </html>

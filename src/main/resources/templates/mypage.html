@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-      xmlns:th="http://www.w3.org/1999/xhtml">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
+    <link th:href="@{/css/style_mypage.css}" rel="stylesheet"/>
     <title>마이페이지</title>
 </head>
 <body>
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
 
-<h2>회원 전용 페이지</h2>
-이름: <span sec:authentication="principal.name"></span> <br>
-소유 권한 : <span sec:authentication="authorities"></span> <br>
-(ID) <span sec:authentication="name"></span> <br>
+<div id="top_bar">
+    마이페이지
+</div>
 
-<form id="logout" action="/logout" method="POST">
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-    <input type="submit" value="로그아웃"/>
-    <br>
-    <input type="button" value="대출리스트" onClick="location.href='/mypage/loan'">
-    <input type="button" value="투자리스트" onClick="location.href='/mypage/invest'">
-    <input type="button" value="잔액조회/충전하기" onClick="location.href='/mypage/balance'">
-</form>
-<br>
+<div id="manu_box">
+    <div class="c_menu">
+        <a href="/mypage/invest">나의 투자상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/loan">나의 대출상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/balance">나의 전용계좌 입금하기</a>
+    </div>
+</div>
 
 
 

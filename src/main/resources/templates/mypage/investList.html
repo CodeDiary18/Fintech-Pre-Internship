@@ -1,67 +1,55 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="ko">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
+    <link th:href="@{/css/style_mypage.css}" rel="stylesheet"/>
     <title>투자목록</title>
 </head>
 <body>
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
 
-<table>
+<div id="top_bar">
+    나의 투자상품
+</div>
 
-    <thead>
-    <tr>
-        <!--        <th>#</th>-->
-        <th>seq</th>
-        <th>userId</th>
-        <th>invId</th>
-        <th>invAmount</th>
-        <th>investAt</th>
-        <th>collectedAmount</th>
-        <th>repayment</th>
-        <th>businessNumber</th>
-        <th>businessName</th>
-        <th>companyName</th>
-        <th>companyPayday</th>
-        <th>channelAddress</th>
-        <th>channelName</th>
-        <th>category</th>
-        <th>reasonForLoan</th>
-        <th>loanAmount</th>
-        <th>loanAt</th>
-        <th>repayAt</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="invest : ${invests}">
-<!--        <td th:text="${invest.seq}"></td>-->
-        <td th:text="${invest.seq}"></td>
-        <td th:text="${invest.userId}"></td>
-        <td th:text="${invest.invId}"></td>
-        <td th:text="${invest.invAmount}"></td>
-        <td th:text="${invest.investAt}"></td>
-        <td th:text="${invest.collectedAmount}"></td>
-        <td th:text="${invest.repayment}"></td>
-        <td th:text="${invest.businessNumber}"></td>
-        <td th:text="${invest.businessName}"></td>
-        <td th:text="${invest.companyName}"></td>
-        <td th:text="${invest.companyPayday}"></td>
-        <td th:text="${invest.channelAddress}"></td>
-        <td th:text="${invest.channelName}"></td>
-        <td th:text="${invest.category}"></td>
-        <td th:text="${invest.reasonForLoan}"></td>
-        <td th:text="${invest.loanAmount}"></td>
-        <td th:text="${invest.loanAt}"></td>
-        <td th:text="${invest.repayAt}"></td>
+<div id="manu_box">
+    <div class="c_menu">
+        <a href="/mypage/invest">나의 투자상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/loan">나의 대출상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/balance">나의 전용계좌 입금하기</a>
+    </div>
+</div>
 
-    </tr>
-    </tbody>
-</table>
-
-
-
+<!-- 투자목록 -->
+<div id="all">
+    <div id="mainall">
+        <tr th:each="invest : ${invests}">
+            <div id="listbox1">
+                <br>
+                <div id="seq">
+                    <a th:href="${'/invest-details/' + invest.invId}">상품 바로가기&nbsp; </a>&nbsp;
+                </div>
+                <div id="listname1_1">
+                    <text th:text="${invest.reasonForLoan}"></text>
+                </div>
+                <div id="investAt">
+                    <a style="color: blue; font-weight: bold;">투자한 날짜&nbsp;</a>
+                    <text th:text="${#temporals.format(invest.investAt,'yyyy-MM-dd')}"></text>&nbsp;&nbsp;
+                    <a style="color: blue; font-weight: bold;">투자한 금액&nbsp;</a>
+                    <text th:text="${#numbers.formatInteger(invest.invAmount,0,'COMMA')}"></text>&nbsp;&nbsp;
+                </div>
+            </div>
+            <br>
+        </tr>
+        <br>
+    </div>
+</div>
 
 </body>
 </html>
