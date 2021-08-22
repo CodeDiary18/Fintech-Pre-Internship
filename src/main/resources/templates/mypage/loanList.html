@@ -52,6 +52,8 @@
     <tbody>
     <tr th:each="loan : ${loans}">
         <td th:text="${loan.seq}"></td>
+        <td th:text="${loan.permit}"></td>
+
         <td th:text="${loan.businessNumber}"></td>
         <td th:text="${loan.businessName}"></td>
         <td th:text="${loan.companyName}"></td>
@@ -59,11 +61,15 @@
         <td th:text="${loan.channelAddress}"></td>
         <td th:text="${loan.channelName}"></td>
         <td th:text="${loan.category}"></td>
+
         <td th:text="${loan.reasonForLoan}"></td>
+
         <td th:text="${loan.loanAmount}"></td>
         <td th:text="${loan.loanAt}"></td>
         <td th:text="${loan.repayAt}"></td>
+
         <td th:text="${loan.collectedAmount}"></td>
+
         <td th:text="${loan.repayment}"></td>
 
         <td>

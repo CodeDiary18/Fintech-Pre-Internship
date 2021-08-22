@@ -22,14 +22,16 @@ public class MyLoanedModel {
     private Long loanAmount;
     private LocalDateTime loanAt;
     private Date repayAt;
+    private int permit;
 
     private Long collectedAmount;
     private Long repayment;
 
+
     public MyLoanedModel(Long seq, String businessNumber,
                          String businessName, String companyName, String companyPayday,
                          String channelAddress, String channelName, String category,
-                         String reasonForLoan, Long loanAmount, LocalDateTime loanAt, Date repayAt) {
+                         String reasonForLoan, Long loanAmount, LocalDateTime loanAt, Date repayAt, int permit) {
         this.seq = seq;
         //this.agency = agency;
         this.businessNumber = businessNumber;
@@ -43,5 +45,6 @@ public class MyLoanedModel {
         this.loanAmount = loanAmount;
         this.loanAt = loanAt;
         this.repayAt = repayAt;
+        this.permit = permit;
     }
 }
