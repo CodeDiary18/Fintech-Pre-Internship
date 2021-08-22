@@ -19,7 +19,7 @@ public class CrawlSchedule {
     private final CrawledModelRepository crawledModelRepository;
     private final LoanModelRepository loanModelRepository;
 
-    @Scheduled(fixedDelay = 180000)
+    @Scheduled(fixedDelay = 600000)
     public void crawlSchedule() throws IOException {
         List<CrawledModel> crawledModels = crawledModelRepository.findAll();
         for(CrawledModel crawledModel:crawledModels){

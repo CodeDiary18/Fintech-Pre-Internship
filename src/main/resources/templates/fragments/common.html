@@ -19,7 +19,7 @@
                 <li><a sec:authorize="isAuthenticated()" href="/mypage">마이페이지</a></li>
                 <li><a sec:authorize="isAnonymous()" href="/signup">회원가입</a></li>
                 <li><a sec:authorize="isAnonymous()" href="/login">로그인</a></li>
-                <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">관리자</a></li>
+                <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin/loan-list">관리자</a></li>
                 <li><a sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/logout">로그아웃</a></li>
             </ul>
         </div>
