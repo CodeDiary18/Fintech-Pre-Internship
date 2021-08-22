@@ -32,7 +32,7 @@ form.box input[type=text] {
     height: 25px;
     padding-left: 20px;
     padding-top: 10px;
-    padding-bottom:10px;
+    padding-bottom: 10px;
     border-radius: 15px 0 0 15px;
     font-family: 'NanumSquare';
     border: none;
@@ -76,28 +76,29 @@ form.box input[type=text] {
     justify-content: center;
 }
 
-.c_menu{
+.c_menu {
     width: 35%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.c_menu a{
+.c_menu a {
     font-family: paybooc-Medium;
     font-size: 18px;
     list-style: none;
-    color:black;
+    color: black;
     text-decoration: none;
 }
-.c_menu a:hover{
+
+.c_menu a:hover {
     color: blue;
     font-weight: bold;
 }
 
 
 #product_manu {
-    margin-left:77px;
+    margin-left: 77px;
     margin-top: -10px;
     list-style: none;
     float: left;
@@ -106,7 +107,7 @@ form.box input[type=text] {
 }
 
 #product_manu li {
-    float:left;
+    float: left;
     position: relative;
     padding-right: 75px;
     font-size: 14px;
@@ -175,7 +176,7 @@ form.box input[type=text] {
     color: #404041;
 }
 
-#seq a{
+#seq a {
     text-align: left;
     margin-top: 10px;
     margin-left: 20px;
@@ -189,14 +190,14 @@ form.box input[type=text] {
 }
 
 #icon1_1 {
-    margin-left:-1338px;
+    margin-left: -1338px;
     margin-top: 13px;
 }
 
 #listname1_1 {
     margin-left: 60px;
     margin-top: 18px;
-    float:left;
+    float: left;
     position: relative;
     font-size: 15px;
     font-family: 'paybooc-ExtraBold';
@@ -205,7 +206,7 @@ form.box input[type=text] {
 }
 
 #product_link {
-    margin-left:867px;
+    margin-left: 867px;
     margin-top: -56px;
     position: relative;
     font-size: 14px;
@@ -215,7 +216,7 @@ form.box input[type=text] {
 }
 
 #recruitment {
-    margin-left:-948px;
+    margin-left: -948px;
     margin-top: 55px;
     position: relative;
     font-size: 14px;
@@ -255,15 +256,16 @@ form.box input[type=text] {
     box-shadow: 0px 0px 5px #d8d8d8;
     border-radius: 14px;
 }
+
 #icon1_2 {
-    margin-left:-1347px;
+    margin-left: -1347px;
     margin-top: 13px;
 }
 
 #listname1_2 {
     margin-left: 62px;
     margin-top: 18px;
-    float:left;
+    float: left;
     position: relative;
     font-size: 15px;
     font-family: 'paybooc-ExtraBold';
@@ -282,15 +284,16 @@ form.box input[type=text] {
     box-shadow: 0px 0px 5px #d8d8d8;
     border-radius: 14px;
 }
+
 #icon1_3 {
-    margin-left:-1290px;
+    margin-left: -1290px;
     margin-top: 13px;
 }
 
 #listname1_3 {
     margin-left: 60px;
     margin-top: 18px;
-    float:left;
+    float: left;
     position: relative;
     font-size: 15px;
     font-family: 'paybooc-ExtraBold';
@@ -309,18 +312,43 @@ form.box input[type=text] {
     box-shadow: 0px 0px 5px #d8d8d8;
     border-radius: 14px;
 }
+
 #icon1_4 {
-    margin-left:-1398px;
+    margin-left: -1398px;
     margin-top: 13px;
 }
 
 #listname1_4 {
     margin-left: 60px;
     margin-top: 18px;
-    float:left;
+    float: left;
     position: relative;
     font-size: 15px;
     font-family: 'paybooc-ExtraBold';
     font-weight: normal;
     color: #404041;
+}
+
+
+.balance {
+    margin-top: 150px;
+    width: 1088px;
+    height: 120px;
+    background-color: white;
+    position: absolute;
+    margin-left: 150px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.balance text {
+    font-family: paybooc-Medium;
+    font-size: 18px;
+    list-style: none;
+    color: black;
+    text-decoration: none;
 }
