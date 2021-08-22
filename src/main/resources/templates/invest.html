@@ -58,11 +58,8 @@
 <!-- 홈 메인 -->
 <div id="all">
     <div id="mainall">
-
                 <tr th:each="loan : ${loans}">
-
                         <div id="listbox1">
-
                             <br>
                             <div id="seq">
                                 <a style="color: blue; font-weight: bold;">상품코드&nbsp; </a>
@@ -72,22 +69,12 @@
                             <div id="listname1_1">
                                 <text th:text="${loan.reasonForLoan}"></text>
                             </div>
-
                             <div id="investAt">
                                 <a style="color: blue; font-weight: bold;">상환 날짜&nbsp;</a>
                                 <text th:text="${loan.repayAt}"></text>
                             </div>
-                        </div>
-                        <br>
-                </tr>
-                <br>
-
-
-
-
-
-
-
+                        </div><br>
+                </tr><br>
     </div>
 </div>
 </body>
