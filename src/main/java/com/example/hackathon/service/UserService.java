@@ -65,4 +65,20 @@ public class UserService implements UserDetailsService {
                 .signAt(infoDto.getSignAt())
                 .build()).getSeq();
     }
+
+    public void updateBalance(Long seq, Long amount, String by) {
+
+        UserInfo userInfo = userRepository.findById(seq).orElseThrow();
+        Long now = userInfo.getBalance();
+        if(by.equals("-")) {
+            userInfo.setBalance(now - amount);
+        } else if (by.equals("+")) {
+            userInfo.setBalance(now + amount);
+        }
+        userRepository.save(userInfo);
+    }
+
+    public UserInfo findUser(Long seq) {
+        return userRepository.findById(seq).orElseThrow();
+    }
 }

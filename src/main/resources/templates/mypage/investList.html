@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
+    <div th:replace="fragments/common :: common_head"></div>
     <title>투자목록</title>
 </head>
 <body>
+<!-- 메뉴바 -->
+<div th:replace="fragments/common :: navbar"></div>
 
 <table>
+
     <thead>
     <tr>
-        <th>#</th>
-        <th>대출 번호</th>
-        <th>사용자 번호</th>
-        <th>소속여부</th>
-        <th>사업자번호</th>
-        <th>사업자명</th>
-        <th>회사명</th>
-        <th>회사지급일</th>
-        <th>채널주소</th>
-        <th>카테고리</th>
-        <th>대출사유</th>
-        <th>대출날짜</th>
-        <th>승인여부</th>
-        <th>크롤링여부</th>
+        <!--        <th>#</th>-->
+        <th>seq</th>
+        <th>userId</th>
+        <th>invId</th>
+        <th>invAmount</th>
+        <th>investAt</th>
+        <th>collectedAmount</th>
+        <th>repayment</th>
+        <th>businessNumber</th>
+        <th>businessName</th>
+        <th>companyName</th>
+        <th>companyPayday</th>
+        <th>channelAddress</th>
+        <th>channelName</th>
+        <th>category</th>
+        <th>reasonForLoan</th>
+        <th>loanAmount</th>
+        <th>loanAt</th>
+        <th>repayAt</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="invest : ${invests}, loan : ${loans}">
+    <tr th:each="invest : ${invests}">
+<!--        <td th:text="${invest.seq}"></td>-->
+        <td th:text="${invest.seq}"></td>
         <td th:text="${invest.userId}"></td>
+        <td th:text="${invest.invId}"></td>
+        <td th:text="${invest.invAmount}"></td>
+        <td th:text="${invest.investAt}"></td>
+        <td th:text="${invest.collectedAmount}"></td>
+        <td th:text="${invest.repayment}"></td>
+        <td th:text="${invest.businessNumber}"></td>
+        <td th:text="${invest.businessName}"></td>
+        <td th:text="${invest.companyName}"></td>
+        <td th:text="${invest.companyPayday}"></td>
+        <td th:text="${invest.channelAddress}"></td>
+        <td th:text="${invest.channelName}"></td>
+        <td th:text="${invest.category}"></td>
+        <td th:text="${invest.reasonForLoan}"></td>
+        <td th:text="${invest.loanAmount}"></td>
+        <td th:text="${invest.loanAt}"></td>
+        <td th:text="${invest.repayAt}"></td>
 
     </tr>
     </tbody>
 </table>
+
 
 
 

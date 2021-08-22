@@ -4,10 +4,7 @@ import com.example.hackathon.dto.InvestDto;
 import com.example.hackathon.entity.ApprovedLoanModel;
 import com.example.hackathon.entity.LoanModel;
 import com.example.hackathon.entity.UserInfo;
-import com.example.hackathon.service.ApprovedLoanService;
-import com.example.hackathon.service.Crawl;
-import com.example.hackathon.service.InvestService;
-import com.example.hackathon.service.LoanService;
+import com.example.hackathon.service.*;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -29,7 +26,7 @@ public class InvestController {
     private final LoanService loanService;
     private final Crawl crawl;
     private final ApprovedLoanService approvedLoanService;
-
+    private final UserService userService;
 
     @GetMapping("/invest")
     public String investList(Model model) {
@@ -65,8 +62,11 @@ public class InvestController {
             investDto.setInvId(temp.getLoanId());
             investDto.setUserId(userInfo.getSeq());
             investService.apply(investDto);
+            //투자자의 잔액 차감
+            userService.updateBalance(userInfo.getSeq(), investDto.getInvAmount(), "-");
             //승인된 대출 모인금액 갱신
             approvedLoanService.updateCollectedAmount(seq, investDto.getInvAmount());
+
             out.println("<script>alert('투자가 성공적으로 처리되었습니다.'); location.href='/mypage'</script>");
         } else {//투자금액 초과
             out.println("<script>alert('투자 금액을 초과했습니다.'); history.go(-1);</script>");

@@ -1,46 +1,162 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <link th:href="@{/css/style.css}" rel="stylesheet"/>
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
+    <div th:replace="fragments/common :: common_head"></div>
+    <link th:href="@{/css/style_signup.css}" rel="stylesheet"/>
     <title>회원가입</title>
 </head>
 <body>
-<div id="header">
-    <div id="nav">
-        <a href="/">
-            <img id="logo" src="img/Artboard Copy 10@3x.png" height="35">
-        </a>
-        <ul id="menu">
-            <li><a href="/loan">대출하기</a></li>
-            <li><a href="/invest">투자하기</a></li>
-            <li><a sec:authorize="isAuthenticated()" href="/mypage">마이페이지</a></li>
-            <li><a sec:authorize="isAnonymous()" href="/signup">회원가입</a></li>
-            <li><a sec:authorize="isAnonymous()" href="/login">로그인</a></li>
-            <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">관리자</a></li>
-            <li><a sec:authorize="hasAnyRole('ROLE_USER','ROLE_ADMIN')" href="/logout">로그아웃</a></li>
-        </ul>
+<!-- 메뉴바 -->
+<div th:replace="fragments/common :: navbar"></div>
+
+
+<div id="all_signup" >
+    <div id="main_content" margin>
+        <h1>회원가입</h1>
+
+
+        <h2>기본정보 입력</h2>
+
+
+        <form th:action="@{/signup}" method="POST">
+            <input type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER"> admin
+            <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user <br>
+
+            <div id="name">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041;">성명</p>
+                <input type="text" name="name" placeholder="실명입력"> <br>
+            </div>
+
+            <div id="socialNumber">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041;">주민등록번호</p>
+                <input type="text" class="ld-input-inner" name="socialNumber"> <br>
+            </div>
+
+            <div id="mobileNumber">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041;">휴대폰 번호</p>
+                <select class="form-control" id="Number000">
+                    <option value='SKT'>SKT</option>
+                    <option value='KT'>KT</option>
+                    <option value='LG U+'>LG U+</option>
+                    <option value='SKT 알뜰폰'>SKT 알뜰폰</option>
+                    <option value='KT 알뜰폰'>KT 알뜰폰</option>
+                    <option value='LG U+ 알뜰폰'>LG U+ 알뜰폰</option>
+                </select>
+                <input type="text" name="mobileNumber"  placeholder="전화번호">
+                <button id="mobileNumberRequest">인증요청</button> <br>
+            </div>
+
+            <div id="number000000">
+                <input maxlength="6" type="tel" autocomplete="off" class="ld-input-inner" name="number000000" placeholder="인증번호">
+                <button id="numberdone">인증완료</button> <br>
+            </div>
+
+
+
+            <div id="agreePhone">
+                <input type="checkbox" name="agreePhone" value="rgb(45, 107, 241);" unchecked>
+                <p class="agree1">휴대폰 인증 동의(필수)</p>
+                <p class="agree2">내용보기</p>
+            </div>
+
+            <br>
+            <br>
+
+            <div id="agreeinfo">
+                <input type="checkbox" name="agreeinfo" value="rgb(45, 107, 241);" unchecked>
+                <p class="agree1">개인정보 제공 동의(필수)</p>
+                <p class="agree3">내용보기</p>
+            </div>
+
+            <br>
+            <br>
+
+            <h2>가입정보 입력</h2>
+
+            <div id="email">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041;" >이메일</p> <br>
+                <input type="text" name="email" placeholder="로그인 ID로 이용됩니다."> <br>
+            </div>
+            <div id="pw">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041;" >비밀번호</p> <br>
+                <input type="password" name="password" placeholder="8자리 이상 입력"> <br>
+                <input type="password" placeholder="한번 더 입력">
+            </div>
+
+
+            <h2>이용약관 동의</h2>
+
+
+
+            <div id="agreeinfo2">
+                <input type="checkbox" name="agreeinfo" value="rgb(45, 107, 241);" checked>
+
+                <p class="agree1">약관 전체 동의</p>
+
+            </div>
+
+            <br>
+
+
+            <div id="agreeinfo3">
+                <hr color="#d8d8d8" size="1">
+                <input type="checkbox" name="agreeinfo" value="rgb(45, 107, 241);" unchecked>
+                <p class="agree1">(필수) 서비스 이용약관 동의</p>
+                <p class="agree3">보기</p>
+            </div>
+
+            <br>
+            <br>
+
+
+            <div id="agreeinfo3">
+                <input type="checkbox" name="agreeinfo" value="rgb(45, 107, 241);" unchecked>
+                <p class="agree1">(필수) 개인정보 수집,이용 동의</p>
+                <p class="agree4">보기</p>
+            </div>
+
+            <br>
+            <br>
+
+            <h2>정보 확인</h2>
+
+            <h3>주민등록증 또는 운전면허증 앞면사진을 촬영해 주세요</h3>
+
+            <div id="photoGuide">
+                <img id="photoEx" src="img/icon_주의.png" width="30px" height="30px">
+                <div id="camera">테두리 안에 신분증을 맞춰 촬영해주세요!</div>
+            </div>
+
+            <button id="photo">신분증 촬영하기</button> <br>
+
+
+            <h3>투자금 출금을 위한 계좌를 입력해 주세요</h3>
+            <div id="account">
+                <select class="form-control" id="bankName" name='bankName'>
+                    <option value='KEB하나은행'>KEB하나은행</option>
+                    <option value='우리은행'>우리은행</option>
+                    <option value='신한은행'>신한은행</option>
+                    <option value='국민은행'>국민은행</option>
+                    <option value='IBK기업은행'>IBK기업은행</option>
+                    <option value='NH농협은행'>NH농협은행</option>
+                </select>
+                <br>
+                <input type="text" name="account" placeholder="계좌번호 ('-'없이 숫자 입력)">
+                <button id="wonRequest">1원 송금 인증 요청</button> <br>
+            </div>
+
+            <button type="submit" id="btn_join">회원가입하기</button>
+
+
+        </form>
+
+
     </div>
+
+
+
 </div>
 
-<hr class="one">
-
-<h1>Sign Up</h1> <hr>
-
-<form th:action="@{/signup}" method="POST">
-    email : <input type="text" name="email"> <br>
-    password : <input type="password" name="password"> <br>
-    name : <input type="text" name="name"> <br>
-    social number : <input type="text" name="socialNumber"> <br>
-    mobile number : <input type="text" name="mobileNumber"> <br>
-    account : <input type="text" name="account"> <br>
-    <input type="radio" name="auth" value="ROLE_ADMIN,ROLE_USER"> admin
-    <input type="radio" name="auth" value="ROLE_USER" checked="checked"> user <br>
-    <button type="submit">Join</button>
-</form> <br>
-
-<a href="/login">Go to login →</a>
 
 </body>
 

@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface ApprovedLoanModelRepository extends JpaRepository<ApprovedLoanModel, Long> {
     ApprovedLoanModel findByLoanId(Long loan_id);
-
+    ApprovedLoanModel findBySeq(Long seq);
 }
