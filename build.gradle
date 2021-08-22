@@ -24,6 +24,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.5.3'
 
 	// 크롤링 관련 환경
 	implementation 'org.jsoup:jsoup:1.14.1'
