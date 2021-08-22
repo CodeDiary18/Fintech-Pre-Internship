@@ -58,16 +58,13 @@
     <tr th:each="invest : ${invests}">
 <!--        <td th:text="${invest.seq}"></td>-->
         <td th:text="${invest.seq}"></td>
-        <td th:text="${invest.userId}"></td>
         <td th:text="${invest.invId}"></td>
+
         <td th:text="${invest.invAmount}"></td>
         <td th:text="${invest.investAt}"></td>
+
         <td th:text="${invest.collectedAmount}"></td>
         <td th:text="${invest.repayment}"></td>
-        <td th:text="${invest.businessNumber}"></td>
-        <td th:text="${invest.businessName}"></td>
-        <td th:text="${invest.companyName}"></td>
-        <td th:text="${invest.companyPayday}"></td>
         <td th:text="${invest.channelAddress}"></td>
         <td th:text="${invest.channelName}"></td>
         <td th:text="${invest.category}"></td>

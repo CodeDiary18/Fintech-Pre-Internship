@@ -34,7 +34,7 @@ public class MyPageService {
                     ,myLoan.getBusinessName(), myLoan.getBusinessName(),
                     myLoan.getCompanyName(),myLoan.getCompanyPayday(),
                     myLoan.getChannelAddress(),myLoan.getChannelName(),myLoan.getCategory(),
-                    myLoan.getReasonForLoan(),myLoan.getLoanAmount(),myLoan.getLoanAt(),myLoan.getRepayAt());
+                    myLoan.getReasonForLoan(),myLoan.getLoanAmount(),myLoan.getLoanAt(),myLoan.getRepayAt(), myLoan.getPermit());
 
             //approved 필드 세팅
             ApprovedLoanModel approvedLoanModel = approvedLoanModelRepository.findByLoanId(loan_id);
