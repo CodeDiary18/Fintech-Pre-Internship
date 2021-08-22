@@ -4,6 +4,8 @@
 <head>
     <div th:replace="fragments/common :: common_head"></div>
     <link th:href="@{/css/style_mypage.css}" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>대출목록</title>
 </head>
 <body>
@@ -32,24 +34,29 @@
         <tr th:each="loan : ${loans}">
             <div id="listbox1">
                 <div id="seq">
-                    <a style="color: blue; font-weight: bold;">상품코드&nbsp; </a>
+                    <br>
+                    <a>상품코드&nbsp; </a>
                     #
                     <text th:text="${loan.seq}"></text>
-                    <span th:if="${loan.permit} == '1'">승인</span>
-                    <span th:if="${loan.permit} == '0'">대기</span>
-                    <span th:if="${loan.permit} == '-1'">거절</span>
+                    <span th:if="${loan.permit} == '1'" style="font-weight: bold;">승인</span>
+                    <span th:if="${loan.permit} == '0'" style="font-weight: bold;">대기</span>
+                    <span th:if="${loan.permit} == '-1'" style="font-weight: bold;">거절</span>
                 </div>
                 <div id="listname1_1">
                     <text th:text="${loan.reasonForLoan}"></text>
                 </div>
-                <div id="investAt">
-                    <a style="color: blue; font-weight: bold;">상환 날짜&nbsp;</a>
-                    <text th:text="${loan.repayAt}"></text>
-                </div>
-                <form th:action="@{/mypage/repay/{id}(id = ${loan.seq})}" method="POST">
-                    <input type="number" class="form-control" name="repayment">
-                    <button type="submit" class="btn btn-outline-dark">상환하기</button>
+                <form style="float: right; margin-top:5px; margin-right: 5px; height: 5px;"
+                      th:action="@{/mypage/repay/{id}(id = ${loan.seq})}" method="POST">
+                    <input type="number" name="repayment" style="border-radius: 8px;">
+                    <button type="submit" class="btn btn-primary btn-sm">상환하기</button>
                 </form>
+                <div id="investAt">
+                    <a style="color: blue; font-weight: bold;">신청 날짜&nbsp;</a>
+                    <text th:text="${#temporals.format(loan.loanAt,'yyyy-MM-dd')}"></text>&nbsp;&nbsp;
+                    <a style="color: blue; font-weight: bold;">상환 날짜&nbsp;</a>
+                    ~
+                    <text th:text="${loan.repayAt}"></text>&nbsp;&nbsp;
+                </div>
             </div>
             <br><br>
         </tr>
