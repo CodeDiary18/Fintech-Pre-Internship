@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
@@ -10,71 +9,78 @@
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
 
-<hr class="one">
-
 <!--상품 안내 상단 안내 바-->
 
 <div id="top_bar">
     <div id=searchbar>
 
-    <form class="box">
-        <input type="text" placeholder="원하시는 투자상품을 검색하세요">
-    </form>
+        <form class="box">
+            <input type="text" placeholder="원하시는 투자상품을 검색하세요">
+        </form>
 
-    <button id="btn1">
-        검색
-    </button>
+        <button id="btn1">
+            검색
+        </button>
     </div>
 </div>
 
 <!--투자상품 종목별 메뉴 바-->
 
 <div id="manu_box">
-    <img id="icon1" src="img/grinning-face_1f6001.png" width="35" height="35">
-    <img id="icon2" src="img/airplane_2708-fe0f.png" width="35" height="35">
-    <img id="icon2" src="img/person-bouncing-ball_26f9-fe0f.png" width="35" height="35">
-    <img id="icon2" src="img/musical-note_1f3b5.png" width="35" height="35">
-    <img id="icon2" src="img/artist-palette_1f3a8.png" width="35" height="35">
-    <img id="icon2" src="img/steaming-bowl_1f35c.png" width="35" height="35">
-    <img id="icon2" src="img/dog_1f415.png" width="35" height="35">
-    <img id="icon2" src="img/joystick_1f579-fe0f.png" width="35" height="35">
-    <img id="icon2" src="img/pencil_270f-fe0f.png" width="35" height="35">
-    <img id="icon2" src="img/clapping-hands_light-skin-tone_1f44f-1f3fb_1f3fb.png" width="35" height="35">
+    <img id="icon1" th:src="@{img/grinning-face_1f6001.png}" width="35" height="35">
+    <img class="icon2" th:src="@{img/airplane_2708-fe0f.png}" width="35" height="35">
+    <img class="icon2" th:src="@{img/person-bouncing-ball_26f9-fe0f.png}" width="35" height="35">
+    <img class="icon2" th:src="@{img/musical-note_1f3b5.png}" width="35" height="35">
+    <img class="icon2" th:src="@{img/artist-palette_1f3a8.png}" width="35" height="35">
+    <img class="icon2" th:src="@{img/steaming-bowl_1f35c.png}" width="35" height="35">
+    <img class="icon2" th:src="@{img/dog_1f415.png}" width="35" height="35">
+    <img class="icon2" th:src="@{img/joystick_1f579-fe0f.png}" width="35" height="35">
+    <img class="icon2" th:src="@{img/pencil_270f-fe0f.png}" width="35" height="35">
+    <img class="icon2" th:src="@{img/clapping-hands_light-skin-tone_1f44f-1f3fb_1f3fb.png}" width="35" height="35">
 
     <ul id="product_manu">
-        <li><a >개인</a></li>
-        <li><a style="color: blue; font-weight: bold;">여행</a></li>
-        <li><a >운동</a></li>
-        <li><a >음악</a></li>
-        <li><a >예술</a></li>
-        <li><a >요리</a></li>
-        <li><a >동물</a></li>
-        <li><a >게임</a></li>
-        <li><a >공부</a></li>
-        <li><a >기타</a></li>
+        <li><a>개인</a></li>
+        <li><a>여행</a></li>
+        <li><a>운동</a></li>
+        <li><a>음악</a></li>
+        <li><a>예술</a></li>
+        <li><a>요리</a></li>
+        <li><a>동물</a></li>
+        <li><a>게임</a></li>
+        <li><a>공부</a></li>
+        <li><a>기타</a></li>
     </ul>
 </div>
 
 <!-- 홈 메인 -->
 <div id="all">
     <div id="mainall">
-                <tr th:each="loan : ${loans}">
-                        <div id="listbox1">
-                            <br>
-                            <div id="seq">
-                                <a style="color: blue; font-weight: bold;">상품코드&nbsp; </a>
-                                #<text th:text="${loan.seq}"></text>
-                                <a th:href="${'/invest-details/' + loan.seq}">바로가기</a>
-                            </div>
-                            <div id="listname1_1">
-                                <text th:text="${loan.reasonForLoan}"></text>
-                            </div>
-                            <div id="investAt">
-                                <a style="color: blue; font-weight: bold;">상환 날짜&nbsp;</a>
-                                <text th:text="${loan.repayAt}"></text>
-                            </div>
-                        </div><br>
-                </tr><br>
+
+        <tr th:each="loan : ${loans}">
+
+            <div id="listbox1">
+
+                <br>
+                <div id="seq">
+                    &nbsp;&nbsp;&nbsp;
+                    <a style="color: blue; font-weight: bold;">상품코드&nbsp; </a>
+                    #
+                    <text th:text="${loan.seq}"></text>
+                    <a th:href="${'/invest-details/' + loan.seq}">바로가기</a>
+                </div>
+                <div id="listname1_1">
+                    <text th:text="${loan.reasonForLoan}"></text>
+                </div>
+
+                <div id="investAt">
+                    <a style="color: blue; font-weight: bold;">상환 날짜&nbsp;</a>
+                    <text th:text="${loan.repayAt}"></text>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+            <br>
+        </tr>
+        <br>
     </div>
 </div>
 </body>
