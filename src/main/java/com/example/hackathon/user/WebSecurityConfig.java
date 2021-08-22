@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests() // # 권한에 따른 접근가능한 주소 설정
                 .antMatchers("/login", "/signup", "/", "/invest", "/user").permitAll() // 누구나 접근 허용
                 .antMatchers("/mypage").hasRole("USER") // USER, ADMIN만 접근 가능
-                .antMatchers("/admin").hasRole("ADMIN") // ADMIN만 접근 가능
+                .antMatchers("/admin","/admin/loan-list").hasRole("ADMIN") // ADMIN만 접근 가능
                 .anyRequest().authenticated() // 나머지 요청(주소)들은 권한의 종류에 상관 없이 권한이 있어야 접근 가능
                 .and()
                 .formLogin() // # 로그인에 관한 설정
