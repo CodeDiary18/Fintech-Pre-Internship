@@ -3,12 +3,80 @@
 <head>
     <div th:replace="fragments/common :: common_head"></div>
     <title>대출신청리스트</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <style>
+        table td {
+            vertical-align: middle !important;
+        }
+
+        table th {
+            vertical-align: middle !important;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        td {
+            word-break: break-all;
+        }
+    </style>
 </head>
 <body>
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
 
-<table>
+<div class="containter">
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th scope="col" width="4%">대출번호</th>
+            <th scope="col" width="7%">사용자<br>번호</th>
+            <th scope="col" width="4%">소속여부</th>
+            <th scope="col" width="7%">사업자<br>번호</th>
+            <th scope="col" width="7%">사업자명</th>
+            <th scope="col" width="7%">회사명</th>
+            <th scope="col" width="7%">회사<br>지급일</th>
+            <th scope="col" width="10%">채널주소</th>
+            <th scope="col" width="7%">카테고리</th>
+            <th scope="col" width="15%">대출사유</th>
+            <th scope="col" width="7%">대출날짜</th>
+            <th scope="col" width="5%">승인<br>여부</th>
+            <th scope="col" width="6%">크롤링<br>여부</th>
+            <th scope="col" width="7%">승인</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="loan : ${loans}">
+            <td th:text="${loan.seq}"></td>
+            <td th:text="${loan.userId}"></td>
+            <td th:text="${loan.agency}"></td>
+            <td th:text="${loan.businessNumber}"></td>
+            <td th:text="${loan.businessName}"></td>
+            <td th:text="${loan.companyName}"></td>
+            <td th:text="${loan.companyPayday}"></td>
+            <td th:text="${loan.channelAddress}"></td>
+            <td th:text="${loan.category}"></td>
+            <td th:text="${loan.reasonForLoan}"></td>
+            <td th:text="${loan.loanAt}"></td>
+            <td th:text="${loan.permit}"></td>
+            <td th:text="${loan.crawlValid}"></td>
+            <td style="text-align: center;">
+                <form th:action="@{/admin/loan-approve(loan_id=${loan.seq}, action='approve')}" method="POST">
+                    <button type="submit">승인</button>
+                </form>
+                <form th:action="@{/admin/loan-approve(loan_id=${loan.seq}, action='reject')}" method="POST">
+                    <button type="submit">거절</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--<script th:src="js/jquery-3.1.1.js"></script>-->
+<script th:src="@{js/bootstrap.js}"></script>
+
+<!--<table>
     <thead>
     <tr>
         <th>#</th>
@@ -51,8 +119,7 @@
 
     </tr>
     </tbody>
-</table>
-
+</table>-->
 
 
 </body>
