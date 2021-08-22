@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <html lang="ko">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
+    <link th:href="@{/css/style_mypage.css}" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>투자목록</title>
 </head>
 <body>
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
+
+<!--마이페이지 좌측 메뉴 바-->
+
+<div id=left_bar>
+    <img id="person_image" src="img/person_image.png" width="165" height="165">
+
+    <div id="name">
+        <span sec:authentication="principal.name"></span>
+    </div>
+    <br>
+    <ul id="left_nav">
+        <li><input type="button" class="btn btn-link" value="투자리스트" onClick="location.href='/mypage/invest'"></li>
+        <li><input type="button" class="btn btn-link" value="대출리스트" onClick="location.href='/mypage/loan'"></li>
+        <li><input type="button" class="btn btn-link" value="잔액조회/충전하기" onClick="location.href='/mypage/balance'"></li>
+    </ul>
+
+</div>
 
 <table>
 
