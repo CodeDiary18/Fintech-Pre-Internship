@@ -1,14 +1,94 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
+    <link th:href="@{/css/style_loan.css}" rel="stylesheet"/>
     <title>대출</title>
 </head>
 <body>
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
 
-<h1>대출 신청 페이지</h1>
+<!-- 대출신청 -->
+<div id="top_bar">
+    <h1>대출 신청</h1>
+    <h4>아래 정보를 입력한 후, 대출 신청 버튼을 눌러주세요. 대출 심사 결과는 영업기준일 00일 내로 전송됩니다.</h4>
+
+    <div id="main_content">
+        <form th:action="@{/loan-apply}" method="POST">
+            <!-- 이메일 -->
+            <div id="email">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041;">이메일</p>
+                <input type="text" name="email" placeholder="서류제출사항이 안내됩니다."> <br>
+            </div>
+
+            <!-- 개인, MCN -->
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <div id="check">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041; margin-bottom: 20px;">
+                    직업구분</p>
+                <input type="radio" id="af" name="agency" checked="checked" value="false" onchange="setDisplay()"><span>개인</span><br>
+                <input type="radio" id="at" name="agency" value="true" onchange="setDisplay()"><span>소속</span><br>
+            </div>
+
+            <div id="agencyF">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041; margin-top: 20px;">
+                    사업자 번호</p>
+                <input type="text" name="businessNumber" placeholder="ex: xxx-xx-xxxxx"> <br>
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041;">상호명</p>
+                <input type="text" name="businessName"> <br>
+            </div>
+
+            <div id="agencyT" style="display:none;">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041; margin-top: 20px;">
+                    소속 회사명</p>
+                <input type="text" name="companyName" placeholder="ex: (주)머니튜브"> <br>
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041;">정산일</p>
+                <input type="text" name="companyPayday" placeholder="ex: 매달 15일"> <br>
+            </div>
+
+            <!-- 기타정보 -->
+
+            <div id="etc">
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041; margin-top: 60px;">
+                    채널 주소 ("https://www.youtube.com/channel/..." 뒤의 키)</p>
+                <input type="text" name="channelAddress"> <br>
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041; margin-top: 20px;">
+                    채널 이름</p>
+                <input type="text" name="channelName"><br>
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041; margin-top: 20px;">
+                    카테고리</p> <br>
+                <select name="loanCategory">
+                    <option value="개인">개인</option>
+                    <option value="여행">여행</option>
+                    <option value="운동">운동</option>
+                    <option value="음악">음악</option>
+                    <option value="예술">예술</option>
+                    <option value="요리">요리</option>
+                    <option value="동물">동물</option>
+                    <option value="게임">게임</option>
+                    <option value="공부">공부</option>
+                    <option value="기타">기타</option>
+                </select><br>
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041; margin-top: 20px;">
+                    대출 상세 사유</p>
+                <input type="text" name="reasonForLoan"> <br>
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041; margin-top: 20px;">
+                    희망 대출 금액</p>
+                <input type="number" name="loanAmount" step="10000"> <br>
+                <p style="font-family: 'NanumSquare'; font-size: 12px; font-weight: bold; color: #404041; margin-top: 20px;">
+                    상환 날짜</p>
+                <input type="date" name="repayAt"> <br>
+            </div>
+
+            <!-- 신청버튼 -->
+            <button id="loan_btn" type="submit">신청하기</button>
+        </form>
+    </div>
+</div>
+
+
+<!--<h1>대출 신청 페이지</h1>
 <form th:action="@{/loan-apply}" method="POST">
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
     agency :
@@ -29,7 +109,7 @@
     희망 대출 금액 : <input type="number" name="loanAmount"> <br>
     상환 날짜 : <input type="date" name="repayAt"> <br>
     <button type="submit">신청</button>
-</form>
+</form>-->
 
 <!-- Javascript -->
 <script type="text/javascript" th:src="@{/js/func.js}"></script>
