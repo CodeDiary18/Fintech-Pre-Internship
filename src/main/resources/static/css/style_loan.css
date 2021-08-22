@@ -333,6 +333,19 @@ p {
     width: 100%;
 }
 
-   
+select {
+    width: 100%;
+    font-family: 'NanumSquare';
+    font-size: 12px;
+    font-weight: lighter;
+    line-height: 1.5;
+    color: black;
+    background-color: #fff;
 
-    
+    padding: 10px 12px 10px 12px;
+    margin: 0;
+
+    border: 1px solid #aaa;
+    border-radius: 0.5em;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+}
