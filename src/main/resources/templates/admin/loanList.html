@@ -73,54 +73,6 @@
         </tbody>
     </table>
 </div>
-<!--<script th:src="js/jquery-3.1.1.js"></script>-->
 <script th:src="@{js/bootstrap.js}"></script>
-
-<!--<table>
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>대출 번호</th>
-        <th>사용자 번호</th>
-        <th>소속여부</th>
-        <th>사업자번호</th>
-        <th>사업자명</th>
-        <th>회사명</th>
-        <th>회사지급일</th>
-        <th>채널주소</th>
-        <th>카테고리</th>
-        <th>대출사유</th>
-        <th>대출날짜</th>
-        <th>승인여부</th>
-        <th>크롤링여부</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="loan : ${loans}">
-        <td th:text="${loan.seq}"></td>
-        <td th:text="${loan.userId}"></td>
-        <td th:text="${loan.agency}"></td>
-        <td th:text="${loan.businessNumber}"></td>
-        <td th:text="${loan.businessName}"></td>
-        <td th:text="${loan.companyName}"></td>
-        <td th:text="${loan.companyPayday}"></td>
-        <td th:text="${loan.channelAddress}"></td>
-        <td th:text="${loan.category}"></td>
-        <td th:text="${loan.reasonForLoan}"></td>
-        <td th:text="${loan.loanAt}"></td>
-        <td th:text="${loan.permit}"></td>
-        <td th:text="${loan.crawlValid}"></td>
-        <td><form th:action="@{/admin/loan-approve(loan_id=${loan.seq}, action='approve')}" method="POST">
-            <button type="submit">승인</button>
-        </form></td>
-        <td><form th:action="@{/admin/loan-approve(loan_id=${loan.seq}, action='reject')}" method="POST">
-            <button type="submit">거절</button>
-        </form></td>
-
-    </tr>
-    </tbody>
-</table>-->
-
-
 </body>
 </html>
