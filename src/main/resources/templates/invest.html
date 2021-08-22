@@ -22,10 +22,24 @@
 
         <table>
             <tbody>
-            <tr th:each="loan : ${approvedLoans}">
+            <tr th:each="loan : ${loans}">
                 <td>
                     <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.seq}"></a>
                 </td>
+                <td th:text="${loan.collectedAmount}"></td>
+                <td th:text="${loan.repayment}"></td>
+                <td th:text="${loan.businessNumber}"></td>
+                <td th:text="${loan.businessName}"></td>
+                <td th:text="${loan.companyName}"></td>
+                <td th:text="${loan.companyPayday}"></td>
+                <td th:text="${loan.channelAddress}"></td>
+                <td th:text="${loan.channelName}"></td>
+                <td th:text="${loan.category}"></td>
+                <td th:text="${loan.reasonForLoan}"></td>
+                <td th:text="${loan.loanAmount}"></td>
+                <td th:text="${loan.loanAt}"></td>
+                <td th:text="${loan.repayAt}"></td>
+
             </tr>
             </tbody>
         </table>
