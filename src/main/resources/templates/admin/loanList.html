@@ -4,6 +4,7 @@
     <div th:replace="fragments/common :: common_head"></div>
     <title>대출신청리스트</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <style>
         table td {
             vertical-align: middle !important;
@@ -63,10 +64,10 @@
             <td th:text="${loan.crawlValid}"></td>
             <td style="text-align: center;">
                 <form th:action="@{/admin/loan-approve(loan_id=${loan.seq}, action='approve')}" method="POST">
-                    <button type="submit">승인</button>
+                    <button type="submit" class="btn btn-outline-success">승인</button>
                 </form>
                 <form th:action="@{/admin/loan-approve(loan_id=${loan.seq}, action='reject')}" method="POST">
-                    <button type="submit">거절</button>
+                    <button type="submit" class="btn btn-outline-danger">거절</button>
                 </form>
             </td>
         </tr>
