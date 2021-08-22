@@ -20,7 +20,7 @@
         <h th:text="${loan.channelName}"></h>
     </div>
 
-    <img id="grade" src="img/goldmark.png" width="70" height="70">
+    <img id="grade" th:src="@{/img/goldmark.png}" width="70" height="70">
 
     <div id="createrinfo">
         <a style="color: blue; font-weight: bold;">구독자 수&nbsp; </a><text th:text="${#numbers.formatDecimal(crawled.subscriber, 0, 'COMMA', 0, 'POINT')}"></text><br>
