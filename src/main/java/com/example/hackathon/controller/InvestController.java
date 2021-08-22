@@ -3,6 +3,7 @@ package com.example.hackathon.controller;
 import com.example.hackathon.dto.InvestDto;
 import com.example.hackathon.entity.ApprovedLoanModel;
 import com.example.hackathon.entity.LoanModel;
+import com.example.hackathon.entity.TotalInvestModel;
 import com.example.hackathon.entity.UserInfo;
 import com.example.hackathon.service.*;
 import lombok.RequiredArgsConstructor;
@@ -27,11 +28,12 @@ public class InvestController {
     private final Crawl crawl;
     private final ApprovedLoanService approvedLoanService;
     private final UserService userService;
+    private final TotalInvestService totalInvestService;
 
     @GetMapping("/invest")
     public String investList(Model model) {
-        List<ApprovedLoanModel> loans = approvedLoanService.findLoans();
-        model.addAttribute("approvedLoans", loans);
+        List<TotalInvestModel> loans = totalInvestService.extend(approvedLoanService.findLoans());
+        model.addAttribute("loans", loans);
         return "invest";
     }
 

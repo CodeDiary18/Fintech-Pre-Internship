@@ -230,6 +230,10 @@ h3{
     background-color:blue;
 }
 
-
-
+input[type=password]{
+    font-family:"Nanum Gothic", sans-serif !important;
+}
+input[type=password]::placeholder{
+    font-family: "NanumSquare";
+}
 
