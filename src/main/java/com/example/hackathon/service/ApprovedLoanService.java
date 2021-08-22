@@ -6,6 +6,7 @@ import com.example.hackathon.entity.InvestModel;
 import com.example.hackathon.repository.ApprovedLoanModelRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class ApprovedLoanService {
     }
 
     public List<ApprovedLoanModel> findLoans() {
-        return approvedLoanModelRepository.findAll();
+        return approvedLoanModelRepository.findAll(Sort.by(Sort.Direction.DESC, "seq"));
     }
 
     public ApprovedLoanModel findBySeq(Long seq) {
