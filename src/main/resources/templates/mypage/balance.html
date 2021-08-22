@@ -1,44 +1,41 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<html lang="ko">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
     <link th:href="@{/css/style_mypage.css}" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>잔액 조회,충전</title>
 </head>
 <body>
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
 
-
-<!--마이페이지 좌측 메뉴 바-->
-
-<div id=left_bar>
-    <img id="person_image" src="img/person_image.png" width="165" height="165">
-
-    <div id="name">
-        <span sec:authentication="principal.name"></span>
-    </div>
-    <br>
-    <ul id="left_nav">
-        <li><input type="button" class="btn btn-link" value="투자리스트" onClick="location.href='/mypage/invest'"></li>
-        <li><input type="button" class="btn btn-link" value="대출리스트" onClick="location.href='/mypage/loan'"></li>
-        <li><input type="button" class="btn btn-link" value="잔액조회/충전하기" onClick="location.href='/mypage/balance'"></li>
-    </ul>
-
+<div id="top_bar">
+    나의 전용계좌 입금
 </div>
 
-<h2>내 잔액</h2>
-<h th:text="${userInfo.balance}"></h>
-
-<h2>잔액 충전하기</h2>
-
-<form th:action="@{/mypage/fill-balance}" method="POST">
-    <input type="number" name="balance">
-    <button type="submit">충전하기</button>
-</form>
+<div id="manu_box">
+    <div class="c_menu">
+        <a href="/mypage/invest">나의 투자상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/loan">나의 대출상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/balance">나의 전용계좌 입금하기</a>
+    </div>
+</div>
+<div class="balance">
+    <text>현재 잔액 :</text>
+    <text th:text="${#numbers.formatInteger(userInfo.balance,0,'COMMA')}"></text>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <form th:action="@{/mypage/fill-balance}" method="POST">
+        <input type="number" style="border-radius: 8px;" name="balance">
+        <button type="submit" class="btn btn-primary btn-sm" style="font-family: paybooc-Medium">충전하기</button>
+    </form>
+</div>
 
 </body>
 </html>

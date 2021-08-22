@@ -1,307 +1,105 @@
-@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-.nanumsquare {
-    font-family: 'NanumSquare', sans-serif !important;
-}
-
-@font-face {
-    font-family: 'paybooc-ExtraBold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-ExtraBold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'paybooc-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'paybooc-Medium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'paybooc-Light';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/paybooc-Light.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-
-/* 네비바 */
-
-body {
-    margin: 0px;
-    background-color: #F7F7F7;
-}
-
-#header {
-    width: 1440px;
-    height: 72px;
-    background-color: white;
-}
-
-#logo {
-    float: left;
-    margin-top: 20px;
-    margin-left:20px;
-}
-
-#nav {
-    width: 1130px;
-    height: 72px;
-    margin : 0 125px 0 125px;
-}
-
-#menu {
-    list-style: none;
-    float: right;
-    line-height: 72px;
-    margin: 0px;
-    padding-left: 0px;
-}
-
-#menu li{
-    float:left;
-    position: relative;
-    padding-right: 15px;
-    font-size: 14px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-}
-
-#menu a{
-    list-style: none;
-    float: left;
-    display: block;
-    text-decoration: none;
-    color: #404041;
-}
-
-#menu a:hover{
-    color: blue;
-    font-weight: bold;
-}
-
-.one {
-    color: #d8d8d8;
-    opacity: 70%;
-    margin: 0px;
-    width: 1440px;
-}
-/* 마이페이지 좌측 메뉴 바 */
-#left_bar {
-    position: relative;
-    margin: 0px;
-    width: 240px;
-    height: 1080px;
-    background-color: #fff;
-}
-
-#person_image {
-    position: relative;
-    margin-left: 37px;
-    margin-top: 35px;
-}
-
-#name {
-    position: relative;
-    margin-top: 17px;
-    margin-left: 90px;
-    font-size: 22px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#english_name {
-    position: relative;
-    margin-top: -5px;
-    margin-left: 68px;
-    font-size: 14px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#left_bar {
-    list-style: none;
-    margin: 0px;
-    padding-left: 0px;
-}
-
-#left_bar ul {
-    list-style: none;
-    margin-left: -3px;
-    margin-top: 43px;
-}
-
-#left_bar li{
-    position: relative;
-    height: 40px;
-    padding-right: 14px;
-    font-size: 14px;
-    font-family: 'NanumSquare';
-    font-weight: bold;
-}
-
-#left_bar a{
-    list-style: none;
-    display: block;
-    text-decoration: none;
-    color: #404041;
-}
-
-#left_bar a:hover{
-    color: blue;
-    font-weight: bold;
-}
-
-/* 고객별 상단 안내 바 */
-
 #top_bar {
     position: relative;
-    width: 1200px;
-    height: 140px;
-    margin-top: -1080px;
-    margin-left: 240px;
+    width: 100%;
+    height: 170px;
+    margin-top: 0px;
+    margin-left: 0px;
     background-color: rgb(45, 107, 241);
-}
-
-#early_remarks {
-    margin-left:60px;
-    margin-top: 40px;
-    float:left;
-    position: relative;
-    font-size: 22px;
     font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
+    font-size: 35px;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#current_status {
-    margin-left:60px;
-    margin-top: 45px;
-    position: relative;
+/* 상품 안내 상단 안내 바 */
+
+#searchbar {
+
+}
+
+form.box {
+    width: 700px;
+    margin-top: 50px;
+    margin-left: 430px;
+    position: absolute;
+}
+
+form.box input[type=text] {
+    background-color: #fff;
+    width: 500px;
+    height: 25px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px 0 0 15px;
+    font-family: 'NanumSquare';
+    border: none;
+    font-weight: normal;
+    border: none;
+}
+
+#btn1 {
+    width: 60px;
+    height: 45px;
+    color: white;
+    background-color: #BCBCBC;
     font-size: 14px;
     font-family: 'NanumSquare';
+    border: none;
     font-weight: normal;
-    color: white;
+    border-radius: 0px 10px 10px 0px;
+    margin-left: 950px;
+    margin-top: 50px;
 }
 
-/* 대출금액과 상환금액 표시 */
+#btn1:hover {
+    cursor: pointer;
+    background-color: #505050;
+}
 
-#creatersum_box {
-    width: 1080px;
-    height: 135px;
+/* 투자상품 종목별 메뉴 바 */
+
+#manu_box {
+    width: 1088px;
+    height: 120px;
     background-color: white;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -540px;
-    margin-top: 50px;
+    margin-left: 150px;
+    margin-top: -30px;
     text-align: center;
     box-shadow: 0px 0px 5px #d8d8d8;
     border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#loanamount_title {
-    margin-left: 60px;
-    margin-top: 30px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
+.c_menu {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#repaymentamount_title {
-    margin-left: 170px;
-    margin-top: 30px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
+.c_menu a {
+    font-family: paybooc-Medium;
+    font-size: 18px;
+    list-style: none;
+    color: black;
+    text-decoration: none;
 }
 
-#nonrepaymentamount_title {
-    margin-left: 170px;
-    margin-top: 30px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
+.c_menu a:hover {
+    color: blue;
+    font-weight: bold;
 }
 
-#deadlinedate_title {
-    margin-left: 170px;
-    margin-top: 30px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#loanamount {
-    margin-left: -921px;
-    margin-top: 75px;
-    float:left;
-    position: relative;
-    font-size: 23px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-    color: #404041;
-}
-
-#repaymentamount {
-    margin-left: -663px;
-    margin-top: 75px;
-    float:left;
-    position: relative;
-    font-size: 23px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-    color: #404041;
-}
-
-#nonrepaymentamount {
-    margin-left: -406px;
-    margin-top: 75px;
-    float:left;
-    position: relative;
-    font-size: 23px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-    color: #404041;
-}
-
-#deadlinedate {
-    margin-left: -136px;
-    margin-top: 75px;
-    float:left;
-    position: relative;
-    font-size: 23px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-    color: #404041;
-}
-
-/* 투자 상품 리스트 안내 */
 
 #product_manu {
-    margin-left:60px;
-    margin-top: 170px;
+    margin-left: 77px;
+    margin-top: -10px;
     list-style: none;
     float: left;
     line-height: 72px;
@@ -309,9 +107,9 @@ body {
 }
 
 #product_manu li {
-    float:left;
+    float: left;
     position: relative;
-    padding-right: 15px;
+    padding-right: 75px;
     font-size: 14px;
     font-family: 'NanumSquare';
     font-weight: normal;
@@ -330,7 +128,26 @@ body {
     font-weight: bold;
 }
 
-/* 투자 모집 진행중인 상품 리스트 안내 */
+#icon1 {
+    margin-left: -7px;
+    margin-top: 25px;
+}
+
+.icon2 {
+    margin-left: 61px;
+    margin-top: 25px;
+}
+
+/* 투자 모집 상품 리스트 안내 */
+
+#info {
+    margin-left: 150px;
+    margin-top: 145px;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    color: blue;
+    font-weight: bold;
+}
 
 #listbox1 {
     background-color: white;
@@ -339,19 +156,11 @@ body {
     text-align: center;
     box-shadow: 0px 0px 5px #d8d8d8;
     border-radius: 14px;
-    margin-left: 250px;
-    margin-top: -500px;
-
-/*    position: absolute;
-    top: 50%;
-    left: 50%;
-
-  */
 }
 
 #seq {
-    margin-left:-915px;
-    margin-top: 20px;
+    text-align: left;
+    margin-top: 10px;
     position: relative;
     font-size: 14px;
     font-family: 'NanumSquare';
@@ -359,15 +168,28 @@ body {
     color: #404041;
 }
 
+#seq a {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    position: relative;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    color: blue;
+    font-weight: bold;
+    list-style: none;
+    text-decoration: none;
+}
+
 #icon1_1 {
-    margin-left:-1365px;
+    margin-left: -1338px;
     margin-top: 13px;
 }
 
 #listname1_1 {
     margin-left: 60px;
     margin-top: 18px;
-    float:left;
+    float: left;
     position: relative;
     font-size: 15px;
     font-family: 'paybooc-ExtraBold';
@@ -376,7 +198,7 @@ body {
 }
 
 #product_link {
-    margin-left:865px;
+    margin-left: 867px;
     margin-top: -56px;
     position: relative;
     font-size: 14px;
@@ -386,7 +208,7 @@ body {
 }
 
 #recruitment {
-    margin-left:-948px;
+    margin-left: -948px;
     margin-top: 55px;
     position: relative;
     font-size: 14px;
@@ -406,8 +228,8 @@ body {
 }
 
 #investAt {
-    margin-left: 545px;
-    margin-top: -15px;
+    margin-top: 40px;
+    text-align: right;
     position: relative;
     font-size: 14px;
     font-family: 'NanumSquare';
@@ -416,63 +238,26 @@ body {
 }
 
 #listbox2 {
-    width: 1080px;
+    width: 1088px;
     height: 130px;
     background-color: white;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -540px;
-    margin-top: 420px;
+    margin-left: 150px;
+    margin-top: 175px;
     text-align: center;
     box-shadow: 0px 0px 5px #d8d8d8;
     border-radius: 14px;
 }
 
-#icon2_1 {
-    margin-left:-1430px;
-    margin-top: 13px;
-}
-
-#listname2_1 {
-    margin-left: 58px;
-    margin-top: 18px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-
-/* 투자금 상환이 완료된 상품 리스트 안내 */
-
 #icon1_2 {
-    margin-left:-1395px;
+    margin-left: -1347px;
     margin-top: 13px;
 }
 
 #listname1_2 {
-    margin-left: 55px;
+    margin-left: 62px;
     margin-top: 18px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#icon2_2 {
-    margin-left:-1420px;
-    margin-top: 13px;
-}
-
-#listname2_2 {
-    margin-left: 60px;
-    margin-top: 18px;
-    float:left;
+    float: left;
     position: relative;
     font-size: 15px;
     font-family: 'paybooc-ExtraBold';
@@ -481,199 +266,26 @@ body {
 }
 
 #listbox3 {
-    width: 1080px;
+    width: 1088px;
     height: 130px;
     background-color: white;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -540px;
-    margin-top: 575px;
+    margin-left: 150px;
+    margin-top: 330px;
     text-align: center;
     box-shadow: 0px 0px 5px #d8d8d8;
     border-radius: 14px;
 }
 
-#icon3_2 {
-    margin-left:-1383px;
-    margin-top: 13px;
-}
-
-#listname3_2 {
-    margin-left: 61px;
-    margin-top: 18px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-/* Mypage_invest.html에 해당, 고객별 상단 안내 바 */
-
-#top_bar2 {
-    position: relative;
-    width: 1200px;
-    height: 140px;
-    margin-top: -1080px;
-    margin-left: 240px;
-    background-color: #B4D8FF;
-}
-
-#early_remarks2 {
-    margin-left:60px;
-    margin-top: 40px;
-    float:left;
-    position: relative;
-    font-size: 22px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#current_status2 {
-    margin-left:60px;
-    margin-top: 45px;
-    position: relative;
-    font-size: 14px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-    color: #404041;
-}
-
-/* Mypage_invest.html에 해당, 투자금액과 한도금액 표시 */
-
-#invAmount_title {
-    margin-left: 60px;
-    margin-top: 30px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#investmentlimit_title {
-    margin-left: 170px;
-    margin-top: 30px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#possibility_title {
-    margin-left: 170px;
-    margin-top: 30px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#invest_deadlinedate_title {
-    margin-left: 157px;
-    margin-top: 30px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#invAmount {
-    margin-left: -921px;
-    margin-top: 75px;
-    float:left;
-    position: relative;
-    font-size: 23px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-    color: #404041;
-}
-
-#investmentlimit {
-    margin-left: -666px;
-    margin-top: 75px;
-    float:left;
-    position: relative;
-    font-size: 23px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-    color: #404041;
-}
-
-#possibility {
-    margin-left: -407px;
-    margin-top: 75px;
-    float:left;
-    position: relative;
-    font-size: 23px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-    color: #404041;
-}
-
-#invest_deadlinedate {
-    margin-left: -135px;
-    margin-top: 75px;
-    float:left;
-    position: relative;
-    font-size: 23px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-    color: #404041;
-}
-
-#product_manu2 {
-    margin-left:60px;
-    margin-top: 170px;
-    list-style: none;
-    float: left;
-    line-height: 72px;
-    padding-left: 0px;
-}
-
-#product_manu2 li {
-    float:left;
-    position: relative;
-    padding-right: 15px;
-    font-size: 14px;
-    font-family: 'NanumSquare';
-    font-weight: normal;
-}
-
-#product_manu2 a {
-    list-style: none;
-    float: left;
-    display: block;
-    text-decoration: none;
-    color: #404041;
-}
-
-#product_manu2 a:hover {
-    color: #0E0E0E;
-    font-weight: bold;
-}
-
-/* Mypage_invest.html에 해당, 투자결정이 완료된 상품 리스트 안내 */
-
 #icon1_3 {
-    margin-left:-1337px;
+    margin-left: -1290px;
     margin-top: 13px;
 }
 
 #listname1_3 {
-    margin-left: 59px;
+    margin-left: 60px;
     margin-top: 18px;
-    float:left;
+    float: left;
     position: relative;
     font-size: 15px;
     font-family: 'paybooc-ExtraBold';
@@ -681,47 +293,27 @@ body {
     color: #404041;
 }
 
-#icon2_3 {
-    margin-left:-1466px;
-    margin-top: 13px;
-}
-
-#listname2_3 {
-    margin-left: 58px;
-    margin-top: 18px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
-}
-
-#icon3_3 {
-    margin-left:-1375px;
-    margin-top: 13px;
-}
-
-#listname3_3 {
-    margin-left: 55px;
-    margin-top: 18px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
+#listbox4 {
+    width: 1088px;
+    height: 130px;
+    background-color: white;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 485px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
 }
 
 #icon1_4 {
-    margin-left:-1365px;
+    margin-left: -1398px;
     margin-top: 13px;
 }
 
 #listname1_4 {
-    margin-left: 53px;
+    margin-left: 60px;
     margin-top: 18px;
-    float:left;
+    float: left;
     position: relative;
     font-size: 15px;
     font-family: 'paybooc-ExtraBold';
@@ -729,18 +321,26 @@ body {
     color: #404041;
 }
 
-#icon2_4 {
-    margin-left:-1448px;
-    margin-top: 13px;
+
+.balance {
+    margin-top: 150px;
+    width: 1088px;
+    height: 120px;
+    background-color: white;
+    position: absolute;
+    margin-left: 150px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#listname2_4 {
-    margin-left: 54px;
-    margin-top: 18px;
-    float:left;
-    position: relative;
-    font-size: 15px;
-    font-family: 'paybooc-ExtraBold';
-    font-weight: normal;
-    color: #404041;
+.balance text {
+    font-family: paybooc-Medium;
+    font-size: 18px;
+    list-style: none;
+    color: black;
+    text-decoration: none;
 }

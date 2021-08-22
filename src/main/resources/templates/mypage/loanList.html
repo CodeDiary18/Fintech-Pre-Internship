@@ -1,49 +1,68 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
-    <link th:href="@{/css/style_invest.css}" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link th:href="@{/css/style_mypage.css}" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>대출목록</title>
 </head>
 <body>
+<!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
 
 
-<ul id="left_nav">
-    <li><input type="button" class="btn btn-link" value="투자리스트" onClick="location.href='/mypage/invest'"></li>
-    <li><input type="button" class="btn btn-link" value="대출리스트" onClick="location.href='/mypage/loan'"></li>
-    <li><input type="button" class="btn btn-link" value="잔액조회/충전하기" onClick="location.href='/mypage/balance'"></li>
-</ul>
+<div id="top_bar">
+    나의 대출상품
+</div>
+
+<div id="manu_box">
+    <div class="c_menu">
+        <a href="/mypage/invest">나의 투자상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/loan">나의 대출상품 보기</a>
+    </div>
+    <div class="c_menu">
+        <a href="/mypage/balance">나의 전용계좌 입금하기</a>
+    </div>
+</div>
 
 <div id="all">
     <div id="mainall">
         <tr th:each="loan : ${loans}">
             <div id="listbox1">
                 <div id="seq">
-                    <a style="color: blue; font-weight: bold;">상품코드&nbsp; </a>
-                    #<text th:text="${loan.seq}"></text>
-                    <span th:if="${loan.permit} == '1'">승인</span>
-                    <span th:if="${loan.permit} == '0'">대기</span>
-                    <span th:if="${loan.permit} == '-1'">거절</span>
+                    <br>
+                    <a>상품코드&nbsp; </a>
+                    #
+                    <text th:text="${loan.seq}"></text>
+                    <span th:if="${loan.permit} == '1'" style="font-weight: bold;">승인</span>
+                    <span th:if="${loan.permit} == '0'" style="font-weight: bold;">대기</span>
+                    <span th:if="${loan.permit} == '-1'" style="font-weight: bold;">거절</span>
                 </div>
                 <div id="listname1_1">
                     <text th:text="${loan.reasonForLoan}"></text>
                 </div>
-                <div id="investAt">
-                    <a style="color: blue; font-weight: bold;">상환 날짜&nbsp;</a>
-                    <text th:text="${loan.repayAt}"></text>
-                </div>
-                <form th:action="@{/mypage/repay/{id}(id = ${loan.seq})}" method="POST">
-                    <input type="number" class="form-control" name="repayment">
-                    <button type="submit"class="btn btn-outline-dark" >상환하기</button>
+                <form style="float: right; margin-top:5px; margin-right: 5px; height: 5px;"
+                      th:action="@{/mypage/repay/{id}(id = ${loan.seq})}" method="POST">
+                    <input type="number" name="repayment" style="border-radius: 8px;">
+                    <button type="submit" class="btn btn-primary btn-sm">상환하기</button>
                 </form>
-            </div><br><br>
-        </tr><br>
+                <div id="investAt">
+                    <a style="color: blue; font-weight: bold;">신청 날짜&nbsp;</a>
+                    <text th:text="${#temporals.format(loan.loanAt,'yyyy-MM-dd')}"></text>&nbsp;&nbsp;
+                    <a style="color: blue; font-weight: bold;">상환 날짜&nbsp;</a>
+                    ~
+                    <text th:text="${loan.repayAt}"></text>&nbsp;&nbsp;
+                </div>
+            </div>
+            <br><br>
+        </tr>
+        <br>
     </div>
 </div>
-
 
 </body>
 </html>
