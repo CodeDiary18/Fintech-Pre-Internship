@@ -23,53 +23,39 @@
     <img id="grade" src="img/goldmark.png" width="70" height="70">
 
     <div id="createrinfo">
-        <a style="color: blue; font-weight: bold;">구독자 수&nbsp; </a><text th:text="${crawled.subscriber}"></text><br>
-        <a style="color: blue; font-weight: bold;">평균 조회 수&nbsp; </a><text th:text="${crawled.avgView}"></text><br>
-        <a style="color: blue; font-weight: bold;">지역 랭킹&nbsp; </a><text th:text="${crawled.rank}"></text><br>
+        <a style="color: blue; font-weight: bold;">구독자 수&nbsp; </a><text th:text="${#numbers.formatDecimal(crawled.subscriber, 0, 'COMMA', 0, 'POINT')}"></text><br>
+        <a style="color: blue; font-weight: bold;">평균 조회 수&nbsp; </a><text th:text="${#numbers.formatDecimal(crawled.avgView, 0, 'COMMA', 0, 'POINT')}"></text><br>
+        <a style="color: blue; font-weight: bold;">한국 랭킹&nbsp; </a><text th:text="${#numbers.formatDecimal(crawled.rank, 0, 'COMMA', 0, 'POINT')}"></text><br>
     </div>
 
     <div id="detail">
         <div id="positivenum">
-            긍정적 언급수 <text th:text="${crawled.positiveNum}"></text><br>
-            부정적 언급수 <text th:text="${crawled.negativeNum}"></text><br>
-            중립적 언급수 <text th:text="${crawled.neutralNum}"></text>
+            긍정적 언급수 <text th:text="${#numbers.formatDecimal(crawled.positiveNum, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            부정적 언급수 <text th:text="${#numbers.formatDecimal(crawled.negativeNum, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            중립적 언급수 <text th:text="${#numbers.formatDecimal(crawled.neutralNum, 0, 'COMMA', 0, 'POINT')}"></text>
         </div>
         <div id="number">
-            총 조회수 <text th:text="${crawled.view}"></text><br>
-            동영상수 <text th:text="${crawled.video}"></text><br>
-            라이브 수입 <text th:text="${crawled.liveIncome}"></text><br>
-            녹스 점수 <text th:text="${crawled.noxScore}"></text>
+            총 조회수 <text th:text="${#numbers.formatDecimal(crawled.view, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            동영상수 <text th:text="${#numbers.formatDecimal(crawled.video, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            라이브 수입 <text th:text="${#numbers.formatDecimal(crawled.liveIncome, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            잠재력(5점) <text th:text="${crawled.noxScore}"></text>
         </div>
     </div>
 </div>
 <div id="top_bar">
     <div id="early_remarks">
-        한 편의 영화같은 3개월, 제주살이 브이로그
+        <h th:text="${loan.reasonForLoan}"></h>
     </div>
     <br><br>
-
-    <div id="current_status">
-        크리에이터 조서아님이 신청하신 여행 콘텐츠 제작 투자상품이며 투자가능 기간이 30일 남았습니다.
-    </div>
 
     <!--대출금액과 상환금액 표시-->
 
     <div id="creatersum_box">
-        <div id="lendingrate">
-            <a style = "font-size: 15px;">예상 수익률&nbsp;&nbsp;</a>3.9% - 4.1%
-        </div>
-
-        <div id="producttag">
-            #콘텐츠투자상품&nbsp; #여행유튜버&nbsp; #국내여행&nbsp; #세달살기&nbsp; #힐링콘텐츠&nbsp; #영상콘텐츠제작지원
-        </div>
-
-        <div id="communityAll" style="padding-top:20px;">
-            <img id="star" src="img/star.png" width="120" style="margin-top:-22px;">
-
-            <div id="community">
-                상품에 참여한 투자자 커뮤니티 보기
-            </div>
-        </div>
+        <br>
+            대출 희망 금액 <text th:text="${#numbers.formatDecimal(loan.loanAmount, 0, 'COMMA', 0, 'POINT')}">원</text><br>
+            상환 날짜 <text th:text="${loan.repayAt}"></text><br>
+            모인금액 <text th:text="${#numbers.formatDecimal(approvedLoan.collectedAmount, 0, 'COMMA', 0, 'POINT')}">원</text><br>
+            상환금액 <text th:text="${#numbers.formatDecimal(approvedLoan.repayment, 0, 'COMMA', 0, 'POINT')}">원</text>
 
     </div>
 
@@ -81,7 +67,6 @@
 
                 <div id=btn0>
                     <button id="btn1" type="submit">투자하기</button> <br>
-
                     <span><u>투자약관안내</u></span>
                 </div>
 
