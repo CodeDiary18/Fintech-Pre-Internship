@@ -67,14 +67,12 @@
                             <div id="seq">
                                 <a style="color: blue; font-weight: bold;">상품코드&nbsp; </a>
                                 #<text th:text="${loan.seq}"></text>
+                                <a th:href="${'/invest-details/' + loan.seq}">바로가기</a>
                             </div>
                             <div id="listname1_1">
                                 <text th:text="${loan.reasonForLoan}"></text>
                             </div>
 
-                            <div id="product_link">
-                                <a th:href="${'/invest-details/' + loan.seq}">투자 상품 페이지 바로가기 ></a>
-                            </div>
                             <div id="investAt">
                                 <a style="color: blue; font-weight: bold;">상환 날짜&nbsp;</a>
                                 <text th:text="${loan.repayAt}"></text>
