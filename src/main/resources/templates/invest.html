@@ -4,6 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="fragments/common :: common_head"></div>
+    <link th:href="@{/css/style_invest.css}" rel="stylesheet"/>
     <title>투자</title>
 <body>
 <!-- 메뉴바 -->
@@ -12,37 +13,35 @@
 <!-- 홈 메인 -->
 <div id="all">
     <div id="mainall">
-        <div id="main">
-            <div id="intro">
-                채널을 자산으로 <br>
-                머니튜브
-            </div>
-        </div>
 
 
-        <table>
-            <tbody>
-            <tr th:each="loan : ${loans}">
-                <td>
-                    <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.seq}"></a>
-                </td>
-                <td th:text="${loan.collectedAmount}"></td>
-                <td th:text="${loan.repayment}"></td>
-                <td th:text="${loan.businessNumber}"></td>
-                <td th:text="${loan.businessName}"></td>
-                <td th:text="${loan.companyName}"></td>
-                <td th:text="${loan.companyPayday}"></td>
-                <td th:text="${loan.channelAddress}"></td>
-                <td th:text="${loan.channelName}"></td>
-                <td th:text="${loan.category}"></td>
-                <td th:text="${loan.reasonForLoan}"></td>
-                <td th:text="${loan.loanAmount}"></td>
-                <td th:text="${loan.loanAt}"></td>
-                <td th:text="${loan.repayAt}"></td>
+                <tr th:each="loan : ${loans}">
+                    <div id="container">
+                    <td>
+                        <a th:href="${'/invest-details/' + loan.seq}" th:text="${loan.seq}"></a>
+                    </td>
+                    <td th:text="${loan.collectedAmount}"></td>
+                    <td th:text="${loan.repayment}"></td>
+                    <td th:text="${loan.businessNumber}"></td>
+                    <td th:text="${loan.businessName}"></td>
+                    <td th:text="${loan.companyName}"></td>
+                    <td th:text="${loan.companyPayday}"></td>
+                    <td th:text="${loan.channelAddress}"></td>
+                    <td th:text="${loan.channelName}"></td>
+                    <td th:text="${loan.category}"></td>
+                    <td th:text="${loan.reasonForLoan}"></td>
+                    <td th:text="${loan.loanAmount}"></td>
+                    <td th:text="${loan.loanAt}"></td>
+                    <td th:text="${loan.repayAt}"></td>
+                    </div>
+                </tr>
 
-            </tr>
-            </tbody>
-        </table>
+
+
+
+
+
+
 
     </div>
 </div>
