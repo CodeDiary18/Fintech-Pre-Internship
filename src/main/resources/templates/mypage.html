@@ -3,10 +3,8 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <link th:href="@{/css/style.css}" rel="stylesheet"/>
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
-    <title>My Page</title>
+    <div th:replace="fragments/common :: common_head"></div>
+    <title>마이페이지</title>
 </head>
 <body>
 <!-- 메뉴바 -->
