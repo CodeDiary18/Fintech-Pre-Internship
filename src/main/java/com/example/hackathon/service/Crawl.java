@@ -67,7 +67,7 @@ public class Crawl {
     @Async
     public void crawl(Long loan_id, String find, String channel, boolean secondTime, Long crawl_id) throws IOException {
 
-        String filePath = "C:\\Tools\\chromedriver.exe";
+        String filePath = "/root/chromedriver";
         CrawledDto crawledDto = new CrawledDto();
         crawledDto.setLoanId(loan_id);
       
@@ -78,7 +78,8 @@ public class Crawl {
         }
       
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
         WebDriver driver = new ChromeDriver(options);
 //1
         String URL = "https://some.co.kr/analysis/social/reputation";
@@ -135,7 +136,7 @@ public class Crawl {
             temp.setCrawlValid(-1);
         }
         loanModelRepository.save(temp);
-        //System.out.println(crawledDto.toString());
+        System.out.println(crawledDto.toString());
     }
 
     private void update(Long crawl_id, CrawledDto crawledDto) {
