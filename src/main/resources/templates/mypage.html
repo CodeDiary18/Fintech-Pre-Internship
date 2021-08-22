@@ -3,18 +3,17 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
       xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <link th:href="@{/css/style.css}" rel="stylesheet"/>
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/Artboard Copy 12@3x.png}">
-    <title>My Page</title>
+    <div th:replace="fragments/common :: common_head"></div>
+    <title>마이페이지</title>
 </head>
 <body>
 <!-- 메뉴바 -->
 <div th:replace="fragments/common :: navbar"></div>
 
 <h2>회원 전용 페이지</h2>
-ID : <span sec:authentication="principal.name"></span> <br>
+이름: <span sec:authentication="principal.name"></span> <br>
 소유 권한 : <span sec:authentication="authorities"></span> <br>
+(ID) <span sec:authentication="name"></span> <br>
 
 <form id="logout" action="/logout" method="POST">
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
@@ -22,7 +21,11 @@ ID : <span sec:authentication="principal.name"></span> <br>
     <br>
     <input type="button" value="대출리스트" onClick="location.href='/mypage/loan'">
     <input type="button" value="투자리스트" onClick="location.href='/mypage/invest'">
+    <input type="button" value="잔액조회/충전하기" onClick="location.href='/mypage/balance'">
 </form>
+<br>
+
+
 
 </body>
 </html>

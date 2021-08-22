@@ -32,7 +32,5 @@ public class InvestService {
     public List<InvestModel> findAllInvested(Long userId) {
         return investModelRepository.findByUserIdOrderByInvestAtDesc(userId);
     }
-/*    public List<InvestModel> findAllInvested(Long userId) {
-       return investModelRepository.findByUserIdOrderByInvestAtDesc(userId);
-    }*/
+
 }

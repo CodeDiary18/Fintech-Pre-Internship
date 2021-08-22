@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <div th:replace="fragments/common :: common_head"></div>
+    <title>대출목록</title>
 </head>
 <body>
 <!-- 메뉴바 -->
@@ -14,33 +13,39 @@
     <tr>
         <th>#</th>
         <th>대출 번호</th>
-        <th>사용자 번호</th>
-        <th>소속여부</th>
         <th>사업자번호</th>
         <th>사업자명</th>
         <th>회사명</th>
         <th>회사지급일</th>
         <th>채널주소</th>
+        <th>채널명</th>
         <th>카테고리</th>
         <th>대출사유</th>
+        <th>대출금액</th>
         <th>대출날짜</th>
+        <th>상환날짜</th>
         <th>승인여부</th>
+        <th>모인금액</th>
+        <th>상환금액</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="loan : ${loans}">
         <td th:text="${loan.seq}"></td>
-        <td th:text="${loan.userId}"></td>
-        <td th:text="${loan.agency}"></td>
         <td th:text="${loan.businessNumber}"></td>
         <td th:text="${loan.businessName}"></td>
         <td th:text="${loan.companyName}"></td>
         <td th:text="${loan.companyPayday}"></td>
         <td th:text="${loan.channelAddress}"></td>
+        <td th:text="${loan.channelName}"></td>
         <td th:text="${loan.category}"></td>
         <td th:text="${loan.reasonForLoan}"></td>
+        <td th:text="${loan.loanAmount}"></td>
         <td th:text="${loan.loanAt}"></td>
-        <td th:text="${loan.permit}"></td>
+        <td th:text="${loan.repayAt}"></td>
+        <td th:text="${loan.collectedAmount}"></td>
+        <td th:text="${loan.repayment}"></td>
+
         <td>
             <form th:action="@{/mypage/repay/{id}(id = ${loan.seq})}" method="POST">
                 <input type="number" name="repayment">
