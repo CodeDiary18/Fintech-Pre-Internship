@@ -1,7 +1,15 @@
 # MoneyTube
 ### 크리에이터의 채널이 자산이 되는 P2P 대출 플랫폼
 <img src="https://user-images.githubusercontent.com/74449232/130815084-65ccca83-d291-4bfe-8631-829938636fcd.png"/>
+<br/>
+<br/>
   
+## Team members
+### Web Page Design : [yulliab](https://github.com/yulliab), [Namgayoung](https://github.com/Namgayoung)
+### Backend : [CodeDiary18](https://github.com/CodeDiary18), [roEhd](https://github.com/roEhd), [Pin9u](https://github.com/Pin9u)
+<br/>
+<br/>
+
 ## Development Environment
 ### IntelliJ, SpringBoot, PostgreSQL, Java 11, Gradle, Thymeleaf ...  
 <img src="https://user-images.githubusercontent.com/74449232/130811998-df248e43-860c-4862-ad33-8c231c9760b1.png"  width="150"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
