@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<html lang="ko">
+<head>
+    <div th:replace="fragments/common :: common_head"></div>
+    <link th:href="@{/css/style_invest_details.css}" rel="stylesheet"/>
+    <title>투자</title>
+</head>
+<body>
+<!-- 메뉴바 -->
+<div th:replace="fragments/common :: navbar"></div>
+
+
+<!--크리에이터 설명 좌측 메뉴 바-->
+
+<div id=left_bar>
+   <br><br>
+    <div id="name">
+        <h th:text="${loan.channelName}"></h>
+    </div>
+
+    <img id="grade" th:src="@{/img/goldmark.png}" width="70" height="70">
+
+    <div id="createrinfo">
+        <a style="color: blue; font-weight: bold;">구독자 수&nbsp; </a><text th:text="${#numbers.formatDecimal(crawled.subscriber, 0, 'COMMA', 0, 'POINT')}"></text><br>
+        <a style="color: blue; font-weight: bold;">평균 조회 수&nbsp; </a><text th:text="${#numbers.formatDecimal(crawled.avgView, 0, 'COMMA', 0, 'POINT')}"></text><br>
+        <a style="color: blue; font-weight: bold;">한국 랭킹&nbsp; </a><text th:text="${#numbers.formatDecimal(crawled.rank, 0, 'COMMA', 0, 'POINT')}"></text><br>
+    </div>
+
+    <div id="detail">
+        <div id="positivenum">
+            긍정적 언급수 <text th:text="${#numbers.formatDecimal(crawled.positiveNum, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            부정적 언급수 <text th:text="${#numbers.formatDecimal(crawled.negativeNum, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            중립적 언급수 <text th:text="${#numbers.formatDecimal(crawled.neutralNum, 0, 'COMMA', 0, 'POINT')}"></text>
+        </div>
+        <div id="number">
+            총 조회수 <text th:text="${#numbers.formatDecimal(crawled.view, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            동영상수 <text th:text="${#numbers.formatDecimal(crawled.video, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            라이브 수입 <text th:text="${#numbers.formatDecimal(crawled.liveIncome, 0, 'COMMA', 0, 'POINT')}"></text><br>
+            잠재력(5점) <text th:text="${crawled.noxScore}"></text>
+        </div>
+    </div>
+</div>
+<div id="top_bar">
+    <div id="early_remarks">
+        <h th:text="${loan.reasonForLoan}"></h>
+    </div>
+    <br><br>
+
+    <!--대출금액과 상환금액 표시-->
+
+    <div id="creatersum_box">
+        <br>
+            대출 희망 금액 <text th:text="${#numbers.formatDecimal(loan.loanAmount, 0, 'COMMA', 0, 'POINT')}">원</text><br>
+            상환 날짜 <text th:text="${loan.repayAt}"></text><br>
+            모인금액 <text th:text="${#numbers.formatDecimal(approvedLoan.collectedAmount, 0, 'COMMA', 0, 'POINT')}">원</text><br>
+            상환금액 <text th:text="${#numbers.formatDecimal(approvedLoan.repayment, 0, 'COMMA', 0, 'POINT')}">원</text>
+
+    </div>
+
+    <!-- 투자하기 -->
+    <div id="invest_box">
+        <div id="investMoney">
+            <form th:action="@{/invest-details/{id}(id=${approvedLoan.seq})}" method="POST">
+                투자 금액 <br> <input type="number" name="invAmount" placeholder="투자하실 금액을 입력해주세요!" style="float:left;"> <p style="float:left; margin-left:10px; font-family: 'NanumSquare'; color:#404041; padding:2px;">원</p>
+
+                <div id=btn0>
+                    <button id="btn1" type="submit">투자하기</button> <br>
+                    <span><u>투자약관안내</u></span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

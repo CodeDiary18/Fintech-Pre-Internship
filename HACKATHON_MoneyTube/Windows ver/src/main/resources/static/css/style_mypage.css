@@ -1,0 +1,346 @@
+#top_bar {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    margin-top: 0px;
+    margin-left: 0px;
+    background-color: rgb(45, 107, 241);
+    font-family: 'paybooc-ExtraBold';
+    font-size: 35px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 상품 안내 상단 안내 바 */
+
+#searchbar {
+
+}
+
+form.box {
+    width: 700px;
+    margin-top: 50px;
+    margin-left: 430px;
+    position: absolute;
+}
+
+form.box input[type=text] {
+    background-color: #fff;
+    width: 500px;
+    height: 25px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px 0 0 15px;
+    font-family: 'NanumSquare';
+    border: none;
+    font-weight: normal;
+    border: none;
+}
+
+#btn1 {
+    width: 60px;
+    height: 45px;
+    color: white;
+    background-color: #BCBCBC;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    border: none;
+    font-weight: normal;
+    border-radius: 0px 10px 10px 0px;
+    margin-left: 950px;
+    margin-top: 50px;
+}
+
+#btn1:hover {
+    cursor: pointer;
+    background-color: #505050;
+}
+
+/* 투자상품 종목별 메뉴 바 */
+
+#manu_box {
+    width: 1088px;
+    height: 120px;
+    background-color: white;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: -30px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c_menu {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c_menu a {
+    font-family: paybooc-Medium;
+    font-size: 18px;
+    list-style: none;
+    color: black;
+    text-decoration: none;
+}
+
+.c_menu a:hover {
+    color: blue;
+    font-weight: bold;
+}
+
+
+#product_manu {
+    margin-left: 77px;
+    margin-top: -10px;
+    list-style: none;
+    float: left;
+    line-height: 72px;
+    padding-left: 0px;
+}
+
+#product_manu li {
+    float: left;
+    position: relative;
+    padding-right: 75px;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    font-weight: normal;
+}
+
+#product_manu a {
+    list-style: none;
+    float: left;
+    display: block;
+    text-decoration: none;
+    color: #404041;
+}
+
+#product_manu a:hover {
+    color: blue;
+    font-weight: bold;
+}
+
+#icon1 {
+    margin-left: -7px;
+    margin-top: 25px;
+}
+
+.icon2 {
+    margin-left: 61px;
+    margin-top: 25px;
+}
+
+/* 투자 모집 상품 리스트 안내 */
+
+#info {
+    margin-left: 150px;
+    margin-top: 145px;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    color: blue;
+    font-weight: bold;
+}
+
+#listbox1 {
+    background-color: white;
+    width: 1088px;
+    height: 130px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
+}
+
+#seq {
+    text-align: left;
+    margin-top: 10px;
+    position: relative;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    font-weight: normal;
+    color: #404041;
+}
+
+#seq a {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 20px;
+    position: relative;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    color: blue;
+    font-weight: bold;
+    list-style: none;
+    text-decoration: none;
+}
+
+#icon1_1 {
+    margin-left: -1338px;
+    margin-top: 13px;
+}
+
+#listname1_1 {
+    margin-left: 60px;
+    margin-top: 18px;
+    float: left;
+    position: relative;
+    font-size: 15px;
+    font-family: 'paybooc-ExtraBold';
+    font-weight: normal;
+    color: #404041;
+}
+
+#product_link {
+    margin-left: 867px;
+    margin-top: -56px;
+    position: relative;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    font-weight: normal;
+    color: #404041;
+}
+
+#recruitment {
+    margin-left: -948px;
+    margin-top: 55px;
+    position: relative;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    font-weight: normal;
+    color: #404041;
+}
+
+#interestrate {
+    margin-left: 120px;
+    margin-top: -12px;
+    position: relative;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    font-weight: normal;
+    color: #404041;
+}
+
+#investAt {
+    margin-top: 40px;
+    text-align: right;
+    position: relative;
+    font-size: 14px;
+    font-family: 'NanumSquare';
+    font-weight: normal;
+    color: #404041;
+}
+
+#listbox2 {
+    width: 1088px;
+    height: 130px;
+    background-color: white;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 175px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
+}
+
+#icon1_2 {
+    margin-left: -1347px;
+    margin-top: 13px;
+}
+
+#listname1_2 {
+    margin-left: 62px;
+    margin-top: 18px;
+    float: left;
+    position: relative;
+    font-size: 15px;
+    font-family: 'paybooc-ExtraBold';
+    font-weight: normal;
+    color: #404041;
+}
+
+#listbox3 {
+    width: 1088px;
+    height: 130px;
+    background-color: white;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 330px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
+}
+
+#icon1_3 {
+    margin-left: -1290px;
+    margin-top: 13px;
+}
+
+#listname1_3 {
+    margin-left: 60px;
+    margin-top: 18px;
+    float: left;
+    position: relative;
+    font-size: 15px;
+    font-family: 'paybooc-ExtraBold';
+    font-weight: normal;
+    color: #404041;
+}
+
+#listbox4 {
+    width: 1088px;
+    height: 130px;
+    background-color: white;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 485px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
+}
+
+#icon1_4 {
+    margin-left: -1398px;
+    margin-top: 13px;
+}
+
+#listname1_4 {
+    margin-left: 60px;
+    margin-top: 18px;
+    float: left;
+    position: relative;
+    font-size: 15px;
+    font-family: 'paybooc-ExtraBold';
+    font-weight: normal;
+    color: #404041;
+}
+
+
+.balance {
+    margin-top: 150px;
+    width: 1088px;
+    height: 120px;
+    background-color: white;
+    position: absolute;
+    margin-left: 150px;
+    text-align: center;
+    box-shadow: 0px 0px 5px #d8d8d8;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.balance text {
+    font-family: paybooc-Medium;
+    font-size: 18px;
+    list-style: none;
+    color: black;
+    text-decoration: none;
+}
