@@ -18,5 +18,8 @@
 <img src="https://user-images.githubusercontent.com/74449232/130815642-18743550-56c0-4a7d-b58a-70769b1d1ac5.png"  width="150"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://user-images.githubusercontent.com/74449232/130816315-17be29d7-650c-4747-8354-e4cb7257037a.png"  width="150"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://user-images.githubusercontent.com/74449232/130816531-268d4486-73ed-40e2-98f7-0067840a98dc.png"  width="150"/>
+<br/>
+<br/>
 
-
+## DB Schema
+![image](https://user-images.githubusercontent.com/74449232/130912155-beb31464-7295-4cc0-98ab-f9250f4ffc69.png)
